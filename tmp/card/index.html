@@ -1,0 +1,24 @@
+<link rel="stylesheet" type="text/css" href="animation.css" />
+
+<div class="card">
+	<div class="card__face">
+		face
+	</div>
+	<div class="card__back">
+		back
+	</div>
+</div>
+
+<script type="text/javascript" src="jquery-3.2.1.slim.min.js"></script>
+<script type="text/javascript">
+$(function () {
+	$('.card:not(.card--animation-flip)').click(function () {
+		$(this).addClass('card--animation-flip');
+		$(this).children(':first')
+			.on('animationend webkitAnimationEnd', endOfFlip);
+		function endOfFlip() {
+			console.log('flipped');
+		}
+	});
+});
+</script>
