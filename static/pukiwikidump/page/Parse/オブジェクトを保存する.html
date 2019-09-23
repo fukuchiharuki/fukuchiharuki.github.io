@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Parse&#047;オブジェクトを保存する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Parse&#047;オブジェクトを保存する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="z6831085" href="page/Parse/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B.html#z6831085" title="z6831085">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Parse</li>
+<li>JavaScript</li>
+<li>Object</li>
+<li>save</li></ul>
+
+<div class="jumpmenu"><a href="page/Parse/オブジェクトを保存する.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="p99e2db6" href="page/Parse/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B.html#p99e2db6" title="p99e2db6">†</a></h2>
+<p>アプリケーションに定義したクラスのオブジェクトを保存します。</p>
+<p>今回のサンプルは次のクラスを定義したものとしています(※Parse規定のカラムを除く)。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Post
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><td class="style_td" style="text-align:center; background-color:#EEEEEE;">カラム</td><td class="style_td" style="text-align:center; background-color:#EEEEEE;">型</td></tr><tr><td class="style_td">title</td><td class="style_td">String</td></tr><tr><td class="style_td">body</td><td class="style_td">String</td></tr></tbody></table></div></li></ul>
+
+<div class="jumpmenu"><a href="page/Parse/オブジェクトを保存する.html#navigator">↑</a></div><h2 id="content_1_2">サンプル  <a class="anchor_super" id="vb78111a" href="page/Parse/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B.html#vb78111a" title="vb78111a">†</a></h2>
+<pre>// オブジェクトを保存する
+var post = function(title, body) {
+
+	// クラス
+	var Post = Parse.Object.extend('Post');
+
+	// インスタンス
+	var post = new Post();
+		
+	// 属性
+	post.set('title', title);
+	post.set('body', body);
+
+	// 保存
+	post.save(null, {
+		success: function(post) {
+			jQuery('#message').text('新しいポスト: ' + post.id);
+		},
+		error: function(post, error) {
+			jQuery('#message').text('ERROR: ' + error.description);
+		}
+	});
+};
+
+// イベント処理(Parseとは直接関係ないところ)
+jQuery('input[name=object-save-post]').click(function() {
+	var title = jQuery('input[name=object-save-title]').val();
+	var body = jQuery('textarea[name=object-save-body]').val();
+	if (title.length &gt; 0 &amp;&amp; body.length &gt; 0) {
+		post(title, body);
+	} else {
+		jQuery('#message').text('WARN: ' + 'titleとbodyを入力してからpostしてね。');
+	}
+});</pre>
+
+<div class="jumpmenu"><a href="page/Parse/オブジェクトを保存する.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="j9224c31" href="page/Parse/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B.html#j9224c31" title="j9224c31">†</a></h2>
+
+<div class="jumpmenu"><a href="page/Parse/オブジェクトを保存する.html#navigator">↑</a></div><h3 id="content_1_4">Parse.Object.extend(className)  <a class="anchor_super" id="s46461af" href="page/Parse/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B.html#s46461af" title="s46461af">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://www.parse.com/docs/js/symbols/Parse.Object.html#.extend" rel="nofollow">https://www.parse.com/docs/js/symbols/Parse.Object.html#.extend</a></li></ul>
+<p>クラス名を指定してサブクラスを作成します。</p>
+<p>第2引数と第3引数を指定しない場合、指定のクラス名のクラスを作成するものなのだと思います。</p>
+
+<div class="jumpmenu"><a href="page/Parse/オブジェクトを保存する.html#navigator">↑</a></div><h3 id="content_1_5">object.set(key, value)  <a class="anchor_super" id="m3c6f48a" href="page/Parse/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B.html#m3c6f48a" title="m3c6f48a">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://www.parse.com/docs/js/symbols/Parse.Object.html#set" rel="nofollow">https://www.parse.com/docs/js/symbols/Parse.Object.html#set</a></li></ul>
+<p>名前と値を指定して、そのオブジェクトの属性をセットします。</p>
+
+<div class="jumpmenu"><a href="page/Parse/オブジェクトを保存する.html#navigator">↑</a></div><h3 id="content_1_6">object.save(attrs, options)  <a class="anchor_super" id="f072a350" href="page/Parse/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B.html#f072a350" title="f072a350">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://www.parse.com/docs/js/symbols/Parse.Object.html#save" rel="nofollow">https://www.parse.com/docs/js/symbols/Parse.Object.html#save</a></li></ul>
+<p>そのオブジェクトの属性をセットして、サーバーに保存します。</p>
+<p>セットする属性がない場合は attrs に null を指定します。</p>
+<p>option には success と error にそれぞれ成功時と失敗時に実行する関数をオブジェクトで指定します。</p>
+
+<div class="jumpmenu"><a href="page/Parse/オブジェクトを保存する.html#navigator">↑</a></div><h2 id="content_1_7">参考  <a class="anchor_super" id="l74d2228" href="page/Parse/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B.html#l74d2228" title="l74d2228">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://www.parse.com/docs/js/symbols/Parse.Object.html" rel="nofollow">Parse.Object - Parse JavaScript SDK Reference</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:59</div>
+		</div></body>
+</html>

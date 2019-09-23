@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>React&#047;用語 - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>React&#047;用語</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<div class="contents">
+<a id="contents_1"></a>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="#ba1176f0">  Store </a></li>
+<li><a href="#ja9480f9">  State </a></li>
+<li><a href="#t01d7b4c">  Action </a></li>
+<li><a href="#kb692673">  Reducer </a></li></ul>
+</div>
+
+<p>勉強がてらまとめたものです。違うこと書いてるかもなので注意ね。</p>
+<h2 id="content_1_0">Store  <a class="anchor_super" id="ba1176f0" href="page/React/%E7%94%A8%E8%AA%9E.html#ba1176f0" title="ba1176f0">†</a></h2>
+<p>React/Reduxにおいて、<strong>State</strong>を管理する<strong>Store</strong>はただひとつだけ存在します。</p>
+<p><strong>Store</strong>がただひとつだけであるのは、制御の流れをシンプルにするためです。<strong>State</strong>を更新するための<strong>Action</strong>はすべて<strong>Store</strong>が受け取ります。</p>
+<p>「グローバルにたったひとつ！？正気で言ってんのか！？」と思いますが、<strong>Reducer</strong>ごとにそれぞれの<strong>State</strong>を取り扱うので、グローバルにひとつの構成を把握する必要はありません。</p>
+
+<div class="jumpmenu"><a href="page/React/用語.html#navigator">↑</a></div><h2 id="content_1_1">State  <a class="anchor_super" id="ja9480f9" href="page/React/%E7%94%A8%E8%AA%9E.html#ja9480f9" title="ja9480f9">†</a></h2>
+<p>画面表示の対象にするデータが<strong>State</strong>です。</p>
+<p><strong>State</strong>は<strong>Store</strong>においてのみ更新することができます。更新は<strong>Store</strong>が<strong>Action</strong>を受け取ることで実行されます。更新処理の実体は<strong>Reducer</strong>です。</p>
+
+<div class="jumpmenu"><a href="page/React/用語.html#navigator">↑</a></div><h2 id="content_1_2">Action  <a class="anchor_super" id="t01d7b4c" href="page/React/%E7%94%A8%E8%AA%9E.html#t01d7b4c" title="t01d7b4c">†</a></h2>
+<p><strong>State</strong>を更新するきっかけになるのが<strong>Action</strong>です。</p>
+<p><strong>Action</strong>は単にオブジェクト（を返却する関数）で、<strong>State</strong>を更新するのに必要なデータをもちます。すなわち、どのような作用であるかを識別するための種別とどのように作用させるかを示す値です。</p>
+<p>たとえば次のような<strong>Action</strong>を作ることができます。</p>
+<pre>const inputNumber = (number) =&gt; ({
+    type: ActionTypes.INPUT_NUMBER,
+    number
+})</pre>
+
+<div class="jumpmenu"><a href="page/React/用語.html#navigator">↑</a></div><h2 id="content_1_3">Reducer  <a class="anchor_super" id="kb692673" href="page/React/%E7%94%A8%E8%AA%9E.html#kb692673" title="kb692673">†</a></h2>
+<p><strong>Action</strong>をもとに<strong>State</strong>を更新するのが<strong>Reducer</strong>です。</p>
+<p><strong>Reducer</strong>は単に新しい<strong>State</strong>を返却する関数です。<strong>Action</strong>がもつ種別と値に応じて新しい<strong>State</strong>を返却しますが、もとの<strong>State</strong>に変更を加えては<span style="color:red">いけません</span>。</p>
+<p>次のように<strong>Reducer</strong>は単に関数です。</p>
+<pre>const HogeReducer = (state = initialState, action) =&gt; {
+  // actionの種別によって分岐などして新しいstateを作成して返却する
+  return {
+    ...state,
+    // 更新内容
+  }
+}</pre>
+</div><div id="lastmodified">Last-modified: 2017-12-08 (金) 15:06:11  (653d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:05</div>
+		</div></body>
+</html>

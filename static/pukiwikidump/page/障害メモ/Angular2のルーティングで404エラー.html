@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;Angular2のルーティングで404エラー - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;Angular2のルーティングで404エラー</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="h9211d90" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Angular2%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%A7404%E3%82%A8%E3%83%A9%E3%83%BC.html#h9211d90" title="h9211d90">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Angular2</li>
+<li>routing</li>
+<li>404 not found</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Angular2のルーティングで404エラー.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="r2284f43" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Angular2%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%A7404%E3%82%A8%E3%83%A9%E3%83%BC.html#r2284f43" title="r2284f43">†</a></h2>
+<p>Angular2でルーティングしたときにURLが切り替わる。このURLをリロードすると404エラーになる。ただし、開発時ng serverなどで動かしているときは問題がない。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Angular2のルーティングで404エラー.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="w3c5898a" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Angular2%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%A7404%E3%82%A8%E3%83%A9%E3%83%BC.html#w3c5898a" title="w3c5898a">†</a></h2>
+<p>ないものはないから。なかったときにindex.htmlをレスポンスするようにサーバー設定する必要がある。ng serverなどで動くサーバーはそれをやってくれているのだと思う。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Angular2のルーティングで404エラー.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="s14f4734" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Angular2%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%A7404%E3%82%A8%E3%83%A9%E3%83%BC.html#s14f4734" title="s14f4734">†</a></h2>
+<pre>&lt;Directory "/Applications/XAMPP/xamppfiles/htdocs"&gt; # ここはいろいろ
+    # rewrite to index.html for Angular2
+    Options Indexes FollowSymLinks
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.html$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.html [L]
+&lt;/Directory&gt;</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/Angular2のルーティングで404エラー.html#navigator">↑</a></div><h2 id="content_1_4">備考  <a class="anchor_super" id="j25b94b1" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Angular2%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%A7404%E3%82%A8%E3%83%A9%E3%83%BC.html#j25b94b1" title="j25b94b1">†</a></h2>
+<p>開発環境がいろいろやってくれている部分が見えないとハマったときに困る。。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Angular2のルーティングで404エラー.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="jfa86698" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Angular2%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%A7404%E3%82%A8%E3%83%A9%E3%83%BC.html#jfa86698" title="jfa86698">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://stackoverflow.com/questions/35198319/angular-2-routing-and-direct-access-to-a-specific-route-how-to-configure-apach" rel="nofollow">angular2 - Angular 2 routing and direct access to a specific route : how to configure Apache? - Stack Overflow</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2016-10-16 (日) 16:50:48  (1071d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:43</div>
+		</div></body>
+</html>

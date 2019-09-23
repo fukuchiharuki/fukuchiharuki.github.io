@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;openしてないからとkotlinでSpring Bootが起動しない - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;openしてないからとkotlinでSpring Bootが起動しない</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="h00bc4a3" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/open%E3%81%97%E3%81%A6%E3%81%AA%E3%81%84%E3%81%8B%E3%82%89%E3%81%A8kotlin%E3%81%A7Spring%20Boot%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#h00bc4a3" title="h00bc4a3">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>STS</li>
+<li>Kotlin</li>
+<li>Spring Boot</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/openしてないからとkotlinでSpring Bootが起動しない.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="qd1465fd" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/open%E3%81%97%E3%81%A6%E3%81%AA%E3%81%84%E3%81%8B%E3%82%89%E3%81%A8kotlin%E3%81%A7Spring%20Boot%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#qd1465fd" title="qd1465fd">†</a></h2>
+<p>STSでKotlinを使ってSpring Bootを立ち上げようとするができない。</p>
+<pre>class 'Application' may not be final. Remove the final modifier to continue.</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/openしてないからとkotlinでSpring Bootが起動しない.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="xd0c2759" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/open%E3%81%97%E3%81%A6%E3%81%AA%E3%81%84%E3%81%8B%E3%82%89%E3%81%A8kotlin%E3%81%A7Spring%20Boot%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#xd0c2759" title="xd0c2759">†</a></h2>
+<p>classをopenしてないから。final classじゃだめよということ。</p>
+<p>ただ、これは kotlin-allopen が kotlin-spring によって解決してくれるはず。だが、STSの「Spring Boot App」としての実行ではうまくいかない。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/openしてないからとkotlinでSpring Bootが起動しない.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="p9c4e104" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/open%E3%81%97%E3%81%A6%E3%81%AA%E3%81%84%E3%81%8B%E3%82%89%E3%81%A8kotlin%E3%81%A7Spring%20Boot%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#p9c4e104" title="p9c4e104">†</a></h2>
+<p>gradleタスクとして実行すると大丈夫。Buildshipの「Gradle Tasks」から実行するか、コンソールで次のようにして実行する。</p>
+<pre>$ gradle bootRun</pre>
+<p>IntelliJでなら大丈夫とのことだが試してない。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/openしてないからとkotlinでSpring Bootが起動しない.html#navigator">↑</a></div><h2 id="content_1_4">備考  <a class="anchor_super" id="be30750e" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/open%E3%81%97%E3%81%A6%E3%81%AA%E3%81%84%E3%81%8B%E3%82%89%E3%81%A8kotlin%E3%81%A7Spring%20Boot%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#be30750e" title="be30750e">†</a></h2>
+<p>IntelliJに乗り換えかなあ。。Vimのキーバインド使える？？</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/openしてないからとkotlinでSpring Bootが起動しない.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="ca9c149e" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/open%E3%81%97%E3%81%A6%E3%81%AA%E3%81%84%E3%81%8B%E3%82%89%E3%81%A8kotlin%E3%81%A7Spring%20Boot%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#ca9c149e" title="ca9c149e">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://itexplorer.hateblo.jp/entry/20170724-create-spring-boot-gradle-kotlin-env" rel="nofollow">Spring Boot + Gradle + Kotlin の開発環境を構築してみた（結構ハマった） - IT探検記</a></li>
+<li><a href="https://qiita.com/n_morioka/items/7b4f8f96c85223cdb176" rel="nofollow">Kotlin+Spring Bootにて「@Configuration class may not be final」的なエラーが出たとき - Qiita</a></li>
+<li><a href="https://kotlinlang.org/docs/reference/compiler-plugins.html" rel="nofollow">Compiler Plugins - Kotlin Programming Language</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-12-13 (水) 16:31:31  (648d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:58</div>
+		</div></body>
+</html>

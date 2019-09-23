@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>SVN&#047;リポジトリを作成する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>SVN&#047;リポジトリを作成する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">目標  <a class="anchor_super" id="r2d3848a" href="page/SVN/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#r2d3848a" title="r2d3848a">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>リポジトリを作成する</li></ul>
+
+<div class="jumpmenu"><a href="page/SVN/リポジトリを作成する.html#navigator">↑</a></div><h2 id="content_1_1">手順  <a class="anchor_super" id="nb026548" href="page/SVN/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#nb026548" title="nb026548">†</a></h2>
+
+<div class="jumpmenu"><a href="page/SVN/リポジトリを作成する.html#navigator">↑</a></div><h3 id="content_1_2">前提条件  <a class="anchor_super" id="mebae991" href="page/SVN/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#mebae991" title="mebae991">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>SVNはインストール済み</li>
+<li>ディレクトリ構成
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>&lt;svn&gt;はsvn用のディレクトリ (ex: /var/svn)
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li>所有者はsvnserveを実行するユーザ</li></ul></li>
+<li>&lt;repos&gt;はカテゴリなど分類用のディレクトリ</li></ul></li></ul>
+
+<div class="jumpmenu"><a href="page/SVN/リポジトリを作成する.html#navigator">↑</a></div><h3 id="content_1_3">リポジトリを作成する  <a class="anchor_super" id="e2438407" href="page/SVN/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#e2438407" title="e2438407">†</a></h3>
+<pre>$ svnadmin create &lt;svn&gt;/&lt;repos&gt;</pre>
+
+<div class="jumpmenu"><a href="page/SVN/リポジトリを作成する.html#navigator">↑</a></div><h3 id="content_1_4">設定ファイルを編集する  <a class="anchor_super" id="l1b8c3ae" href="page/SVN/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#l1b8c3ae" title="l1b8c3ae">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>&lt;svn&gt;/&lt;repos&gt;/conf/svnserve.conf
+<pre>anon-access = none
+auth-access = write
+password-db = passwd</pre></li>
+<li>&lt;svn&gt;/&lt;repos&gt;/conf/passwd
+<pre>name=password</pre></li></ul>
+
+<div class="jumpmenu"><a href="page/SVN/リポジトリを作成する.html#navigator">↑</a></div><h3 id="content_1_5">起動する  <a class="anchor_super" id="ja1b69b3" href="page/SVN/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#ja1b69b3" title="ja1b69b3">†</a></h3>
+<pre>$ svnserve -d -r &lt;svn&gt;</pre>
+
+<div class="jumpmenu"><a href="page/SVN/リポジトリを作成する.html#navigator">↑</a></div><h3 id="content_1_6">基本ディレクトリを構成する  <a class="anchor_super" id="u7e6769c" href="page/SVN/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#u7e6769c" title="u7e6769c">†</a></h3>
+<pre>$ svn mkdir svn://localhost/&lt;category&gt;/trunk -m "create"
+$ svn mkdir svn://localhost/&lt;category&gt;/branches -m "create"
+$ svn mkdir svn://localhost/&lt;category&gt;/tags -m "create"</pre>
+
+<div class="jumpmenu"><a href="page/SVN/リポジトリを作成する.html#navigator">↑</a></div><h2 id="content_1_7">参考  <a class="anchor_super" id="u584da0f" href="page/SVN/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#u584da0f" title="u584da0f">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/Linux/Subversion/yum%E3%81%8B%E3%82%89%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB.html" rel="nofollow">http://wiki.minaco.net/index.php?Linux/Subversion/yum%E3%81%8B%E3%82%89%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB</a></li>
+<li><a href="http://www.nulab.co.jp/kousei/chapter2/01.html" rel="nofollow">http://www.nulab.co.jp/kousei/chapter2/01.html</a></li>
+<li><a href="http://icotfeels.blog66.fc2.com/blog-entry-2366.html" rel="nofollow">http://icotfeels.blog66.fc2.com/blog-entry-2366.html</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2014-06-28 (土) 21:57:20  (1912d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:08</div>
+		</div></body>
+</html>

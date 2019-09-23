@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>シェル&#047;MySQLにtsvデータをロードする - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>シェル&#047;MySQLにtsvデータをロードする</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">関連  <a class="anchor_super" id="te333771" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/MySQL%E3%81%ABtsv%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E3%83%AD%E3%83%BC%E3%83%89%E3%81%99%E3%82%8B.html#te333771" title="te333771">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>sh</li>
+<li>MySQL</li></ul>
+
+<div class="jumpmenu"><a href="page/シェル/MySQLにtsvデータをロードする.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="l29565aa" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/MySQL%E3%81%ABtsv%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E3%83%AD%E3%83%BC%E3%83%89%E3%81%99%E3%82%8B.html#l29565aa" title="l29565aa">†</a></h2>
+<p>テストでデータをこちょこちょ触るのが面倒だったので作りました。</p>
+<p>要件は以下。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>データはtsvファイル</li>
+<li>該当テーブルのレコードを全削除してデータをロードする</li></ul>
+<p>制限事項は以下。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>データはひとつのディレクトリにまとめて置く</li>
+<li>データのファイル名は「*.dat」</li></ul>
+
+<div class="jumpmenu"><a href="page/シェル/MySQLにtsvデータをロードする.html#navigator">↑</a></div><h2 id="content_1_2">スクリプト  <a class="anchor_super" id="g285a6ca" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/MySQL%E3%81%ABtsv%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E3%83%AD%E3%83%BC%E3%83%89%E3%81%99%E3%82%8B.html#g285a6ca" title="g285a6ca">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>reset.sh</li></ul>
+<pre>#!/bin/sh
+
+directory=`./abstpath.sh $1`
+if [ ! -d ${directory} ]
+then
+    echo "the directory does not exist."
+    exit
+fi
+
+files=`find ${directory} -maxdepth 1 -name "*.dat"`
+for file in ${files}
+do
+    table=`basename ${file} .dat`
+    mysql -u&lt;ユーザ&gt; -p&lt;パスワード&gt; &lt;データベース&gt; -e "DELETE FROM ${table};"
+    mysql -u&lt;ユーザ&gt; -p&lt;パスワード&gt; &lt;データベース&gt; -e "LOAD DATA LOCAL INFILE '${file}' INTO  TABLE ${table} FIELDS TERMINATED BY '\t';"
+    echo "${table} &lt; ${file}"
+done</pre>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>abstpath.sh</li></ul>
+<pre>#!/bin/sh
+
+echo $(cd $(dirname $0) &amp;&amp; pwd)/$1</pre>
+
+<div class="jumpmenu"><a href="page/シェル/MySQLにtsvデータをロードする.html#navigator">↑</a></div><h2 id="content_1_3">操作手順  <a class="anchor_super" id="y9af4f9b" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/MySQL%E3%81%ABtsv%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E3%83%AD%E3%83%BC%E3%83%89%E3%81%99%E3%82%8B.html#y9af4f9b" title="y9af4f9b">†</a></h2>
+<pre>┣ reset.sh
+┗ data/
+　　┣ hoge.dat
+　　┗ moge.dat</pre>
+<p>こんなディレクトリ構成になっているとして、</p>
+<pre>$ ./reset.sh data/</pre>
+<p>こうするとわーっとなります。</p>
+
+<div class="jumpmenu"><a href="page/シェル/MySQLにtsvデータをロードする.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="s01a9d8d" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/MySQL%E3%81%ABtsv%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E3%83%AD%E3%83%BC%E3%83%89%E3%81%99%E3%82%8B.html#s01a9d8d" title="s01a9d8d">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://blog.hansode.org/archives/51481467.html" rel="nofollow">http://blog.hansode.org/archives/51481467.html</a></li>
+<li><a href="http://blog.livedoor.jp/akf0/archives/51638961.html" rel="nofollow">http://blog.livedoor.jp/akf0/archives/51638961.html</a></li>
+<li><a href="http://www.atmarkit.co.jp/flinux/rensai/linuxtips/437delfileext.html" rel="nofollow">http://www.atmarkit.co.jp/flinux/rensai/linuxtips/437delfileext.html</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:30</div>
+		</div></body>
+</html>

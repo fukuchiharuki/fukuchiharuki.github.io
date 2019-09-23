@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;Tomcatを終了できない - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;Tomcatを終了できない</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="u0bdab7d" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%82%92%E7%B5%82%E4%BA%86%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#u0bdab7d" title="u0bdab7d">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Java</li>
+<li>Tomcat</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatを終了できない.html#navigator">↑</a></div><h2 id="content_1_1">関連  <a class="anchor_super" id="r80cd672" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%82%92%E7%B5%82%E4%BA%86%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#r80cd672" title="r80cd672">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E9%96%A2%E9%80%A3.html" title="障害メモ/Tomcat関連 (2223d)">障害メモ/Tomcat関連</a></li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatを終了できない.html#navigator">↑</a></div><h2 id="content_1_2">現象  <a class="anchor_super" id="z31bb247" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%82%92%E7%B5%82%E4%BA%86%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#z31bb247" title="z31bb247">†</a></h2>
+<p>Tomcatを終了させようとして。</p>
+<pre>Error occurred during initialization of VM
+Could not reserve enough space for object heap
+Could not create the Java virtual machine.</pre>
+<p>Tomcatではなく、Javaがメモリ不足を言っている様子。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatを終了できない.html#navigator">↑</a></div><h2 id="content_1_3">原因  <a class="anchor_super" id="c2668753" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%82%92%E7%B5%82%E4%BA%86%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#c2668753" title="c2668753">†</a></h2>
+<p>メモリが足りてない。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatを終了できない.html#navigator">↑</a></div><h2 id="content_1_4">対策  <a class="anchor_super" id="z7a52cbd" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%82%92%E7%B5%82%E4%BA%86%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#z7a52cbd" title="z7a52cbd">†</a></h2>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatを終了できない.html#navigator">↑</a></div><h3 id="content_1_5">とりあえず強制終了させる  <a class="anchor_super" id="lba02bf1" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%82%92%E7%B5%82%E4%BA%86%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#lba02bf1" title="lba02bf1">†</a></h3>
+<pre>$ ps -ef | grep java</pre>
+<p>Tomcatに関わるプロセスを見つけたら、殺す。</p>
+<pre>$ kill プロセスID</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatを終了できない.html#navigator">↑</a></div><h3 id="content_1_6">ヒープの最大を指定してTomcatを動かす  <a class="anchor_super" id="z4f1d8d3" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%82%92%E7%B5%82%E4%BA%86%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#z4f1d8d3" title="z4f1d8d3">†</a></h3>
+<p>Tomcatを起動させうユーザの環境変数CATALINA_OPTSに以下を設定する。</p>
+<pre>export CATALINA_OPTS='-server -Xmx64M'</pre>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>サイズはその時の環境によって</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatを終了できない.html#navigator">↑</a></div><h2 id="content_1_7">参考  <a class="anchor_super" id="ieb114d8" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%82%92%E7%B5%82%E4%BA%86%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#ieb114d8" title="ieb114d8">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://hatirobei.at.webry.info/201003/article_4.html" rel="nofollow">http://hatirobei.at.webry.info/201003/article_4.html</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-21 (水) 10:14:05  (2223d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:54</div>
+		</div></body>
+</html>

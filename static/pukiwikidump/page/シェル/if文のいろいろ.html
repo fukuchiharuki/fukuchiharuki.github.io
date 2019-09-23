@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>シェル&#047;if文のいろいろ - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>シェル&#047;if文のいろいろ</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="i0ea11e2" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/if%E6%96%87%E3%81%AE%E3%81%84%E3%82%8D%E3%81%84%E3%82%8D.html#i0ea11e2" title="i0ea11e2">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>if</li>
+<li>test</li></ul>
+
+<div class="jumpmenu"><a href="page/シェル/if文のいろいろ.html#navigator">↑</a></div><h2 id="content_1_1">したいこと  <a class="anchor_super" id="r8cdc469" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/if%E6%96%87%E3%81%AE%E3%81%84%E3%82%8D%E3%81%84%E3%82%8D.html#r8cdc469" title="r8cdc469">†</a></h2>
+<p>いろんなif文を書く。</p>
+
+<div class="jumpmenu"><a href="page/シェル/if文のいろいろ.html#navigator">↑</a></div><h2 id="content_1_2">どうやって  <a class="anchor_super" id="u269fded" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/if%E6%96%87%E3%81%AE%E3%81%84%E3%82%8D%E3%81%84%E3%82%8D.html#u269fded" title="u269fded">†</a></h2>
+
+<div class="jumpmenu"><a href="page/シェル/if文のいろいろ.html#navigator">↑</a></div><h3 id="content_1_3">普通のif文  <a class="anchor_super" id="o41237b3" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/if%E6%96%87%E3%81%AE%E3%81%84%E3%82%8D%E3%81%84%E3%82%8D.html#o41237b3" title="o41237b3">†</a></h3>
+<pre>if [ -e $LOCK ]
+then
+    exit 0
+fi</pre>
+
+<div class="jumpmenu"><a href="page/シェル/if文のいろいろ.html#navigator">↑</a></div><h3 id="content_1_4">単に1行に書く  <a class="anchor_super" id="e0ee915f" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/if%E6%96%87%E3%81%AE%E3%81%84%E3%82%8D%E3%81%84%E3%82%8D.html#e0ee915f" title="e0ee915f">†</a></h3>
+<pre>if [ -e $LOCK ]; then exit 0; fi</pre>
+
+<div class="jumpmenu"><a href="page/シェル/if文のいろいろ.html#navigator">↑</a></div><h3 id="content_1_5">終了ステータスを利用する  <a class="anchor_super" id="x3d2c727" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/if%E6%96%87%E3%81%AE%E3%81%84%E3%82%8D%E3%81%84%E3%82%8D.html#x3d2c727" title="x3d2c727">†</a></h3>
+<pre>[ -e $LOCK ] &amp;&amp; exit 0</pre>
+
+<div class="jumpmenu"><a href="page/シェル/if文のいろいろ.html#navigator">↑</a></div><h3 id="content_1_6">コマンドらしく書く  <a class="anchor_super" id="c9d35b67" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/if%E6%96%87%E3%81%AE%E3%81%84%E3%82%8D%E3%81%84%E3%82%8D.html#c9d35b67" title="c9d35b67">†</a></h3>
+<pre>test -e $LOCK &amp;&amp; exit 0</pre>
+
+<div class="jumpmenu"><a href="page/シェル/if文のいろいろ.html#navigator">↑</a></div><h2 id="content_1_7">参考  <a class="anchor_super" id="h45906c1" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/if%E6%96%87%E3%81%AE%E3%81%84%E3%82%8D%E3%81%84%E3%82%8D.html#h45906c1" title="h45906c1">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://d.hatena.ne.jp/srkzhr/20080201/1201833497" rel="nofollow">簡素なif文は一行で書く - 半径5メートル</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2015-08-22 (土) 01:48:56  (1493d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:32</div>
+		</div></body>
+</html>

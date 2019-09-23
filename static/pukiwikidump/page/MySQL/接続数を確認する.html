@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MySQL&#047;接続数を確認する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>MySQL&#047;接続数を確認する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">手順  <a class="anchor_super" id="t596b979" href="page/MySQL/%E6%8E%A5%E7%B6%9A%E6%95%B0%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B.html#t596b979" title="t596b979">†</a></h2>
+<p>MySQLにログイン済みなら</p>
+<pre>mysql&gt; SHOW STATUS LIKE 'Threads%';
++-------------------+--------+
+| Variable_name     | Value  |
++-------------------+--------+
+| Threads_cached    | 0      |
+| Threads_connected | *      | &lt; ここ
+| Threads_created   | *      |
+| Threads_running   | *      |
++-------------------+--------+</pre>
+<p>MySQLにログインしていないなら</p>
+<pre>$ mysqladmin -uroot -p extended-status | grep Threads
+| Threads_cached                    | 0         |
+| Threads_connected                 | *         | &lt; ここ
+| Threads_created                   | *         |
+| Threads_running                   | *         |</pre>
+
+<div class="jumpmenu"><a href="page/MySQL/接続数を確認する.html#navigator">↑</a></div><h2 id="content_1_1">参考  <a class="anchor_super" id="qe45bad8" href="page/MySQL/%E6%8E%A5%E7%B6%9A%E6%95%B0%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B.html#qe45bad8" title="qe45bad8">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://dev.mysql.com/doc/refman/5.1/en/show-status.html" rel="nofollow">http://dev.mysql.com/doc/refman/5.1/en/show-status.html</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/4.1/ja/show-status.html" rel="nofollow">http://dev.mysql.com/doc/refman/4.1/ja/show-status.html</a></li>
+<li><a href="http://d.hatena.ne.jp/foosin/20081217/1229515671" rel="nofollow">http://d.hatena.ne.jp/foosin/20081217/1229515671</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:58</div>
+		</div></body>
+</html>

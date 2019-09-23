@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Java&#047;暗号化する複合化する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Java&#047;暗号化する複合化する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="dbb65e51" href="page/Java/%E6%9A%97%E5%8F%B7%E5%8C%96%E3%81%99%E3%82%8B%E8%A4%87%E5%90%88%E5%8C%96%E3%81%99%E3%82%8B.html#dbb65e51" title="dbb65e51">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>暗号化</li>
+<li>複合化</li>
+<li>Java</li>
+<li>Cipher (javax.crypto.Cipher)</li>
+<li>Base64 (org.apache.commons.codec.binary.Base64)</li></ul>
+
+<div class="jumpmenu"><a href="page/Java/暗号化する複合化する.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="a4c92633" href="page/Java/%E6%9A%97%E5%8F%B7%E5%8C%96%E3%81%99%E3%82%8B%E8%A4%87%E5%90%88%E5%8C%96%E3%81%99%E3%82%8B.html#a4c92633" title="a4c92633">†</a></h2>
+<p>文字列を暗号化して、文字列(テキスト)で送信、文字列に複合化する方法です。</p>
+
+<div class="jumpmenu"><a href="page/Java/暗号化する複合化する.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="cf1e1104" href="page/Java/%E6%9A%97%E5%8F%B7%E5%8C%96%E3%81%99%E3%82%8B%E8%A4%87%E5%90%88%E5%8C%96%E3%81%99%E3%82%8B.html#cf1e1104" title="cf1e1104">†</a></h2>
+
+<div class="jumpmenu"><a href="page/Java/暗号化する複合化する.html#navigator">↑</a></div><h3 id="content_1_3">秘密鍵を作成する  <a class="anchor_super" id="t20c1f2d" href="page/Java/%E6%9A%97%E5%8F%B7%E5%8C%96%E3%81%99%E3%82%8B%E8%A4%87%E5%90%88%E5%8C%96%E3%81%99%E3%82%8B.html#t20c1f2d" title="t20c1f2d">†</a></h3>
+<p>秘密鍵をランダムに作成します。ランダムでなくていいです。とにかく暗号する側と複合する側で同じ鍵を秘密にしてもちます。</p>
+<p>この例示では同じ鍵(バイト列)を変数 key で共有します(実際は手渡しして読み込むなどします)。</p>
+<pre>// make key (only once)
+byte[] key = null;
+{
+  KeyGenerator generator = KeyGenerator.getInstance("AES");
+  SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
+  generator.init(128, random);
+  key = generator.generateKey().getEncoded();
+}</pre>
+<p>この例示で暗号化対象の変数 src と複合化先の変数 dst です。</p>
+<pre>// target
+String src = "暗号化したい文字列";
+String dst = null;</pre>
+
+<div class="jumpmenu"><a href="page/Java/暗号化する複合化する.html#navigator">↑</a></div><h3 id="content_1_4">エンコードする  <a class="anchor_super" id="w5c746c3" href="page/Java/%E6%9A%97%E5%8F%B7%E5%8C%96%E3%81%99%E3%82%8B%E8%A4%87%E5%90%88%E5%8C%96%E3%81%99%E3%82%8B.html#w5c746c3" title="w5c746c3">†</a></h3>
+<p>鍵を使って暗号化した後 Base64 でテキストにします。</p>
+<pre>// encode
+byte[] iv = null;
+byte[] tv = null;
+{
+  SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
+  Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+  cipher.init(Cipher.ENCRYPT_MODE, keySpec);
+  iv = cipher.getIV();
+  tv = cipher.doFinal(src.getBytes("UTF-16"));
+}
+
+// encode for parameter
+String i = null;
+String t = null;
+{
+  i = new String(new Base64().encode(iv)).replaceAll("[+]", "-").replaceAll("[/]", "_").replaceAll("[=]+", "").replaceAll("(\r\n)|\r|\n", "");
+  t = new String(new Base64().encode(tv)).replaceAll("[+]", "-").replaceAll("[/]", "_").replaceAll("[=]+", "").replaceAll("(\r\n)|\r|\n", "");
+}</pre>
+
+<div class="jumpmenu"><a href="page/Java/暗号化する複合化する.html#navigator">↑</a></div><h3 id="content_1_5">デコードする  <a class="anchor_super" id="sd9b4199" href="page/Java/%E6%9A%97%E5%8F%B7%E5%8C%96%E3%81%99%E3%82%8B%E8%A4%87%E5%90%88%E5%8C%96%E3%81%99%E3%82%8B.html#sd9b4199" title="sd9b4199">†</a></h3>
+<p>テキストをデコードして複合化します。</p>
+<pre>// decode for parameter
+byte[] iv2 = null;
+byte[] tv2 = null;
+{
+  iv2 = new Base64().decode(i.replaceAll("[-]","+").replaceAll("[_]", "/").getBytes());
+  tv2 = new Base64().decode(t.replaceAll("[-]","+").replaceAll("[_]", "/").getBytes());
+}
+
+// decode
+{
+  SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
+  IvParameterSpec ivSpec = new IvParameterSpec(iv2);
+  Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+  cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
+  dst = new String(cipher.doFinal(tv2), "UTF-16");
+}</pre>
+
+<div class="jumpmenu"><a href="page/Java/暗号化する複合化する.html#navigator">↑</a></div><h2 id="content_1_6">解説  <a class="anchor_super" id="oe42976c" href="page/Java/%E6%9A%97%E5%8F%B7%E5%8C%96%E3%81%99%E3%82%8B%E8%A4%87%E5%90%88%E5%8C%96%E3%81%99%E3%82%8B.html#oe42976c" title="oe42976c">†</a></h2>
+<p>バイト列は Base64 でテキストにして、パラメータ向けに変換します(base64url encoding)。</p>
+<p><del>Initial Value</del> Initialization Vector(IV) を使うのは暗号化出力の傾向をなくすため。</p>
+<p><span style="color:LightGray">何を隠そう実はよく分っていない！</span></p>
+
+<div class="jumpmenu"><a href="page/Java/暗号化する複合化する.html#navigator">↑</a></div><h3 id="content_1_7">追記  <a class="anchor_super" id="gf2d4563" href="page/Java/%E6%9A%97%E5%8F%B7%E5%8C%96%E3%81%99%E3%82%8B%E8%A4%87%E5%90%88%E5%8C%96%E3%81%99%E3%82%8B.html#gf2d4563" title="gf2d4563">†</a></h3>
+<p>i と t は「=」でのパディングを元に戻さないといけない。</p>
+
+<div class="jumpmenu"><a href="page/Java/暗号化する複合化する.html#navigator">↑</a></div><h2 id="content_1_8">参考  <a class="anchor_super" id="e86b6aac" href="page/Java/%E6%9A%97%E5%8F%B7%E5%8C%96%E3%81%99%E3%82%8B%E8%A4%87%E5%90%88%E5%8C%96%E3%81%99%E3%82%8B.html#e86b6aac" title="e86b6aac">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://www.ne.jp/asahi/hishidama/home/tech/java/aes.html" rel="nofollow">Java「AES暗号」メモ(Hishidama's AES Sample)</a></li>
+<li><a href="http://www.trustss.co.jp/Java/JEncrypt100.html" rel="nofollow">簡単な暗号化 - Java編</a></li>
+<li><a href="http://tools.ietf.org/html/rfc4648#section-5" rel="nofollow">5. Base 64 Encoding with URL and Filename Safe Alphabet - RFC 4648 - The Base16, Base32, and Base64 Data Encodings</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2014-03-18 (火) 16:20:31  (2014d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:46</div>
+		</div></body>
+</html>

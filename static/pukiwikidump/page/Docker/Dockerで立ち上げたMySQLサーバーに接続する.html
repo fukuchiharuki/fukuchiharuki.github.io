@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Docker&#047;Dockerで立ち上げたMySQLサーバーに接続する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Docker&#047;Dockerで立ち上げたMySQLサーバーに接続する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="b0a6fe24" href="page/Docker/Docker%E3%81%A7%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E3%81%9FMySQL%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%AB%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B.html#b0a6fe24" title="b0a6fe24">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Docker</li>
+<li>MySQL</li></ul>
+
+<div class="jumpmenu"><a href="page/Docker/Dockerで立ち上げたMySQLサーバーに接続する.html#navigator">↑</a></div><h2 id="content_1_1">関連  <a class="anchor_super" id="l28250f4" href="page/Docker/Docker%E3%81%A7%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E3%81%9FMySQL%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%AB%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B.html#l28250f4" title="l28250f4">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/Docker/MySQL%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%92%E7%AB%8B%E3%81%A6%E3%82%8B.html" title="Docker/MySQLサーバーを立てる (892d)">Docker/MySQLサーバーを立てる</a></li>
+<li><a href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Docker%20for%20Windows%E3%81%A7%E3%83%9C%E3%83%AA%E3%83%A5%E3%83%BC%E3%83%A0%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%88%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html" title="障害メモ/Docker for Windowsでボリュームマウントできない (892d)">障害メモ/Docker for Windowsでボリュームマウントできない</a></li></ul>
+
+<div class="jumpmenu"><a href="page/Docker/Dockerで立ち上げたMySQLサーバーに接続する.html#navigator">↑</a></div><h2 id="content_1_2">したいこと  <a class="anchor_super" id="bc6b13e2" href="page/Docker/Docker%E3%81%A7%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E3%81%9FMySQL%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%AB%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B.html#bc6b13e2" title="bc6b13e2">†</a></h2>
+<p>Dockerで立ち上げたMySQLに別のコンテナから接続したい。</p>
+<p>背景としては、データ移行するためのスクリプトの実行を試したいため。Dockerで立ち上げたMySQLコンテナに直接という手もあるけど、これはこれで触らずにおいておきたい。</p>
+
+<div class="jumpmenu"><a href="page/Docker/Dockerで立ち上げたMySQLサーバーに接続する.html#navigator">↑</a></div><h2 id="content_1_3">どうやって  <a class="anchor_super" id="f8f72728" href="page/Docker/Docker%E3%81%A7%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E3%81%9FMySQL%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%AB%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B.html#f8f72728" title="f8f72728">†</a></h2>
+<p>リンクして接続する。</p>
+<p>Dockerで立ち上げたMySQLコンテナの名前が『mysqld』であるとして。</p>
+<pre>$ docker run -it --rm --link mysqld:dbserver mysql bash</pre>
+<p>MySQLのイメージにはmysqlクライアントもbashもある。</p>
+<pre># env | grep DBSERVER
+DBSERVER_PORT_3306_TCP_ADDR=172.17.0.2
+DBSERVER_ENV_MYSQL_USER=mydb
+DBSERVER_ENV_MYSQL_PASSWORD=mydb
+DBSERVER_PORT=tcp://172.17.0.2:3306
+DBSERVER_ENV_MYSQL_VERSION=5.7.17-1debian8
+DBSERVER_PORT_3306_TCP_PROTO=tcp
+DBSERVER_PORT_3306_TCP_PORT=3306
+DBSERVER_ENV_MYSQL_ROOT_PASSWORD=rootpw
+DBSERVER_NAME=/heuristic_wozniak/dbserver
+DBSERVER_ENV_TZ=Asia/Tokyo
+DBSERVER_ENV_MYSQL_DATABASE=MYDB
+DBSERVER_PORT_3306_TCP=tcp://172.17.0.2:3306
+DBSERVER_ENV_MYSQL_MAJOR=5.7
+DBSERVER_ENV_GOSU_VERSION=1.7
+#</pre>
+<pre># mysql -h$DBSERVER_PORT_3306_TCP_ADDR -u$DBSERVER_ENV_MYSQL_USER -p$DBSERVER_ENV_MYSQL_PASSWORD $DBSERVER_ENV_MYSQL_DATABASE</pre>
+
+<div class="jumpmenu"><a href="page/Docker/Dockerで立ち上げたMySQLサーバーに接続する.html#navigator">↑</a></div><h2 id="content_1_4">ノート  <a class="anchor_super" id="pe5817b0" href="page/Docker/Docker%E3%81%A7%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E3%81%9FMySQL%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%AB%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B.html#pe5817b0" title="pe5817b0">†</a></h2>
+<p>後で立ち上げるコンテナでボリュームのマウントをすればスクリプトを試験できそう。</p>
+
+<div class="jumpmenu"><a href="page/Docker/Dockerで立ち上げたMySQLサーバーに接続する.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="me54f625" href="page/Docker/Docker%E3%81%A7%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E3%81%9FMySQL%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%AB%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B.html#me54f625" title="me54f625">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://qiita.com/Arturias/items/75828479c1f9eb8d43fa" rel="nofollow">Docker の基本学習 ~ コンテナ間のリンク - Qiita</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-04-13 (木) 12:41:22  (892d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:37</div>
+		</div></body>
+</html>

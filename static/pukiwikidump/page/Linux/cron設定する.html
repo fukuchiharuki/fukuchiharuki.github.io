@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Linux&#047;cron設定する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Linux&#047;cron設定する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="e6868777" href="page/Linux/cron%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B.html#e6868777" title="e6868777">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Linux</li>
+<li>cron</li></ul>
+
+<div class="jumpmenu"><a href="page/Linux/cron設定する.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="y65bb527" href="page/Linux/cron%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B.html#y65bb527" title="y65bb527">†</a></h2>
+<p>cron 設定します。</p>
+
+<div class="jumpmenu"><a href="page/Linux/cron設定する.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="f27f678c" href="page/Linux/cron%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B.html#f27f678c" title="f27f678c">†</a></h2>
+<p>実行させたいユーザーで次のコマンドを入力する。</p>
+<pre>$ crontab -e</pre>
+<p>vi が上がるので設定を編集する</p>
+<pre># コメント
+*/5 * * * * /your/sh/file/path</pre>
+<p>保存して終了する(vi の操作)</p>
+<pre>:wq</pre>
+<p>最後に設定を確認する</p>
+<pre>$ crontab -l</pre>
+
+<div class="jumpmenu"><a href="page/Linux/cron設定する.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="q004f7d8" href="page/Linux/cron%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B.html#q004f7d8" title="q004f7d8">†</a></h2>
+<p>専用のコマンドで編集を上げて確認します。
+定時実行するユーザーは crontab -e を実行したユーザーです。
+ここで、「<strong>全部 root が実行ユーザーを添えて設定しろ</strong>」という考え方もあるようです。</p>
+<p>設定の書き方は参考サイトなどを参考にして。</p>
+
+<div class="jumpmenu"><a href="page/Linux/cron設定する.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="adf04682" href="page/Linux/cron%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B.html#adf04682" title="adf04682">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://www.server-memo.net/tips/crontab.html" rel="nofollow">crontabの書き方 — server-memo.net</a></li>
+<li><a href="http://www.japan9.com/cgi/cron.cgi" rel="nofollow">Nippon Kaisho システムツール [ CRONTAB設定ヘルパー ]</a></li>
+<li><a href="http://d.hatena.ne.jp/ozuma/20120711/1342014448" rel="nofollow">crontab -e は「絶対に」使ってはいけない - ろば電子が詰まっている</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:51</div>
+		</div></body>
+</html>

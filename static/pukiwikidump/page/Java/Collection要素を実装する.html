@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Java&#047;Collection要素を実装する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Java&#047;Collection要素を実装する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="z0998167" href="page/Java/Collection%E8%A6%81%E7%B4%A0%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B.html#z0998167" title="z0998167">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Java</li>
+<li>Collection</li></ul>
+
+<div class="jumpmenu"><a href="page/Java/Collection要素を実装する.html#navigator">↑</a></div><h2 id="content_1_1">compareTo() とequals() の一貫性  <a class="anchor_super" id="zd7b845b" href="page/Java/Collection%E8%A6%81%E7%B4%A0%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B.html#zd7b845b" title="zd7b845b">†</a></h2>
+<p>Collectionの要素にしたいオブジェクトのクラスを自作するとき、次のことに気をつけなければいけません。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>compareTo() とequals() に一貫性をもたせる</li></ul>
+<p>このことは <a href="http://docs.oracle.com/javase/jp/6/api/java/lang/Comparable.html" rel="nofollow">Comparable (Java Platform SE 6)</a> に次のように記述されています。</p>
+<blockquote><p class="quotation">The natural ordering for a class C is said to be consistent with equals if and only if e1.compareTo(e2) == 0 has the same boolean value as e1.equals(e2) for every e1 and e2 of class C.</p></blockquote>
+<p>たとえば Collection の実装である <a href="http://docs.oracle.com/javase/jp/6/api/java/util/TreeSet.html" rel="nofollow">TreeSet (Java Platform SE 6)</a> にもこう記述があります。</p>
+<blockquote><p class="quotation">そのセットによって維持される順序付けが「equals との一貫性」のあるものでなければいけないことに注意してください。</p></blockquote>
+
+<div class="jumpmenu"><a href="page/Java/Collection要素を実装する.html#navigator">↑</a></div><h2 id="content_1_2">hashCode() と equals() の一貫性  <a class="anchor_super" id="eed21d40" href="page/Java/Collection%E8%A6%81%E7%B4%A0%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B.html#eed21d40" title="eed21d40">†</a></h2>
+<p>Hash* を使用する場合には次のことも気をつけなければいけません。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>hashCode() と equals() に一貫性をもたせる</li></ul>
+<p><a href="http://docs.oracle.com/javase/jp/6/api/java/util/HashSet.html" rel="nofollow">HashSet (Java Platform SE 6)</a> はその名のとおり要素のハッシュ関数を利用するコレクションです。その実装は <a href="http://docs.oracle.com/javase/jp/6/api/java/util/HashMap.html" rel="nofollow">HashMap (Java Platform SE 6)</a> のキーに要素を追加するもので(値にはダミーのオブジェクトを追加する)、キーの比較に hashCode() と equals() を利用します。</p>
+
+<div class="jumpmenu"><a href="page/Java/Collection要素を実装する.html#navigator">↑</a></div><h2 id="content_1_3">参考  <a class="anchor_super" id="h691f7fb" href="page/Java/Collection%E8%A6%81%E7%B4%A0%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B.html#h691f7fb" title="h691f7fb">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://d.hatena.ne.jp/s-ishigami/20110615/p1" rel="nofollow">TreeSetのComparatorではまったのでメモ（初心者向け） - s-ishigamiの日記</a></li>
+<li><a href="http://stackoverflow.com/questions/11850929/hashcode-vs-equals" rel="nofollow">java - Hashcode() Vs Equals() - Stack Overflow</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2014-12-26 (金) 09:12:28  (1731d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:45</div>
+		</div></body>
+</html>

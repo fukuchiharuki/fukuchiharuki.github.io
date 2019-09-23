@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>SVN&#047;WindowsにSVNサーバをインストールする - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>SVN&#047;WindowsにSVNサーバをインストールする</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">目標  <a class="anchor_super" id="t20e90be" href="page/SVN/Windows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html#t20e90be" title="t20e90be">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>WindowsにてSVNサーバを起動する</li></ul>
+
+<div class="jumpmenu"><a href="page/SVN/WindowsにSVNサーバをインストールする.html#navigator">↑</a></div><h2 id="content_1_1">手順  <a class="anchor_super" id="d065bd82" href="page/SVN/Windows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html#d065bd82" title="d065bd82">†</a></h2>
+
+<div class="jumpmenu"><a href="page/SVN/WindowsにSVNサーバをインストールする.html#navigator">↑</a></div><h3 id="content_1_2">パッケージをダウンロードする  <a class="anchor_super" id="jb060fa9" href="page/SVN/Windows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html#jb060fa9" title="jb060fa9">†</a></h3>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>以下のサイトの Getting Subversion-&gt;Binary Packages を選択する
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="http://subversion.apache.org/" rel="nofollow">http://subversion.apache.org/</a></li></ul></li>
+<li>Windows から Win32Svn を選択する</li>
+<li>Download をクリックしてmsiファイルをダウンロードする
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>Setup-Subversion-1.6.16.msi（2011-04-27時点）</li></ul></li></ol>
+
+<div class="jumpmenu"><a href="page/SVN/WindowsにSVNサーバをインストールする.html#navigator">↑</a></div><h3 id="content_1_3">パッケージをインストールする  <a class="anchor_super" id="o11d243f" href="page/SVN/Windows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html#o11d243f" title="o11d243f">†</a></h3>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>ダウンロードしたmsiファイルを実行する</li>
+<li>Next、Install、Finishをクリックしていく</li></ol>
+<div class="img_margin" style="text-align:center"><a href="page/SVN%2FWindows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html__svn%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB00.JPG" title="svnインストール00.JPG"><img src="page/SVN%2FWindows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html__svn%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB00.JPG" alt="svnインストール00.JPG" title="svnインストール00.JPG" width="299" height="235"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/SVN%2FWindows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html__svn%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB01.JPG" title="svnインストール01.JPG"><img src="page/SVN%2FWindows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html__svn%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB01.JPG" alt="svnインストール01.JPG" title="svnインストール01.JPG" width="299" height="235"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/SVN%2FWindows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html__svn%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB02.JPG" title="svnインストール02.JPG"><img src="page/SVN%2FWindows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html__svn%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB02.JPG" alt="svnインストール02.JPG" title="svnインストール02.JPG" width="299" height="235"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/SVN%2FWindows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html__svn%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB03.JPG" title="svnインストール03.JPG"><img src="page/SVN%2FWindows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html__svn%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB03.JPG" alt="svnインストール03.JPG" title="svnインストール03.JPG" width="299" height="235"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/SVN%2FWindows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html__svn%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB04.JPG" title="svnインストール04.JPG"><img src="page/SVN%2FWindows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html__svn%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB04.JPG" alt="svnインストール04.JPG" title="svnインストール04.JPG" width="299" height="235"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/SVN%2FWindows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html__svn%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB05.JPG" title="svnインストール05.JPG"><img src="page/SVN%2FWindows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html__svn%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB05.JPG" alt="svnインストール05.JPG" title="svnインストール05.JPG" width="299" height="235"></a></div>
+
+
+<div class="jumpmenu"><a href="page/SVN/WindowsにSVNサーバをインストールする.html#navigator">↑</a></div><h3 id="content_1_4">リポジトリを作成する  <a class="anchor_super" id="v6c0e400" href="page/SVN/Windows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html#v6c0e400" title="v6c0e400">†</a></h3>
+
+<div class="jumpmenu"><a href="page/SVN/WindowsにSVNサーバをインストールする.html#navigator">↑</a></div><h4 id="content_1_5">リポジトリ用のディレクトリを作成する  <a class="anchor_super" id="sf865cb0" href="page/SVN/Windows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html#sf865cb0" title="sf865cb0">†</a></h4>
+<p>svnがリポジトリ管理するためのディレクトリを作成します。</p>
+<pre>&gt;mkdir c:\var
+&gt;mkdir c:\var\svn
+&gt;mkdir c:\var\svn\documents</pre>
+<p>ここでは次のようなディレクトリの役割を考えています。</p>
+<dl class="list1" style="padding-left:16px;margin-left:16px"><dt>var</dt>
+<dd>Unix系OSの慣習として</dd>
+<dt>svn</dt>
+<dd>snvが管理する場所として（一箇所にしたい）</dd>
+<dt>documents</dt>
+<dd>ドキュメントのリポジトリ用として（カテゴリで分けたい）</dd></dl>
+
+<div class="jumpmenu"><a href="page/SVN/WindowsにSVNサーバをインストールする.html#navigator">↑</a></div><h4 id="content_1_6">リポジトリを作成する  <a class="anchor_super" id="s62845a0" href="page/SVN/Windows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html#s62845a0" title="s62845a0">†</a></h4>
+<pre>&gt;svnadmin create c:\var\svn\documents</pre>
+
+<div class="jumpmenu"><a href="page/SVN/WindowsにSVNサーバをインストールする.html#navigator">↑</a></div><h4 id="content_1_7">リポジトリを設定する  <a class="anchor_super" id="xe528dd5" href="page/SVN/Windows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html#xe528dd5" title="xe528dd5">†</a></h4>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>c:\var\svn\documents\conf\svnserve.conf
+<pre>anon-access = none
+auth-access = write
+password-db = passwd</pre></li></ul>
+<p>上記はそれぞれ次のアクセスを設定します。</p>
+<dl class="list1" style="padding-left:16px;margin-left:16px"><dt>anon-access</dt>
+<dd>匿名アクセス→none（なし）</dd>
+<dt>auth-access</dt>
+<dd>認証アクセス→wirte（読み書き）</dd>
+<dt>password-db</dt>
+<dd>パスワードファイル→passwd（ファイル名）</dd></dl>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>c:\var\svn\documents\conf\passwd
+<pre>ユーザ名=パスワード</pre></li></ul>
+
+<div class="jumpmenu"><a href="page/SVN/WindowsにSVNサーバをインストールする.html#navigator">↑</a></div><h3 id="content_1_8">サーバを起動する  <a class="anchor_super" id="k78177f3" href="page/SVN/Windows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html#k78177f3" title="k78177f3">†</a></h3>
+
+<div class="jumpmenu"><a href="page/SVN/WindowsにSVNサーバをインストールする.html#navigator">↑</a></div><h4 id="content_1_9">デーモンモードで実行する  <a class="anchor_super" id="xc0b0fa5" href="page/SVN/Windows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html#xc0b0fa5" title="xc0b0fa5">†</a></h4>
+<pre>&gt;start svnserve -d -r c:\var\svn</pre>
+<p>ここでオプションは次の意味があります。</p>
+<dl class="list1" style="padding-left:16px;margin-left:16px"><dt>-d</dt>
+<dd>デーモンモードで実行する（デフォルト 3690 番ポートで受け付ける）</dd>
+<dt>-r</dt>
+<dd>仮想ルートを設定する（上位ディレクトリにアクセスさせない）</dd></dl>
+<p>さすがにプロンプトから毎度実行するのはしんどいので、サービスと立ち上げるように別途設定するのがよろしいかと思います。</p>
+
+<div class="jumpmenu"><a href="page/SVN/WindowsにSVNサーバをインストールする.html#navigator">↑</a></div><h4 id="content_1_10">基本ディレクトリ構成を作成する  <a class="anchor_super" id="lb9cf1eb" href="page/SVN/Windows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html#lb9cf1eb" title="lb9cf1eb">†</a></h4>
+<pre>&gt;svn mkdir svn://localhost/documents/trunk -m "create"
+&gt;svn mkdir svn://localhost/documents/branches -m "create"
+&gt;svn mkdir svn://localhost/documents/tags -m "create"</pre>
+<p>SVNでは慣習として次のようなディレクトリ構成をとります。</p>
+<dl class="list1" style="padding-left:16px;margin-left:16px"><dt>trunk</dt>
+<dd>開発中の最新バージョン</dd>
+<dt>branches</dt>
+<dd>版（保守対象）</dd>
+<dt>tags</dt>
+<dd>リリース（保存用）</dd></dl>
+<p>このとき、一度ログインユーザのアカウント名でパスワードを聞かれますがEnterを押してスルーします。次にユーザ名とパスワードをそれぞれ聞いてきますで先に設定したユーザ名とパスワードを入力します。</p>
+
+<div class="jumpmenu"><a href="page/SVN/WindowsにSVNサーバをインストールする.html#navigator">↑</a></div><h2 id="content_1_11">参考  <a class="anchor_super" id="f44661f5" href="page/SVN/Windows%E3%81%ABSVN%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B.html#f44661f5" title="f44661f5">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://www.hyuki.com/techinfo/svninit.html" rel="nofollow">http://www.hyuki.com/techinfo/svninit.html</a></li>
+<li><a href="http://www.caldron.jp/~nabetaro/svn/svnbook-1.4-final/svn.ref.svnserve.html" rel="nofollow">http://www.caldron.jp/~nabetaro/svn/svnbook-1.4-final/svn.ref.svnserve.html</a></li>
+<li><a href="http://www.atmarkit.co.jp/fjava/rensai4/devtool02/devtool02_3.html" rel="nofollow">http://www.atmarkit.co.jp/fjava/rensai4/devtool02/devtool02_3.html</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:07</div>
+		</div></body>
+</html>

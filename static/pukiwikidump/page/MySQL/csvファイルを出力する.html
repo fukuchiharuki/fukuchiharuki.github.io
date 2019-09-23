@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MySQL&#047;csvファイルを出力する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>MySQL&#047;csvファイルを出力する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="mdf42b3e" href="page/MySQL/csv%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B.html#mdf42b3e" title="mdf42b3e">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>MySQL</li>
+<li>tsv</li></ul>
+
+<div class="jumpmenu"><a href="page/MySQL/csvファイルを出力する.html#navigator">↑</a></div><h2 id="content_1_1">関連  <a class="anchor_super" id="i66e8114" href="page/MySQL/csv%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B.html#i66e8114" title="i66e8114">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/MySQL/tsv%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B.html" title="MySQL/tsvファイルを出力する (2223d)">MySQL/tsvファイルを出力する</a></li></ul>
+
+<div class="jumpmenu"><a href="page/MySQL/csvファイルを出力する.html#navigator">↑</a></div><h2 id="content_1_2">概要  <a class="anchor_super" id="we7b81ef" href="page/MySQL/csv%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B.html#we7b81ef" title="we7b81ef">†</a></h2>
+<p>カンマ区切りのデータを出力します。</p>
+
+<div class="jumpmenu"><a href="page/MySQL/csvファイルを出力する.html#navigator">↑</a></div><h2 id="content_1_3">方法  <a class="anchor_super" id="cda3eb26" href="page/MySQL/csv%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B.html#cda3eb26" title="cda3eb26">†</a></h2>
+<pre>$ mysql -u(username) -p(password) (database) -B -e 'select * from APPLICATION_EQIX' | \
+&gt; sed -e 's/"/\\"/g' | \
+&gt; sed -e 's/\t/","/g' | \
+&gt; sed -e 's/^/"/' | \
+&gt; sed -e 's/$/"/'</pre>
+
+<div class="jumpmenu"><a href="page/MySQL/csvファイルを出力する.html#navigator">↑</a></div><h2 id="content_1_4">解説  <a class="anchor_super" id="aeb123e3" href="page/MySQL/csv%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B.html#aeb123e3" title="aeb123e3">†</a></h2>
+<p>mysql の各オプションは以下のとおり。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>-B
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>セパレータとしてタブを使う</li></ul></li>
+<li>-e
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>クエリ指定</li></ul></li></ul>
+<p>続けて sed でタブをカンマにしてフィールドを " で囲みます。
+わざわざ sed で整形する理由についてはひとつめの参考サイトに書いてあります。</p>
+
+<div class="jumpmenu"><a href="page/MySQL/csvファイルを出力する.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="v4495c77" href="page/MySQL/csv%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B.html#v4495c77" title="v4495c77">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://shusatoo.net/db/mysql/mysql-remote-db-result-output-local-csvfile/" rel="nofollow">MySQLリモートDBの結果をローカルCSVファイルに出力する方法 | 開発メモるアル</a></li>
+<li><a href="http://sasuke.main.jp/sqlcsv.html" rel="nofollow">MySQL　CSVファイル入出力</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-21 (水) 10:37:47  (2223d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:55</div>
+		</div></body>
+</html>

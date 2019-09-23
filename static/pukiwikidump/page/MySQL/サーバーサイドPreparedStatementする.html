@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MySQL&#047;サーバーサイドPreparedStatementする - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>MySQL&#047;サーバーサイドPreparedStatementする</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">関連  <a class="anchor_super" id="n4635d81" href="page/MySQL/%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%B5%E3%82%A4%E3%83%89PreparedStatement%E3%81%99%E3%82%8B.html#n4635d81" title="n4635d81">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>MySQL</li>
+<li>Java</li></ul>
+
+<div class="jumpmenu"><a href="page/MySQL/サーバーサイドPreparedStatementする.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="v5776864" href="page/MySQL/%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%B5%E3%82%A4%E3%83%89PreparedStatement%E3%81%99%E3%82%8B.html#v5776864" title="v5776864">†</a></h2>
+<p>JavaでサーバーサイドPreparedStatementします。</p>
+
+<div class="jumpmenu"><a href="page/MySQL/サーバーサイドPreparedStatementする.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="c837ecff" href="page/MySQL/%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%B5%E3%82%A4%E3%83%89PreparedStatement%E3%81%99%E3%82%8B.html#c837ecff" title="c837ecff">†</a></h2>
+<p>接続URLに次のパラメータを足します。</p>
+<pre>useServerPrepStmts=true</pre>
+
+<div class="jumpmenu"><a href="page/MySQL/サーバーサイドPreparedStatementする.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="lecc4c79" href="page/MySQL/%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%B5%E3%82%A4%E3%83%89PreparedStatement%E3%81%99%E3%82%8B.html#lecc4c79" title="lecc4c79">†</a></h2>
+<p>デフォルトの接続だとどうもクライアントPreparedStatementしてるようです（クライアント側でパラメータをバインドしたSQL文を作成して投げる）。
+これに伴ってU+00A5問題なんてのがあるようです。</p>
+<p>しかしサーバーサイドPreparedStatementの採用はそれほどポジティブでもないようです。
+なぜならそもそも実行計画をキャッシュすることがないようだからです。</p>
+
+<div class="jumpmenu"><a href="page/MySQL/サーバーサイドPreparedStatementする.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="q9271ea4" href="page/MySQL/%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%B5%E3%82%A4%E3%83%89PreparedStatement%E3%81%99%E3%82%8B.html#q9271ea4" title="q9271ea4">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://blog.everqueue.com/chiba/2008/12/23/33/" rel="nofollow">http://blog.everqueue.com/chiba/2008/12/23/33/</a></li>
+<li><a href="http://d.hatena.ne.jp/kazuhooku/20081224/1230084621" rel="nofollow">http://d.hatena.ne.jp/kazuhooku/20081224/1230084621</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:55</div>
+		</div></body>
+</html>

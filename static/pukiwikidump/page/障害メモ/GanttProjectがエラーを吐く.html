@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;GanttProjectがエラーを吐く - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;GanttProjectがエラーを吐く</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">関連  <a class="anchor_super" id="e5c6cbc8" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/GanttProject%E3%81%8C%E3%82%A8%E3%83%A9%E3%83%BC%E3%82%92%E5%90%90%E3%81%8F.html#e5c6cbc8" title="e5c6cbc8">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>GanttProject</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/GanttProjectがエラーを吐く.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="b53fb3f0" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/GanttProject%E3%81%8C%E3%82%A8%E3%83%A9%E3%83%BC%E3%82%92%E5%90%90%E3%81%8F.html#b53fb3f0" title="b53fb3f0">†</a></h2>
+<pre>Table "OS/2' does not exist in /System/Library/Fonts/AppleGothic.ttf</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/GanttProjectがエラーを吐く.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="o23e2f85" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/GanttProject%E3%81%8C%E3%82%A8%E3%83%A9%E3%83%BC%E3%82%92%E5%90%90%E3%81%8F.html#o23e2f85" title="o23e2f85">†</a></h2>
+<p>フォントをリードロックしている？</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/GanttProjectがエラーを吐く.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="la6be516" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/GanttProject%E3%81%8C%E3%82%A8%E3%83%A9%E3%83%BC%E3%82%92%E5%90%90%E3%81%8F.html#la6be516" title="la6be516">†</a></h2>
+<pre>The fix is already submitted to the version control and I will rebuild the distros next 
+days. Until that, you may do one of the following (in descending impact on GP 
+features) with the ZIP distribution:
+* remove org.ganttproject.impex.htmlpdf plugin from GP installation directory
+* disable iText based export only: open 
+plugins/org.ganttproject.impex.htmlpdf_2.0/plugin.xml file in any text editor and 
+remove line "&lt;exporter class="org.ganttproject.impex.htmlpdf.ExporterToIText"/&gt;"
+* don't use MacOSX system fonts: open the same file and remove line &lt;dir 
+name="/System/Library/Fonts" absolute="true"/&gt;</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/GanttProjectがエラーを吐く.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="p3eb9e5a" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/GanttProject%E3%81%8C%E3%82%A8%E3%83%A9%E3%83%BC%E3%82%92%E5%90%90%E3%81%8F.html#p3eb9e5a" title="p3eb9e5a">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://code.google.com/p/ganttproject/issues/detail?id=53#c10" rel="nofollow">http://code.google.com/p/ganttproject/issues/detail?id=53#c10</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:47</div>
+		</div></body>
+</html>

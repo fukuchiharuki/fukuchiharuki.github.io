@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;DBUnitのExpectedDatabaseでテーブル数が違う - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;DBUnitのExpectedDatabaseでテーブル数が違う</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="iffd03b1" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/DBUnit%E3%81%AEExpectedDatabase%E3%81%A7%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E6%95%B0%E3%81%8C%E9%81%95%E3%81%86.html#iffd03b1" title="iffd03b1">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>DBUnit</li>
+<li>ExpectedDatabase</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/DBUnitのExpectedDatabaseでテーブル数が違う.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="tc2ef0d8" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/DBUnit%E3%81%AEExpectedDatabase%E3%81%A7%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E6%95%B0%E3%81%8C%E9%81%95%E3%81%86.html#tc2ef0d8" title="tc2ef0d8">†</a></h2>
+<p>CSVを用意して@DatabaseSetupで事前条件と@ExpectedDatabaseで事後条件をセットすると、次の失敗になる。</p>
+<pre>junit.framework.ComparisonFailure: table count expected:&lt;[3]&gt; but was:&lt;[47]&gt;</pre>
+<p>ここのexpected:&lt;[3]&gt;はCSVで用意したテーブル数。was:&lt;[47]&gt;は実際のテーブル数。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/DBUnitのExpectedDatabaseでテーブル数が違う.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="ka940e99" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/DBUnit%E3%81%AEExpectedDatabase%E3%81%A7%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E6%95%B0%E3%81%8C%E9%81%95%E3%81%86.html#ka940e99" title="ka940e99">†</a></h2>
+<p>実際のテーブル数がみられている。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/DBUnitのExpectedDatabaseでテーブル数が違う.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="o4f574e9" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/DBUnit%E3%81%AEExpectedDatabase%E3%81%A7%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E6%95%B0%E3%81%8C%E9%81%95%E3%81%86.html#o4f574e9" title="o4f574e9">†</a></h2>
+<p>@ExpectedDatabaseに検査対象のテーブルを指定する。</p>
+<pre>@ExpectedDatabase(value="/path/to/csv/", table="your_table_name")</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/DBUnitのExpectedDatabaseでテーブル数が違う.html#navigator">↑</a></div><h2 id="content_1_4">備考  <a class="anchor_super" id="y7d92d2c" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/DBUnit%E3%81%AEExpectedDatabase%E3%81%A7%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E6%95%B0%E3%81%8C%E9%81%95%E3%81%86.html#y7d92d2c" title="y7d92d2c">†</a></h2>
+<p><del>複数のテーブルを検査したいときにやっぱり困る。</del><br>
+→複数行@ExpectedDatabaseを書けばいいのかな？</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/DBUnitのExpectedDatabaseでテーブル数が違う.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="r98b9de7" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/DBUnit%E3%81%AEExpectedDatabase%E3%81%A7%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E6%95%B0%E3%81%8C%E9%81%95%E3%81%86.html#r98b9de7" title="r98b9de7">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://stackoverflow.com/questions/21909399/dbunit-test-comparison-failure" rel="nofollow">java - DBUnit Test Comparison Failure - Stack Overflow</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-04-21 (金) 18:28:58  (884d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:45</div>
+		</div></body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>設計パターン&#047;完全コンストラクタ - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>設計パターン&#047;完全コンストラクタ</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="p4ea1c05" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E5%AE%8C%E5%85%A8%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF.html#p4ea1c05" title="p4ea1c05">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>コンストラクタ</li>
+<li>メソッド
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>引数</li></ul></li></ul>
+
+<div class="jumpmenu"><a href="page/設計パターン/完全コンストラクタ.html#navigator">↑</a></div><h2 id="content_1_1">何か  <a class="anchor_super" id="be09cdb6" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E5%AE%8C%E5%85%A8%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF.html#be09cdb6" title="be09cdb6">†</a></h2>
+<pre>生まれながらにして完全体、ただ呼ぶだけ</pre>
+<p>コンストラクタの呼び出しだけでインスタンスの状態を完全にします。属性に対応するsetterを順次呼び出すことによってインスタンスの状態を組み立てるようなことをしません。また、(基本的に)メソッドの呼び出しに伴う引数もなしにします。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Complete Constructor: 完全コンストラクタ</li></ul>
+
+<div class="jumpmenu"><a href="page/設計パターン/完全コンストラクタ.html#navigator">↑</a></div><h2 id="content_1_2">なぜか  <a class="anchor_super" id="m70c6e7d" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E5%AE%8C%E5%85%A8%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF.html#m70c6e7d" title="m70c6e7d">†</a></h2>
+<p>属性に対応するsetterを画一的に用意すればインスタンスの状態を常に変更することができます。しかし、インスタンスの状態が常に不安定であると言うこともできます。また、インスタンスを完全な状態にするための手順を画一的に用意されたsetterから読み取ることは困難です。属性によっては値や関連をもつことが必須であったりそうでなかったりします。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>不安定: setterによってインスタンスの状態を常に変更できてしまう</li>
+<li>不明確: インスタンスを完全な状態にするための手順を読み取れない</li></ul>
+<p>コンストラクタの呼び出しだけでインスタンスの状態を完全にしようとすれば、必要な属性(<strong>事前条件</strong>)はコンストラクタの引数として表現できます。また、不要なsetterをもたないことでインスタンスの状態がいつも安定であると保証することができます。さらに、必要な属性情報を生成時に備えることでメッセージのやり取りがシンプルになり、役割の分担が明確になります。メソッドに引数があると呼び出しの側に仕事の裁量が寄るからです。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>役割の分担: 完全な状態のインスタンスだけで仕事をする</li></ul>
+
+<div class="jumpmenu"><a href="page/設計パターン/完全コンストラクタ.html#navigator">↑</a></div><h2 id="content_1_3">どのように  <a class="anchor_super" id="n455f114" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E5%AE%8C%E5%85%A8%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF.html#n455f114" title="n455f114">†</a></h2>
+<p>たとえば、Webアプリケーションにてパラメータを取り扱うケースを考えます。</p>
+<p>パラメータを取得する場面でキー名を与えるのではなく、</p>
+<pre>request.getParameter("password");</pre>
+<p>キー名をもったインスタンスを作成しておきます。</p>
+<pre>RequestParameter password = new RequestParameter(request, "password");
+password.get();</pre>
+<p>こうすることで、パラメータに対するキー名は何かという問題をインスタンスに閉じることができます。</p>
+
+<div class="jumpmenu"><a href="page/設計パターン/完全コンストラクタ.html#navigator">↑</a></div><h2 id="content_1_4">関連  <a class="anchor_super" id="h8381195" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E5%AE%8C%E5%85%A8%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF.html#h8381195" title="h8381195">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%95%E3%82%A1%E3%82%AF%E3%83%88%E3%83%AA.html" title="設計パターン/ファクトリ (1945d)">設計パターン/ファクトリ</a></li></ul>
+
+<div class="jumpmenu"><a href="page/設計パターン/完全コンストラクタ.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="h2caf564" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E5%AE%8C%E5%85%A8%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF.html#h2caf564" title="h2caf564">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://codeiq.hatenablog.com/entry/2013/08/26/155959" rel="nofollow">いまさら聞けない「オブジェクト指向設計の3つのコツ」～オブジェクト指向設計問題解説 #objectoriented - CodeIQ Blog</a></li>
+<li><a href="http://d.hatena.ne.jp/asakichy/20100119/1263861423" rel="nofollow">Complete Constructor（完全なコンストラクタ） - Strategic Choice</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2014-05-22 (木) 21:40:00  (1949d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:43</div>
+		</div></body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;EclipseからJBossを起動すると例外が起こる - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;EclipseからJBossを起動すると例外が起こる</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">関連  <a class="anchor_super" id="kc9299dd" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Eclipse%E3%81%8B%E3%82%89JBoss%E3%82%92%E8%B5%B7%E5%8B%95%E3%81%99%E3%82%8B%E3%81%A8%E4%BE%8B%E5%A4%96%E3%81%8C%E8%B5%B7%E3%81%93%E3%82%8B.html#kc9299dd" title="kc9299dd">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>JBoss</li>
+<li>Eclipse</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/EclipseからJBossを起動すると例外が起こる.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="hb574185" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Eclipse%E3%81%8B%E3%82%89JBoss%E3%82%92%E8%B5%B7%E5%8B%95%E3%81%99%E3%82%8B%E3%81%A8%E4%BE%8B%E5%A4%96%E3%81%8C%E8%B5%B7%E3%81%93%E3%82%8B.html#hb574185" title="hb574185">†</a></h2>
+<p>EclipseからJbossを起動すると以下の例外が起こる。</p>
+<pre>ERROR [AbstractKernelController] Error installing to Instantiated: ...</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/EclipseからJBossを起動すると例外が起こる.html#navigator">↑</a></div><h3 id="content_1_2">詳しい状況  <a class="anchor_super" id="u2f67a32" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Eclipse%E3%81%8B%E3%82%89JBoss%E3%82%92%E8%B5%B7%E5%8B%95%E3%81%99%E3%82%8B%E3%81%A8%E4%BE%8B%E5%A4%96%E3%81%8C%E8%B5%B7%E3%81%93%E3%82%8B.html#u2f67a32" title="u2f67a32">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>JBoss 6 を JBoss 5 のサーバ設定で動かしている。</li>
+<li>これはEclipseにテンプレートが存在しなかったため。</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/EclipseからJBossを起動すると例外が起こる.html#navigator">↑</a></div><h2 id="content_1_3">原因  <a class="anchor_super" id="oa202c18" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Eclipse%E3%81%8B%E3%82%89JBoss%E3%82%92%E8%B5%B7%E5%8B%95%E3%81%99%E3%82%8B%E3%81%A8%E4%BE%8B%E5%A4%96%E3%81%8C%E8%B5%B7%E3%81%93%E3%82%8B.html#oa202c18" title="oa202c18">†</a></h2>
+<p>EclipseがJVMのオプションをいい感じにしてくれていない。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/EclipseからJBossを起動すると例外が起こる.html#navigator">↑</a></div><h2 id="content_1_4">対策  <a class="anchor_super" id="u40fb031" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Eclipse%E3%81%8B%E3%82%89JBoss%E3%82%92%E8%B5%B7%E5%8B%95%E3%81%99%E3%82%8B%E3%81%A8%E4%BE%8B%E5%A4%96%E3%81%8C%E8%B5%B7%E3%81%93%E3%82%8B.html#u40fb031" title="u40fb031">†</a></h2>
+<p>サーバ設定のテンプレートを作成してくれている人がいるので使わせてもらう。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://www.cs.hs-rm.de/~knauf/public/index.html" rel="nofollow">http://www.cs.hs-rm.de/~knauf/public/index.html</a></li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/EclipseからJBossを起動すると例外が起こる.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="ze961c8b" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Eclipse%E3%81%8B%E3%82%89JBoss%E3%82%92%E8%B5%B7%E5%8B%95%E3%81%99%E3%82%8B%E3%81%A8%E4%BE%8B%E5%A4%96%E3%81%8C%E8%B5%B7%E3%81%93%E3%82%8B.html#ze961c8b" title="ze961c8b">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://community.jboss.org/thread/160526" rel="nofollow">http://community.jboss.org/thread/160526</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:46</div>
+		</div></body>
+</html>

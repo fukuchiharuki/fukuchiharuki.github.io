@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;class.javaが解決できなくてkotlinでSpring Bootできない - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;class.javaが解決できなくてkotlinでSpring Bootできない</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="bb522797" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/class.java%E3%81%8C%E8%A7%A3%E6%B1%BA%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%8F%E3%81%A6kotlin%E3%81%A7Spring%20Boot%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#bb522797" title="bb522797">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Kotlin</li>
+<li>Spring Boot</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/class.javaが解決できなくてkotlinでSpring Bootできない.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="b2e03d62" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/class.java%E3%81%8C%E8%A7%A3%E6%B1%BA%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%8F%E3%81%A6kotlin%E3%81%A7Spring%20Boot%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#b2e03d62" title="b2e03d62">†</a></h2>
+<pre>unresolved reference: java</pre>
+<p>次の箇所で上記のように怒られる。</p>
+<pre>fun main(args: Array&lt;String&gt;) {
+	SpringApplication.run(Application::class.java, *args)
+}</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/class.javaが解決できなくてkotlinでSpring Bootできない.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="uab74651" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/class.java%E3%81%8C%E8%A7%A3%E6%B1%BA%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%8F%E3%81%A6kotlin%E3%81%A7Spring%20Boot%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#uab74651" title="uab74651">†</a></h2>
+<p>kotlin-stdlibが足りてない。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/class.javaが解決できなくてkotlinでSpring Bootできない.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="r6184336" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/class.java%E3%81%8C%E8%A7%A3%E6%B1%BA%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%8F%E3%81%A6kotlin%E3%81%A7Spring%20Boot%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#r6184336" title="r6184336">†</a></h2>
+<p>dependencyに足す。</p>
+<pre>compile("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/class.javaが解決できなくてkotlinでSpring Bootできない.html#navigator">↑</a></div><h2 id="content_1_4">備考  <a class="anchor_super" id="b34db5af" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/class.java%E3%81%8C%E8%A7%A3%E6%B1%BA%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%8F%E3%81%A6kotlin%E3%81%A7Spring%20Boot%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#b34db5af" title="b34db5af">†</a></h2>
+<p>Springにjavaのクラスを渡すにはclass.javaとする。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/class.javaが解決できなくてkotlinでSpring Bootできない.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="ve1139f8" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/class.java%E3%81%8C%E8%A7%A3%E6%B1%BA%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%8F%E3%81%A6kotlin%E3%81%A7Spring%20Boot%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#ve1139f8" title="ve1139f8">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://stackoverflow.com/questions/34144392/kotlin-fooclass-java-unresolved-reference-java-error" rel="nofollow">Kotlin Foo::class.java "Unresolved Reference: Java" error - Stack Overflow</a></li>
+<li><a href="https://blog.ik.am/entries/407" rel="nofollow">Spring Framework 5のKotlinサポート - BLOG.IK.AM</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-12-13 (水) 15:11:54  (648d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:56</div>
+		</div></body>
+</html>

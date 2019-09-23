@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>シェル&#047;実行結果を利用する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>シェル&#047;実行結果を利用する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="ge942557" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#ge942557" title="ge942557">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>exit</li>
+<li>&amp;&amp;</li>
+<li>||</li></ul>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h2 id="content_1_1">関連  <a class="anchor_super" id="yab3735f" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#yab3735f" title="yab3735f">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E6%A8%99%E6%BA%96%E3%82%A8%E3%83%A9%E3%83%BC%E5%87%BA%E5%8A%9B%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B.html" title="シェル/標準エラー出力を取得する (2109d)">シェル/標準エラー出力を取得する</a></li></ul>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h2 id="content_1_2">概要  <a class="anchor_super" id="x888afbe" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#x888afbe" title="x888afbe">†</a></h2>
+<p>実行結果を利用して正常系や異常系に対処します。</p>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h2 id="content_1_3">実行結果を表現する方法  <a class="anchor_super" id="d66a38e1" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#d66a38e1" title="d66a38e1">†</a></h2>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h3 id="content_1_4">正常終了する  <a class="anchor_super" id="wa69b6cf" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#wa69b6cf" title="wa69b6cf">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>sample.sh
+<pre># 正常終了
+exit 0</pre></li></ul>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h3 id="content_1_5">異常終了する  <a class="anchor_super" id="hcdf5d90" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#hcdf5d90" title="hcdf5d90">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>sample.sh
+<pre># 異常終了
+exit 1</pre></li></ul>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h3 id="content_1_6">コマンドの実行結果をシェルスクリプトの実行結果にする  <a class="anchor_super" id="k8b85282" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#k8b85282" title="k8b85282">†</a></h3>
+<p>exit がなければ最後に実行したコマンドの実行結果がそのシェルスクリプトの実行結果になります。</p>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h4 id="content_1_7">正常終了の例  <a class="anchor_super" id="r5bc177f" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#r5bc177f" title="r5bc177f">†</a></h4>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>sample.sh
+<pre># コマンド rm を実行
+rm sample.sh</pre></li></ul>
+<p>次の実行結果を得ます。</p>
+<pre>$ ./sample.sh
+$ echo $?
+0
+$</pre>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h4 id="content_1_8">異常終了の例  <a class="anchor_super" id="q99e593c" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#q99e593c" title="q99e593c">†</a></h4>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>sample.sh
+<pre># コマンド rm を実行
+rm sample2.sh</pre></li></ul>
+<p>次の実行結果を得ます。</p>
+<pre>$ ./sample.sh
+rm: cannot remove `sample2.sh': そのようなファイルやディレクトリはありません
+$ echo $?
+1
+$</pre>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h2 id="content_1_9">実行結果を利用する方法  <a class="anchor_super" id="cdf9a746" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#cdf9a746" title="cdf9a746">†</a></h2>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h3 id="content_1_10">正常終了のとき次の処理を続ける  <a class="anchor_super" id="cc8de289" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#cc8de289" title="cc8de289">†</a></h3>
+<p>sample.sh が正常終了のとき next.sh を続けるには次のようにします。</p>
+<pre>$ ./sample.sh &amp;&amp; ./next.sh</pre>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h3 id="content_1_11">異常終了のとき次の処理を続ける  <a class="anchor_super" id="eb36ee1e" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#eb36ee1e" title="eb36ee1e">†</a></h3>
+<p>sample.sh が異常終了のとき exception.sh を続けるには次のようにします。</p>
+<pre>$ ./sample.sh || exception.sh</pre>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h3 id="content_1_12">正常終了と異常終了で続ける処理を振り分ける  <a class="anchor_super" id="qc208c6c" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#qc208c6c" title="qc208c6c">†</a></h3>
+<p>&amp;&amp; と || を連ねて書くと振り分ける動作をします。</p>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h4 id="content_1_13">正常終了の例  <a class="anchor_super" id="b0ede2c8" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#b0ede2c8" title="b0ede2c8">†</a></h4>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>sample.sh
+<pre>echo sample
+exit 0</pre></li>
+<li>next.sh
+<pre>echo next</pre></li>
+<li>exception.sh
+<pre>echo exception</pre></li></ul>
+<p>次の実行結果を得ます。</p>
+<pre>$ ./sample.sh &amp;&amp; ./next.sh || ./exception.sh
+sample
+next
+$</pre>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h4 id="content_1_14">異常終了の例  <a class="anchor_super" id="m4eaec68" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#m4eaec68" title="m4eaec68">†</a></h4>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>sample.sh
+<pre>echo sample
+exit 1</pre></li>
+<li>next.sh
+<pre>echo next</pre></li>
+<li>exception.sh
+<pre>echo exception</pre></li></ul>
+<p>次の実行結果を得ます。</p>
+<pre>$ ./sample.sh &amp;&amp; ./next.sh || ./exception.sh
+sample
+exception
+$</pre>
+
+<div class="jumpmenu"><a href="page/シェル/実行結果を利用する.html#navigator">↑</a></div><h2 id="content_1_15">参考  <a class="anchor_super" id="t4d23c03" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B.html#t4d23c03" title="t4d23c03">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060224/230604/" rel="nofollow">Linuxコマンド集 - 【 &amp;&amp; 】 1つ目のコマンドが正常終了した場合に2つ目のコマンドを実行する：ITpro</a></li>
+<li><a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230701/?ST=oss" rel="nofollow">Linuxコマンド集 - 【 || 】 1つ目のコマンドの実行に失敗した場合に2つ目のコマンドを実行する：ITpro</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-12-13 (金) 07:27:05  (2109d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:36</div>
+		</div></body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Angular2&#047;複数の要素をテンプレートにして繰り返す - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Angular2&#047;複数の要素をテンプレートにして繰り返す</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="g1c550e0" href="page/Angular2/%E8%A4%87%E6%95%B0%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AB%E3%81%97%E3%81%A6%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%99.html#g1c550e0" title="g1c550e0">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Angular2</li>
+<li>ngFor</li>
+<li>table</li>
+<li>tr</li></ul>
+
+<div class="jumpmenu"><a href="page/Angular2/複数の要素をテンプレートにして繰り返す.html#navigator">↑</a></div><h2 id="content_1_1">したいこと  <a class="anchor_super" id="e2e95807" href="page/Angular2/%E8%A4%87%E6%95%B0%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AB%E3%81%97%E3%81%A6%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%99.html#e2e95807" title="e2e95807">†</a></h2>
+<p>tableを置いていて、ひとつの要素が複数のtrで成るときngForをどう書くか。</p>
+<pre>&lt;table&gt;
+
+  &lt;tr&gt;...&lt;/tr&gt;&lt;!-- item1 --&gt;
+  &lt;tr&gt;...&lt;/tr&gt;&lt;!-- item1 --&gt;
+
+  &lt;tr&gt;...&lt;/tr&gt;&lt;!-- item2 --&gt;
+  &lt;tr&gt;...&lt;/tr&gt;&lt;!-- item2 --&gt;
+
+&lt;/table&gt;</pre>
+
+<div class="jumpmenu"><a href="page/Angular2/複数の要素をテンプレートにして繰り返す.html#navigator">↑</a></div><h2 id="content_1_2">どうやって  <a class="anchor_super" id="vcc9355b" href="page/Angular2/%E8%A4%87%E6%95%B0%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AB%E3%81%97%E3%81%A6%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%99.html#vcc9355b" title="vcc9355b">†</a></h2>
+<p>templateを使います。</p>
+<pre>&lt;table&gt;
+
+  &lt;template ngFor let-item [ngForOf]="list"&gt;
+    &lt;tr&gt;...&lt;/tr&gt;
+    &lt;tr&gt;...&lt;/tr&gt;
+  &lt;/template&gt;
+
+&lt;/table&gt;</pre>
+
+<div class="jumpmenu"><a href="page/Angular2/複数の要素をテンプレートにして繰り返す.html#navigator">↑</a></div><h2 id="content_1_3">ノート  <a class="anchor_super" id="mc8a18e5" href="page/Angular2/%E8%A4%87%E6%95%B0%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AB%E3%81%97%E3%81%A6%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%99.html#mc8a18e5" title="mc8a18e5">†</a></h2>
+<pre>*ngFor</pre>
+<p>とする書き方と結構違うから知らないと書けないよね。</p>
+
+<div class="jumpmenu"><a href="page/Angular2/複数の要素をテンプレートにして繰り返す.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="s05b0988" href="page/Angular2/%E8%A4%87%E6%95%B0%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AB%E3%81%97%E3%81%A6%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%99.html#s05b0988" title="s05b0988">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#star-template" rel="nofollow">Template Syntax - ts</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2016-10-26 (水) 15:25:16  (1061d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:34</div>
+		</div></body>
+</html>

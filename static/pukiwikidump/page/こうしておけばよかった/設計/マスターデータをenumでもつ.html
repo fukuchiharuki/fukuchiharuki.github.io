@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>こうしておけばよかった&#047;設計&#047;マスターデータをenumでもつ - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>こうしておけばよかった&#047;設計&#047;マスターデータをenumでもつ</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="ne8e414f" href="page/%E3%81%93%E3%81%86%E3%81%97%E3%81%A6%E3%81%8A%E3%81%91%E3%81%B0%E3%82%88%E3%81%8B%E3%81%A3%E3%81%9F/%E8%A8%AD%E8%A8%88/%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92enum%E3%81%A7%E3%82%82%E3%81%A4.html#ne8e414f" title="ne8e414f">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>マスタデータ</li>
+<li>enum</li>
+<li>DB、データベース</li></ul>
+
+<div class="jumpmenu"><a href="page/こうしておけばよかった/設計/マスターデータをenumでもつ.html#navigator">↑</a></div><h2 id="content_1_1">何か  <a class="anchor_super" id="m679f08e" href="page/%E3%81%93%E3%81%86%E3%81%97%E3%81%A6%E3%81%8A%E3%81%91%E3%81%B0%E3%82%88%E3%81%8B%E3%81%A3%E3%81%9F/%E8%A8%AD%E8%A8%88/%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92enum%E3%81%A7%E3%82%82%E3%81%A4.html#m679f08e" title="m679f08e">†</a></h2>
+<p>マスタデータをenumでもつ。</p>
+
+<div class="jumpmenu"><a href="page/こうしておけばよかった/設計/マスターデータをenumでもつ.html#navigator">↑</a></div><h2 id="content_1_2">なぜか  <a class="anchor_super" id="ubb8dcaf" href="page/%E3%81%93%E3%81%86%E3%81%97%E3%81%A6%E3%81%8A%E3%81%91%E3%81%B0%E3%82%88%E3%81%8B%E3%81%A3%E3%81%9F/%E8%A8%AD%E8%A8%88/%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92enum%E3%81%A7%E3%82%82%E3%81%A4.html#ubb8dcaf" title="ubb8dcaf">†</a></h2>
+<p>マスタデータはDBにあるもという頭で実装を進めてしまった。しかし、選択肢によって異なる振る舞いをさせたい場面がでてきた。マスタデータごとに振る舞いの違いをDBの列に追加するのは手間であったので、この場合はenumのオブジェクトに変換してやることにした。</p>
+<p>その結果、管理が二重になった。単に選択肢があるだけのものはDBだけにあり、振る舞いをもつものはDBとenumにあるという状態。マスタデータの追加・変更で抜けが起こるのは時間の問題だと思える。</p>
+<p>また、enumを得るのにDBからいちどレコードを引かねばならないことになってしまった。これはコードの見通しを悪くするし、テストコードの作成をやりにくくさせる結果になった。</p>
+<p>さらに、DBにレコード追加すれば選択肢を増やせるというありがちなメリットは、結局活かせていない。ビジネスサイドがそれをできるのでなければ、むしろアプリを変更してビルド・デプロイかける方がよっぽど楽で安心感のある作業である。</p>
+
+<div class="jumpmenu"><a href="page/こうしておけばよかった/設計/マスターデータをenumでもつ.html#navigator">↑</a></div><h2 id="content_1_3">どのように  <a class="anchor_super" id="c897ffbd" href="page/%E3%81%93%E3%81%86%E3%81%97%E3%81%A6%E3%81%8A%E3%81%91%E3%81%B0%E3%82%88%E3%81%8B%E3%81%A3%E3%81%9F/%E8%A8%AD%E8%A8%88/%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92enum%E3%81%A7%E3%82%82%E3%81%A4.html#c897ffbd" title="c897ffbd">†</a></h2>
+<p>マスタデータはenumにもたせることを基本にする。</p>
+<p>DBにもたせるマスタデータをどうかんがえるか。ビジネスサイドが画面などを通して変更したい都合があるときだけでよい。画面に見せて画面から変更できるものなので、DBに永続化させる対象として違和感はない。</p>
+
+<div class="jumpmenu"><a href="page/こうしておけばよかった/設計/マスターデータをenumでもつ.html#navigator">↑</a></div><h2 id="content_1_4">反省  <a class="anchor_super" id="j6d56d0f" href="page/%E3%81%93%E3%81%86%E3%81%97%E3%81%A6%E3%81%8A%E3%81%91%E3%81%B0%E3%82%88%E3%81%8B%E3%81%A3%E3%81%9F/%E8%A8%AD%E8%A8%88/%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92enum%E3%81%A7%E3%82%82%E3%81%A4.html#j6d56d0f" title="j6d56d0f">†</a></h2>
+<p>ユースケースをよく考えなければならなかった。たしかに、DBのレコードを追加すれば選択肢を増やせはするが、それはenumの一行を足すのと変わらない。むしろ、振る舞いをもつような業務的に意味のある項目であるならば、コードとして表現されている方が好ましかった。</p>
+</div><div id="lastmodified">Last-modified: 2018-08-31 (金) 11:30:35  (387d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:27</div>
+		</div></body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>設計パターン&#047;リポジトリ - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>設計パターン&#047;リポジトリ</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="cc360d0c" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA.html#cc360d0c" title="cc360d0c">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>エンティティ</li>
+<li>永続化</li></ul>
+
+<div class="jumpmenu"><a href="page/設計パターン/リポジトリ.html#navigator">↑</a></div><h2 id="content_1_1">何か  <a class="anchor_super" id="r660635d" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA.html#r660635d" title="r660635d">†</a></h2>
+<pre>転送装置</pre>
+<p>インスタンスの永続化に関わる処理をするための専用クラスを設けます。</p>
+
+<div class="jumpmenu"><a href="page/設計パターン/リポジトリ.html#navigator">↑</a></div><h2 id="content_1_2">なぜか  <a class="anchor_super" id="tfe8b634" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA.html#tfe8b634" title="tfe8b634">†</a></h2>
+<p>データベースに接続してオブジェクトを検索しインスタンスを生成する手順は複雑です。しかしこの手順はドメインモデルにおける責務とは別のところにあります。ドメインモデルにおける責務はオブジェクトがデータベースから復元された状態で考えるからです。別の言い方をするとオブジェクトがデータベースにあるのかファイルにあるのかという問題ではないからです。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>複雑な手順</li>
+<li>ドメインモデルにおける責務の外</li></ul>
+<p>そこで、データベースからオブジェクトを検索しインスタンスを生成する、あるいは逆にインスタンスをデータベースに保存することを専門の責務にするクラスを設けます。これをリポジトリと呼びます。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>データベース処理の隠ぺい</li></ul>
+
+<div class="jumpmenu"><a href="page/設計パターン/リポジトリ.html#navigator">↑</a></div><h2 id="content_1_3">どのように  <a class="anchor_super" id="u2facc05" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA.html#u2facc05" title="u2facc05">†</a></h2>
+<p>リポジトリを通じてエンティティを得るようにします。</p>
+<pre>UserEntityRepository repository = new UserEntityRepository();
+List&lt;UserEntity&gt; users = repository.findByBloodType("B");</pre>
+<p>リポジトリは複雑なデータベース処理を隠ぺいします。</p>
+<pre>UserEntityRepository {
+
+  findByBoodType(bloodType) {
+    List&lt;UserEntity&gt; users = new ArrayList&lt;UserEntity&gt;();
+    /*
+     * データベースからエンティティを復元するための手続き
+     */
+    return users;
+  }
+
+}</pre>
+
+<div class="jumpmenu"><a href="page/設計パターン/リポジトリ.html#navigator">↑</a></div><h2 id="content_1_4">関連  <a class="anchor_super" id="n2b3305b" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA.html#n2b3305b" title="n2b3305b">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%95%E3%82%A1%E3%82%AF%E3%83%88%E3%83%AA.html" title="設計パターン/ファクトリ (1945d)">設計パターン/ファクトリ</a></li></ul>
+
+<div class="jumpmenu"><a href="page/設計パターン/リポジトリ.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="ecb23b96" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA.html#ecb23b96" title="ecb23b96">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://d.hatena.ne.jp/asakichy/20110601/1306879805" rel="nofollow">ドメイン駆動設計・アプリケーション構築編・リポジトリ - Strategic Choice</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2014-05-23 (金) 22:46:03  (1948d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:42</div>
+		</div></body>
+</html>

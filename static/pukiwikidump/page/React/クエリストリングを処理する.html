@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>React&#047;クエリストリングを処理する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>React&#047;クエリストリングを処理する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="vc2ae9e6" href="page/React/%E3%82%AF%E3%82%A8%E3%83%AA%E3%82%B9%E3%83%88%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%92%E5%87%A6%E7%90%86%E3%81%99%E3%82%8B.html#vc2ae9e6" title="vc2ae9e6">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>React</li>
+<li>react-router</li>
+<li>Query string</li>
+<li>URLSearchParams</li></ul>
+
+<div class="jumpmenu"><a href="page/React/クエリストリングを処理する.html#navigator">↑</a></div><h2 id="content_1_1">したいこと  <a class="anchor_super" id="pbe1e17f" href="page/React/%E3%82%AF%E3%82%A8%E3%83%AA%E3%82%B9%E3%83%88%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%92%E5%87%A6%E7%90%86%E3%81%99%E3%82%8B.html#pbe1e17f" title="pbe1e17f">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>クエリストリングを受け取って状態を初期化する</li>
+<li>ボタンクリックなどで状態を変更してURL（クエリストリング）も変更する</li></ul>
+
+<div class="jumpmenu"><a href="page/React/クエリストリングを処理する.html#navigator">↑</a></div><h2 id="content_1_2">どうやって  <a class="anchor_super" id="p8530152" href="page/React/%E3%82%AF%E3%82%A8%E3%83%AA%E3%82%B9%E3%83%88%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%92%E5%87%A6%E7%90%86%E3%81%99%E3%82%8B.html#p8530152" title="p8530152">†</a></h2>
+<p>最終的には次のような形にできる。</p>
+<pre>class Hoge extends React.Component {
+
+  // this.update()で状態を初期化する
+  componentDidMount() {
+    this.update(this.props)
+  }
+
+  // ボタンクリックなどで
+  // 新しいクエリストリングを作成してURLを変更する
+  // ここでは状態を変更しない
+  refresh() {
+    const { location, history } = this.props
+    const { search } = location
+
+    const reconstructedSearch = ※ 新しいクエリストリング（search）を作成する
+
+    history.push({
+      search: reconstructedSearch
+    })
+  }
+
+  // 新しいpropsを受け取ったとき
+  // this.update()で状態を変更する
+  // ただし、クエリストリングの変更があったときだけ
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.search === this.props.location.search) return
+    this.update(nextProps)
+  }
+
+  // 状態を初期化（または変更）する
+  update(props) {
+    ※ props（this.propsかnextProps）を使って状態を初期化・変更する
+  }
+
+}</pre>
+
+<div class="jumpmenu"><a href="page/React/クエリストリングを処理する.html#navigator">↑</a></div><h2 id="content_1_3">ちなみに  <a class="anchor_super" id="w5c7ad19" href="page/React/%E3%82%AF%E3%82%A8%E3%83%AA%E3%82%B9%E3%83%88%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%92%E5%87%A6%E7%90%86%E3%81%99%E3%82%8B.html#w5c7ad19" title="w5c7ad19">†</a></h2>
+<p>searchの分解や再構成はURLSearchParamsを使えば楽にできる。</p>
+
+<div class="jumpmenu"><a href="page/React/クエリストリングを処理する.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="o6befa26" href="page/React/%E3%82%AF%E3%82%A8%E3%83%AA%E3%82%B9%E3%83%88%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%92%E5%87%A6%E7%90%86%E3%81%99%E3%82%8B.html#o6befa26" title="o6befa26">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://qiita.com/shora_kujira16/items/3720c5468fc7f095cf50" rel="nofollow">react-routerでquery stringを扱う - Qiita</a></li>
+<li><a href="http://portaltan.hatenablog.com/entry/2015/08/19/193732" rel="nofollow">ReactのcomponentWillReceiveProps内ではまだpropsは反映されていない - 脳汁portal</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/API/URLSearchParams" rel="nofollow">URLSearchParams - Web API インターフェイス | MDN</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2018-01-18 (木) 17:53:12  (612d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:03</div>
+		</div></body>
+</html>

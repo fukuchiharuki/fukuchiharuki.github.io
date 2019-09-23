@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;Tomcatが起動しない - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;Tomcatが起動しない</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><p>このログはTomcatのインストールができていなかったというオチです。
+Tomcat関連のインストールは「<a href="page/Windows%E3%81%A7Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B.html" title="WindowsでWebアプリケーションを作ってみる (2227d)">WindowsでWebアプリケーションを作ってみる</a>」を参考にしてみてください。開発環境くらいは整うと思います。</p>
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="z72665ff" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#z72665ff" title="z72665ff">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Apache</li>
+<li>Tomcat</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatが起動しない.html#navigator">↑</a></div><h2 id="content_1_1">関連  <a class="anchor_super" id="ad37df00" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#ad37df00" title="ad37df00">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E9%96%A2%E9%80%A3.html" title="障害メモ/Tomcat関連 (2223d)">障害メモ/Tomcat関連</a></li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatが起動しない.html#navigator">↑</a></div><h2 id="content_1_2">現象  <a class="anchor_super" id="ic5971ed" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#ic5971ed" title="ic5971ed">†</a></h2>
+<p>AJPでTomcatに接続したいが、
+ブラウザから確認できない。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatが起動しない.html#navigator">↑</a></div><h3 id="content_1_3">Apacheのエラーメッセージ  <a class="anchor_super" id="hd838cd6" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#hd838cd6" title="hd838cd6">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>/etc/httpd/logs/error_log</li></ul>
+<pre>[Sun Oct 17 23:48:46 2010] [error] proxy: AJP: disabled connection for (localhost)
+[Sun Oct 17 23:49:05 2010] [error] (111)Connection refused: proxy: AJP: attempt to connect to 127.0.0.1:8009 (localhost) failed
+[Sun Oct 17 23:49:05 2010] [error] ap_proxy_connect_backend disabling worker for (localhost)
+[Sun Oct 17 23:49:05 2010] [error] proxy: AJP: failed to make connection to backend: localhost</pre>
+<p>どうもローカルに接続できないとかって。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatが起動しない.html#navigator">↑</a></div><h3 id="content_1_4">telnetのエラーメッセージ  <a class="anchor_super" id="h6ba9c25" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#h6ba9c25" title="h6ba9c25">†</a></h3>
+<p>8080番へtelnetしてみる。やっぱり繋がってない。</p>
+<pre>$ telnet localhost 8080
+Trying 127.0.0.1...
+telnet: connect to address 127.0.0.1: Connection refused</pre>
+<p>そもそも8080が上がっていないのでは。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatが起動しない.html#navigator">↑</a></div><h3 id="content_1_5">リスンしているポートを確認  <a class="anchor_super" id="s7f678df" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#s7f678df" title="s7f678df">†</a></h3>
+<pre>$ netstat -anp</pre>
+<p>21番、22番、80番しかリスンしていない。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatが起動しない.html#navigator">↑</a></div><h2 id="content_1_6">原因  <a class="anchor_super" id="ge43dc92" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#ge43dc92" title="ge43dc92">†</a></h2>
+<p>Apacheがどう、ではなく、Tomcatがまともに上がっていないっぽい。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>その通りでした。</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatが起動しない.html#navigator">↑</a></div><h2 id="content_1_7">対策  <a class="anchor_super" id="of791ed8" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#of791ed8" title="of791ed8">†</a></h2>
+<p>.tar.gzを解凍して素直にstartup.shからの起動でリスンされました。
+AJPのポート（8009）のコネクタはデフォルトで設定されている。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Tomcatが起動しない.html#navigator">↑</a></div><h2 id="content_1_8">参考  <a class="anchor_super" id="t27b9d25" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Tomcat%E3%81%8C%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%AA%E3%81%84.html#t27b9d25" title="t27b9d25">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://www.javaroad.jp/opensource/js_tomcat3.htm" rel="nofollow">Tomcat－３．Webサーバとの連携</a></li>
+<li><a href="http://thinkit.co.jp/free/article/0708/2/1/" rel="nofollow">Tomcatマスターになるために</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-21 (水) 10:13:07  (2223d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:54</div>
+		</div></body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;Redmineを再起動したら立ち上がらなくなった - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;Redmineを再起動したら立ち上がらなくなった</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="q514f14c" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Redmine%E3%82%92%E5%86%8D%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%9F%E3%82%89%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%8C%E3%82%89%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F.html#q514f14c" title="q514f14c">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Redmine</li>
+<li>再起動</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Redmineを再起動したら立ち上がらなくなった.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="j263d56a" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Redmine%E3%82%92%E5%86%8D%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%9F%E3%82%89%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%8C%E3%82%89%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F.html#j263d56a" title="j263d56a">†</a></h2>
+<p>Redmineを再起動したら立ち上がらなくなった。</p>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>Redmineを再起動
+<pre>$ touch /path/to/redmine/apps/redmine/htdocs/tmp/restart.txt</pre></li>
+<li>ブラウザからRedmineにアクセス
+<pre>We're sorry, but something went wrong.</pre></li></ol>
+
+<div class="jumpmenu"><a href="page/障害メモ/Redmineを再起動したら立ち上がらなくなった.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="sa0fd3a7" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Redmine%E3%82%92%E5%86%8D%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%9F%E3%82%89%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%8C%E3%82%89%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F.html#sa0fd3a7" title="sa0fd3a7">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>/path/to/redmine/apache2/logs/error_log
+<pre>undefined method `log_path' for #&lt;Rails::Application::Configuration:0x00000001e5edd0&gt; (NoMethodError)</pre></li></ul>
+<p>参考サイトによるとconfig.log_pathはもはやもうない、ということらしい。</p>
+<pre>Documentation fixed. Rails' config.log_path is no longer available, you have to explicitly set the path to your logfile.</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/Redmineを再起動したら立ち上がらなくなった.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="i752be6e" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Redmine%E3%82%92%E5%86%8D%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%9F%E3%82%89%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%8C%E3%82%89%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F.html#i752be6e" title="i752be6e">†</a></h2>
+<p>ログファイルの指定を固定値にしました。</p>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>修正候補ファイルを探す
+<pre>$ find /path/to/redmine -name '*.rb' -exec grep -q log_path {} \; -print</pre></li>
+<li>(いっぱいでたが)次のファイルだけ修正
+<pre>$ vim /path/to/redmine/apps/redmine/htdocs/config/environments/production.rb</pre>
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>修正内容
+<pre>#config.logger = Logger.new(config.log_path)
+config.logger = Logger.new('/path/to/redmine/apps/redmine/htdocs/log/production.log')</pre></li></ul></li>
+<li>Redmineを再起動
+<pre>$ cd /path/to/redmine
+$ ./ctlscript.sh restart apache</pre></li>
+<li>直った</li></ol>
+
+<div class="jumpmenu"><a href="page/障害メモ/Redmineを再起動したら立ち上がらなくなった.html#navigator">↑</a></div><h2 id="content_1_4">備考  <a class="anchor_super" id="meb709d7" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Redmine%E3%82%92%E5%86%8D%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%9F%E3%82%89%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%8C%E3%82%89%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F.html#meb709d7" title="meb709d7">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>なぜ再起動のときにだけ作用するのかまでは見てない</li>
+<li>そもそもしたかったことは担当者のデフォルト値設定(参考サイト)</li>
+<li>再起動の方法を変えたのはビビってたから</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Redmineを再起動したら立ち上がらなくなった.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="x3e7411d" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Redmine%E3%82%92%E5%86%8D%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%9F%E3%82%89%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%8C%E3%82%89%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F.html#x3e7411d" title="x3e7411d">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://www.redmine.org/issues/11603" rel="nofollow">Defect #11603: log file rotation is broken: undefined method `log_path' for #&lt;Rails::Application::Configuration:0xb60966d4&gt; - Redmine</a></li>
+<li><a href="http://redmine.jp/faq/issue/set_current_user_to_assigned_to_field/" rel="nofollow">新規チケット作成時、デフォルトの担当者をチケット作成者にする — Redmine.JP</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2014-06-02 (月) 09:37:05  (1938d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:52</div>
+		</div></body>
+</html>

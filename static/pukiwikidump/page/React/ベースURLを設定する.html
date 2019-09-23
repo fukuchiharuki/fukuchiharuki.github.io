@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>React&#047;ベースURLを設定する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>React&#047;ベースURLを設定する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="y70405d9" href="page/React/%E3%83%99%E3%83%BC%E3%82%B9URL%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B.html#y70405d9" title="y70405d9">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>React</li>
+<li>create-react-app</li>
+<li>PUBLIC_URL</li>
+<li>cross-env</li></ul>
+
+<div class="jumpmenu"><a href="page/React/ベースURLを設定する.html#navigator">↑</a></div><h2 id="content_1_1">したいこと  <a class="anchor_super" id="y20bbae1" href="page/React/%E3%83%99%E3%83%BC%E3%82%B9URL%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B.html#y20bbae1" title="y20bbae1">†</a></h2>
+<p>ベースURLを設定したい。</p>
+<p>たとえば、GitHubを使って次のようなURLで公開するためのビルドをしたい。</p>
+<pre>https://&lt;username&gt;.github.io/&lt;repository&gt;/&lt;subdirectory&gt;/build/</pre>
+
+<div class="jumpmenu"><a href="page/React/ベースURLを設定する.html#navigator">↑</a></div><h2 id="content_1_2">どうやって  <a class="anchor_super" id="qbc2fea8" href="page/React/%E3%83%99%E3%83%BC%E3%82%B9URL%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B.html#qbc2fea8" title="qbc2fea8">†</a></h2>
+<p>環境変数「PUBLIC_URL」を設定する。cross-envを使って次のように設定できる。</p>
+<p>package.json:</p>
+<pre>{
+  "scripts": {
+    "build": "cross-env PUBLIC_URL=/&lt;repository&gt;/&lt;subdirectory&gt;/build/ react-scripts build",
+  }
+}</pre>
+
+<div class="jumpmenu"><a href="page/React/ベースURLを設定する.html#navigator">↑</a></div><h2 id="content_1_3">ちなみに  <a class="anchor_super" id="fa2e1a5a" href="page/React/%E3%83%99%E3%83%BC%E3%82%B9URL%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B.html#fa2e1a5a" title="fa2e1a5a">†</a></h2>
+<p>cross-envは備えつけではないのでインストールが必要。</p>
+<pre>$ npm install --save-dev cross-env</pre>
+
+<div class="jumpmenu"><a href="page/React/ベースURLを設定する.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="e78a80d6" href="page/React/%E3%83%99%E3%83%BC%E3%82%B9URL%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B.html#e78a80d6" title="e78a80d6">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://stackoverflow.com/questions/42686149/create-react-app-build-with-public-url" rel="nofollow">create-react-app build with PUBLIC_URL - Stack Overflow</a></li></ul>
+
+<div class="jumpmenu"><a href="page/React/ベースURLを設定する.html#navigator">↑</a></div><h2 id="content_1_5">関連  <a class="anchor_super" id="le8c922a" href="page/React/%E3%83%99%E3%83%BC%E3%82%B9URL%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B.html#le8c922a" title="le8c922a">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/react-router-dom%E3%81%A7%E3%83%99%E3%83%BC%E3%82%B9URL%E3%81%8C%E6%8A%9C%E3%81%91%E3%82%8B.html" title="障害メモ/react-router-domでベースURLが抜ける (647d)">障害メモ/react-router-domでベースURLが抜ける</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-12-14 (木) 14:34:35  (647d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:04</div>
+		</div></body>
+</html>

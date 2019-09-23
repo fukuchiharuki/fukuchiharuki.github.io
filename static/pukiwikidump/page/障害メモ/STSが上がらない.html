@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;STSが上がらない - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;STSが上がらない</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="b1d148b3" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/STS%E3%81%8C%E4%B8%8A%E3%81%8C%E3%82%89%E3%81%AA%E3%81%84.html#b1d148b3" title="b1d148b3">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>STS</li>
+<li>Eclipse</li>
+<li>java</li>
+<li>64bit</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/STSが上がらない.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="a2cb3b6a" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/STS%E3%81%8C%E4%B8%8A%E3%81%8C%E3%82%89%E3%81%AA%E3%81%84.html#a2cb3b6a" title="a2cb3b6a">†</a></h2>
+<p>ダウンロードしたSTSが上がらない。</p>
+<pre>Java was started but returned exit code=13</pre>
+<p>STSもJDKもそれぞれベーシックにしているものをダウンロードした。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>STS
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="https://spring.io/tools/sts" rel="nofollow">Spring Tool Suite™ (STS)</a> の「Download STS (3.9.1.RELEASE for Windows)」</li></ul></li>
+<li>JDK
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html" rel="nofollow">Java SE Development Kit 9 - Downloads</a> の「jdk-9.0.1_windows-x64_bin.exe」</li></ul></li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/STSが上がらない.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="ie9d2130" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/STS%E3%81%8C%E4%B8%8A%E3%81%8C%E3%82%89%E3%81%AA%E3%81%84.html#ie9d2130" title="ie9d2130">†</a></h2>
+<p>64bit用か32bit用かで間違えてる。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/STSが上がらない.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="ded81709" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/STS%E3%81%8C%E4%B8%8A%E3%81%8C%E3%82%89%E3%81%AA%E3%81%84.html#ded81709" title="ded81709">†</a></h2>
+<p>STSからベーシックにダウンロードできるパッケージは32bit用なので、<a href="https://spring.io/tools/sts/all" rel="nofollow">ダウンロードページ</a>から64bit用のパッケージをダウンロードする。</p>
+<p>あるいはSTS.ini (eclipse.iniにあたるもの)でどうにかする方法もあるみたいだが、素直に環境に合わせて用意すればいいと思う。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/STSが上がらない.html#navigator">↑</a></div><h2 id="content_1_4">備考  <a class="anchor_super" id="f3cf26cc" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/STS%E3%81%8C%E4%B8%8A%E3%81%8C%E3%82%89%E3%81%AA%E3%81%84.html#f3cf26cc" title="f3cf26cc">†</a></h2>
+<p>JDKはベーシックにダウンロードできるものが64bit用のもの。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/STSが上がらない.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="v76f836a" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/STS%E3%81%8C%E4%B8%8A%E3%81%8C%E3%82%89%E3%81%AA%E3%81%84.html#v76f836a" title="v76f836a">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://stackoverflow.com/questions/27019786/eclipse-java-was-started-but-returned-error-code-13" rel="nofollow">Eclipse: Java was started but returned error code=13 - Stack Overflow</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-12-13 (水) 13:42:06  (648d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:52</div>
+		</div></body>
+</html>

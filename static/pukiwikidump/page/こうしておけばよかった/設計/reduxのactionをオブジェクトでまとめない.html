@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>こうしておけばよかった&#047;設計&#047;reduxのactionをオブジェクトでまとめない - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>こうしておけばよかった&#047;設計&#047;reduxのactionをオブジェクトでまとめない</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="a8ee9dca" href="page/%E3%81%93%E3%81%86%E3%81%97%E3%81%A6%E3%81%8A%E3%81%91%E3%81%B0%E3%82%88%E3%81%8B%E3%81%A3%E3%81%9F/%E8%A8%AD%E8%A8%88/redux%E3%81%AEaction%E3%82%92%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%A7%E3%81%BE%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84.html#a8ee9dca" title="a8ee9dca">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>React</li>
+<li>Redux</li>
+<li>action</li></ul>
+
+<div class="jumpmenu"><a href="page/こうしておけばよかった/設計/reduxのactionをオブジェクトでまとめない.html#navigator">↑</a></div><h2 id="content_1_1">何か  <a class="anchor_super" id="i35a0957" href="page/%E3%81%93%E3%81%86%E3%81%97%E3%81%A6%E3%81%8A%E3%81%91%E3%81%B0%E3%82%88%E3%81%8B%E3%81%A3%E3%81%9F/%E8%A8%AD%E8%A8%88/redux%E3%81%AEaction%E3%82%92%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%A7%E3%81%BE%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84.html#i35a0957" title="i35a0957">†</a></h2>
+<p>Reactのコンポーネントはイベント処理をonSubmitButtonClickなどでひとつひとつ受け取る。</p>
+
+<div class="jumpmenu"><a href="page/こうしておけばよかった/設計/reduxのactionをオブジェクトでまとめない.html#navigator">↑</a></div><h2 id="content_1_2">なぜか  <a class="anchor_super" id="i9216fb9" href="page/%E3%81%93%E3%81%86%E3%81%97%E3%81%A6%E3%81%8A%E3%81%91%E3%81%B0%E3%82%88%E3%81%8B%E3%81%A3%E3%81%9F/%E8%A8%AD%E8%A8%88/redux%E3%81%AEaction%E3%82%92%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%A7%E3%81%BE%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84.html#i9216fb9" title="i9216fb9">†</a></h2>
+<p>ReactのコンポーネントにReduxの仕組みでactionをpropsにセットする際、楽だろうとprops.actionsにまとめて受け取るようしたが、あまりよいやり方とは言えない。確かにコンポーネント間の受け渡しは一見楽なのだが、コンポーネントとしてインタフェースが見えづらく、部品としての精度が悪い。</p>
+
+<div class="jumpmenu"><a href="page/こうしておけばよかった/設計/reduxのactionをオブジェクトでまとめない.html#navigator">↑</a></div><h2 id="content_1_3">どのように  <a class="anchor_super" id="t647f45b" href="page/%E3%81%93%E3%81%86%E3%81%97%E3%81%A6%E3%81%8A%E3%81%91%E3%81%B0%E3%82%88%E3%81%8B%E3%81%A3%E3%81%9F/%E8%A8%AD%E8%A8%88/redux%E3%81%AEaction%E3%82%92%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%A7%E3%81%BE%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84.html#t647f45b" title="t647f45b">†</a></h2>
+<p>イベント処理をひとつひとつonSubmitButtonClickなどで受け取るようにする。これが、親玉のコンポーネントから受け渡すのに面倒であるということであるなら、Reduxの仕組みでactionをセットすることができる。むしろ、actionを親玉から渡そうとすると中間層が受け渡しするだけでかなり面倒になる。</p>
+
+<div class="jumpmenu"><a href="page/こうしておけばよかった/設計/reduxのactionをオブジェクトでまとめない.html#navigator">↑</a></div><h2 id="content_1_4">反省  <a class="anchor_super" id="m7a9a634" href="page/%E3%81%93%E3%81%86%E3%81%97%E3%81%A6%E3%81%8A%E3%81%91%E3%81%B0%E3%82%88%E3%81%8B%E3%81%A3%E3%81%9F/%E8%A8%AD%E8%A8%88/redux%E3%81%AEaction%E3%82%92%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%A7%E3%81%BE%E3%81%A8%E3%82%81%E3%81%AA%E3%81%84.html#m7a9a634" title="m7a9a634">†</a></h2>
+<p>規模が大きくなってくると、序盤で手を抜いたところから仇になる。</p>
+</div><div id="lastmodified">Last-modified: 2018-09-11 (火) 15:56:27  (376d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:26</div>
+		</div></body>
+</html>

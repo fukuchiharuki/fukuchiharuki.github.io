@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>シェル&#047;標準入力から一行ずつ処理する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>シェル&#047;標準入力から一行ずつ処理する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">関連  <a class="anchor_super" id="u8023b82" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E6%A8%99%E6%BA%96%E5%85%A5%E5%8A%9B%E3%81%8B%E3%82%89%E4%B8%80%E8%A1%8C%E3%81%9A%E3%81%A4%E5%87%A6%E7%90%86%E3%81%99%E3%82%8B.html#u8023b82" title="u8023b82">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>sh</li>
+<li>awk</li></ul>
+
+<div class="jumpmenu"><a href="page/シェル/標準入力から一行ずつ処理する.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="mb6be8e9" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E6%A8%99%E6%BA%96%E5%85%A5%E5%8A%9B%E3%81%8B%E3%82%89%E4%B8%80%E8%A1%8C%E3%81%9A%E3%81%A4%E5%87%A6%E7%90%86%E3%81%99%E3%82%8B.html#mb6be8e9" title="mb6be8e9">†</a></h2>
+<p>次のように実行するときにファイルを一行ずつ処理したい。</p>
+<pre>./test.sh &lt; file.txt</pre>
+
+<div class="jumpmenu"><a href="page/シェル/標準入力から一行ずつ処理する.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="zff23f9f" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E6%A8%99%E6%BA%96%E5%85%A5%E5%8A%9B%E3%81%8B%E3%82%89%E4%B8%80%E8%A1%8C%E3%81%9A%E3%81%A4%E5%87%A6%E7%90%86%E3%81%99%E3%82%8B.html#zff23f9f" title="zff23f9f">†</a></h2>
+<p>こう書きます。</p>
+<pre>#!/bin/sh
+
+while read LINE
+do
+    # ここに $LINE を使った処理
+done</pre>
+
+<div class="jumpmenu"><a href="page/シェル/標準入力から一行ずつ処理する.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="y384d03a" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E6%A8%99%E6%BA%96%E5%85%A5%E5%8A%9B%E3%81%8B%E3%82%89%E4%B8%80%E8%A1%8C%E3%81%9A%E3%81%A4%E5%87%A6%E7%90%86%E3%81%99%E3%82%8B.html#y384d03a" title="y384d03a">†</a></h2>
+<p>一行ずつ処理をするなら</p>
+<pre>awk '{print $1+1}' &lt; /dev/stdin</pre>
+<p>した方がいいよ、という見方もあるようです。詳しくは参考サイトをご覧になってください。</p>
+
+<div class="jumpmenu"><a href="page/シェル/標準入力から一行ずつ処理する.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="h9674282" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E6%A8%99%E6%BA%96%E5%85%A5%E5%8A%9B%E3%81%8B%E3%82%89%E4%B8%80%E8%A1%8C%E3%81%9A%E3%81%A4%E5%87%A6%E7%90%86%E3%81%99%E3%82%8B.html#h9674282" title="h9674282">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://shellscript.sunone.me/input_output.html" rel="nofollow">http://shellscript.sunone.me/input_output.html</a></li>
+<li><a href="http://www.usptomonokai.jp/TOMONOKAI_CMS/CGI/TOMONOKAI_CMS.CGI?PAGE=20120212" rel="nofollow">http://www.usptomonokai.jp/TOMONOKAI_CMS/CGI/TOMONOKAI_CMS.CGI?PAGE=20120212</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:37</div>
+		</div></body>
+</html>

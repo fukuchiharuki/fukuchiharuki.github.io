@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Angular2&#047;ブラウザがrequiredをチェックしてしまって困る - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Angular2&#047;ブラウザがrequiredをチェックしてしまって困る</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="l2bfe1fc" href="page/Angular2/%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%8Crequired%E3%82%92%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%81%97%E3%81%A6%E3%81%97%E3%81%BE%E3%81%A3%E3%81%A6%E5%9B%B0%E3%82%8B.html#l2bfe1fc" title="l2bfe1fc">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Angular2</li>
+<li>required</li>
+<li>ngForm</li>
+<li>ngModel</li></ul>
+
+<div class="jumpmenu"><a href="page/Angular2/ブラウザがrequiredをチェックしてしまって困る.html#navigator">↑</a></div><h2 id="content_1_1">したいこと  <a class="anchor_super" id="t3b56411" href="page/Angular2/%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%8Crequired%E3%82%92%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%81%97%E3%81%A6%E3%81%97%E3%81%BE%E3%81%A3%E3%81%A6%E5%9B%B0%E3%82%8B.html#t3b56411" title="t3b56411">†</a></h2>
+<p>inputにrequiredをつけたvalidationをAngular2で実装したいが、ブラウザがhtml5の枠組みでrequiredをチェックしてしまい、ブラウザのメッセージが邪魔。Angular2だけでvalidationしたい。</p>
+
+<div class="jumpmenu"><a href="page/Angular2/ブラウザがrequiredをチェックしてしまって困る.html#navigator">↑</a></div><h2 id="content_1_2">どうやって  <a class="anchor_super" id="oe736cce" href="page/Angular2/%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%8Crequired%E3%82%92%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%81%97%E3%81%A6%E3%81%97%E3%81%BE%E3%81%A3%E3%81%A6%E5%9B%B0%E3%82%8B.html#oe736cce" title="oe736cce">†</a></h2>
+<pre>&lt;form novalidate&gt;</pre>
+<p>novalidateはAngular2ではなくて、html5の記述。</p>
+
+<div class="jumpmenu"><a href="page/Angular2/ブラウザがrequiredをチェックしてしまって困る.html#navigator">↑</a></div><h2 id="content_1_3">ノート  <a class="anchor_super" id="ma50344c" href="page/Angular2/%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%8Crequired%E3%82%92%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%81%97%E3%81%A6%E3%81%97%E3%81%BE%E3%81%A3%E3%81%A6%E5%9B%B0%E3%82%8B.html#ma50344c" title="ma50344c">†</a></h2>
+<p>NgFormに関する公式のドキュメントでもnovalidateを書いている。validateしてるはずなのにnovalidateとはどういうことかと思ったが、html5でやってくれなくていいよ、ということのようだ。</p>
+
+<div class="jumpmenu"><a href="page/Angular2/ブラウザがrequiredをチェックしてしまって困る.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="w2651dee" href="page/Angular2/%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%8Crequired%E3%82%92%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%81%97%E3%81%A6%E3%81%97%E3%81%BE%E3%81%A3%E3%81%A6%E5%9B%B0%E3%82%8B.html#w2651dee" title="w2651dee">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://angular.io/docs/ts/latest/api/forms/index/NgForm-directive.html" rel="nofollow">NgForm - ts - API</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2016-11-14 (月) 16:13:42  (1042d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:34</div>
+		</div></body>
+</html>

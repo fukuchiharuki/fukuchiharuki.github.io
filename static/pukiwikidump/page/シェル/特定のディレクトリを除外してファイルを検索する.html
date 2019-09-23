@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>シェル&#047;特定のディレクトリを除外してファイルを検索する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>シェル&#047;特定のディレクトリを除外してファイルを検索する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="t2adf8b1" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%82%92%E9%99%A4%E5%A4%96%E3%81%97%E3%81%A6%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E6%A4%9C%E7%B4%A2%E3%81%99%E3%82%8B.html#t2adf8b1" title="t2adf8b1">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>find</li>
+<li>除外</li></ul>
+
+<div class="jumpmenu"><a href="page/シェル/特定のディレクトリを除外してファイルを検索する.html#navigator">↑</a></div><h2 id="content_1_1">したいこと  <a class="anchor_super" id="y15765f3" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%82%92%E9%99%A4%E5%A4%96%E3%81%97%E3%81%A6%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E6%A4%9C%E7%B4%A2%E3%81%99%E3%82%8B.html#y15765f3" title="y15765f3">†</a></h2>
+<p>特定のディレクトリを除外してファイルを検索します。</p>
+
+<div class="jumpmenu"><a href="page/シェル/特定のディレクトリを除外してファイルを検索する.html#navigator">↑</a></div><h2 id="content_1_2">どうやって  <a class="anchor_super" id="v7eaba50" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%82%92%E9%99%A4%E5%A4%96%E3%81%97%E3%81%A6%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E6%A4%9C%E7%B4%A2%E3%81%99%E3%82%8B.html#v7eaba50" title="v7eaba50">†</a></h2>
+<p>たくさんオプション(評価式やアクション)がついて難解ですが次のようにします。</p>
+<pre>$ find . -type d -name HOGE -prune -false -o -type f</pre>
+
+<div class="jumpmenu"><a href="page/シェル/特定のディレクトリを除外してファイルを検索する.html#navigator">↑</a></div><h2 id="content_1_3">ノート  <a class="anchor_super" id="n3496a72" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%82%92%E9%99%A4%E5%A4%96%E3%81%97%E3%81%A6%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E6%A4%9C%E7%B4%A2%E3%81%99%E3%82%8B.html#n3496a72" title="n3496a72">†</a></h2>
+<p>findは評価式を左から評価する仕組みのようです。</p>
+<blockquote><p class="quotation">find は与えられたファイル名以下のディレクトリツリーを検索し、同じく与えられた評価式を左から右に向かって優先順位の高いものから評価する</p></blockquote>
+<p>なので左から見ていきましょう。</p>
+<pre>find .</pre>
+<p>カレントディレクトリを探す。</p>
+<pre>-type d -name HOGE</pre>
+<p>ディレクトリ、HOGEという名前の。</p>
+<pre>-prune</pre>
+<p>ディレクトリを降りない。</p>
+<pre>-false</pre>
+<p>偽。</p>
+<pre>-o</pre>
+<p>でなければ、</p>
+<pre>-type f</pre>
+<p>ファイル。</p>
+
+<div class="jumpmenu"><a href="page/シェル/特定のディレクトリを除外してファイルを検索する.html#navigator">↑</a></div><h3 id="content_1_4">-prune はアクション  <a class="anchor_super" id="m4a80a1e" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%82%92%E9%99%A4%E5%A4%96%E3%81%97%E3%81%A6%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E6%A4%9C%E7%B4%A2%E3%81%99%E3%82%8B.html#m4a80a1e" title="m4a80a1e">†</a></h3>
+<p>「-prune」はオプションではなくアクションです。</p>
+<blockquote><p class="quotation">-prune 以外のアクションが評価式に含まれていない場合は、評価式の結果が真となったファイルに対して -print が実行される。</p></blockquote>
+<p>アクションの内容は次です。</p>
+<blockquote><p class="quotation">同時に -depth が指定されていない場合は常に真。ディレクトリを降りない。</p></blockquote>
+<p>ディレクトリより下を見ずに真を返すアクションです。ただしこのままだとHOGEを出力してしまうので-pruneのあとに-falseを書いて抑制します。</p>
+<blockquote><p class="quotation">演算子が省略された場合は -and が指定されたものとされる。</p></blockquote>
+<p>従って左から順に評価式(やアクション)で偽になれば後続の評価式(やアクション)に至りません。これはプログラミングのif文と同じように考えます。if (A &amp;&amp; B)はAがfalseであればBを評価しません。Bを評価するのはAがtrueのときです。</p>
+<p>「-and」と同じように考えると「-o」を「でなければ」と読めます。</p>
+
+<div class="jumpmenu"><a href="page/シェル/特定のディレクトリを除外してファイルを検索する.html#navigator">↑</a></div><h3 id="content_1_5">つまりこうなっている  <a class="anchor_super" id="cc9b5d5e" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%82%92%E9%99%A4%E5%A4%96%E3%81%97%E3%81%A6%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E6%A4%9C%E7%B4%A2%E3%81%99%E3%82%8B.html#cc9b5d5e" title="cc9b5d5e">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>HOGE/ (ディレクトリ)
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>-falseで偽、-type fで偽</li></ul></li>
+<li>HOGE/ 以下のディレクトリとファイル
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>-pruneでディレクトリを降りない</li></ul></li>
+<li>HOGE/ 以外のディレクトリ
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>-name HOGEで偽、-type fで偽</li></ul></li>
+<li>HOGE/ 以外のファイル
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>-type dで偽、-type fで真(-printを実行)</li></ul></li></ul>
+</div><div id="lastmodified">Last-modified: 2014-12-23 (火) 13:27:35  (1734d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:37</div>
+		</div></body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;JavaScriptでエンコードしたものがJavaでデコードできない - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;JavaScriptでエンコードしたものがJavaでデコードできない</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><p><span style="color:red">なんか間違えてたっぽいです。</span></p>
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="e6af0a43" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/JavaScript%E3%81%A7%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%89%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE%E3%81%8CJava%E3%81%A7%E3%83%87%E3%82%B3%E3%83%BC%E3%83%89%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#e6af0a43" title="e6af0a43">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>JavaScript/encodeURI()</li>
+<li>Java/URLDecoder.decode()</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/JavaScriptでエンコードしたものがJavaでデコードできない.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="xc174ae3" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/JavaScript%E3%81%A7%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%89%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE%E3%81%8CJava%E3%81%A7%E3%83%87%E3%82%B3%E3%83%BC%E3%83%89%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#xc174ae3" title="xc174ae3">†</a></h2>
+<p><del>次のコードでデコードしきれない文字がある。</del></p>
+<p>次のコードでエンコードとデコードの対応がうまくいっていない。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>JavaScriptでエンコード
+<pre>keyword = encodeURIComponent(keyword);
+// これをlocation.hrefで使う</pre></li></ul>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Javaでデコード
+<pre>keyword = URLDecoder.decode(keyword)</pre></li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/JavaScriptでエンコードしたものがJavaでデコードできない.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="ree621e9" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/JavaScript%E3%81%A7%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%89%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE%E3%81%8CJava%E3%81%A7%E3%83%87%E3%82%B3%E3%83%BC%E3%83%89%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#ree621e9" title="ree621e9">†</a></h2>
+<p><del>URLDecoder.decode()はencodeURIComponent()でエンコードするすべてをデコードしない。</del>
+<del>URLDecoder.decode()がデコードしない分はおそらく「#$&amp;+,/:;=?@」で、</del>
+<del>encodeURI()と対応づくのかもしれない？(検証してない)</del></p>
+<p>location.hrefがエンコードをどうしてるかに依っていた気がする。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/JavaScriptでエンコードしたものがJavaでデコードできない.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="sdae8af2" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/JavaScript%E3%81%A7%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%89%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE%E3%81%8CJava%E3%81%A7%E3%83%87%E3%82%B3%E3%83%BC%E3%83%89%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#sdae8af2" title="sdae8af2">†</a></h2>
+<p><del>URLDecoder.decode()する想定ならencodeURI()にしておく。</del><br>
+<del>大した数ではないのであるいは不足分を自前でデコードする。</del></p>
+
+<div class="jumpmenu"><a href="page/障害メモ/JavaScriptでエンコードしたものがJavaでデコードできない.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="xef11e41" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/JavaScript%E3%81%A7%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%89%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE%E3%81%8CJava%E3%81%A7%E3%83%87%E3%82%B3%E3%83%BC%E3%83%89%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html#xef11e41" title="xef11e41">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://javascript.dohow.jp/basic/encode.shtml" rel="nofollow">http://javascript.dohow.jp/basic/encode.shtml</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:49</div>
+		</div></body>
+</html>

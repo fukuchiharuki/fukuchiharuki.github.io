@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MySQL&#047;ユーザーを作成する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>MySQL&#047;ユーザーを作成する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="keefcaf1" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#keefcaf1" title="keefcaf1">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>MySQL</li>
+<li>grant</li></ul>
+
+<div class="jumpmenu"><a href="page/MySQL/ユーザーを作成する.html#navigator">↑</a></div><h2 id="content_1_1">関連  <a class="anchor_super" id="o5cbf5bf" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#o5cbf5bf" title="o5cbf5bf">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/MySQL/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html" title="MySQL/データベースを作成する (2227d)">MySQL/データベースを作成する</a></li></ul>
+
+<div class="jumpmenu"><a href="page/MySQL/ユーザーを作成する.html#navigator">↑</a></div><h2 id="content_1_2">概要  <a class="anchor_super" id="ke8a4612" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#ke8a4612" title="ke8a4612">†</a></h2>
+<p>ユーザを作成する。</p>
+
+<div class="jumpmenu"><a href="page/MySQL/ユーザーを作成する.html#navigator">↑</a></div><h2 id="content_1_3">方法  <a class="anchor_super" id="o980b570" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#o980b570" title="o980b570">†</a></h2>
+<pre>mysql&gt; GRANT ALL PRIVILEGES ON データベース名.* TO 'ユーザー名'@'ホスト名' IDENTIFIED BY 'パスワード';
+mysql&gt; flush privileges;</pre>
+
+<div class="jumpmenu"><a href="page/MySQL/ユーザーを作成する.html#navigator">↑</a></div><h2 id="content_1_4">解説  <a class="anchor_super" id="bce85a94" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#bce85a94" title="bce85a94">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>「ALL PRIVILEGES」はfull権限を与える場合の設定</li>
+<li>どのホストからでも接続できるようにするには「'ユーザー名'@'%'」にする
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>「'ユーザー名'@'localhost'」も忘れずに ← めんどくさいね</li></ul></li></ul>
+
+<div class="jumpmenu"><a href="page/MySQL/ユーザーを作成する.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="u5d2d0c9" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#u5d2d0c9" title="u5d2d0c9">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://dev.mysql.com/doc/refman/5.1/ja/grant.html" rel="nofollow">http://dev.mysql.com/doc/refman/5.1/ja/grant.html</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:57</div>
+		</div></body>
+</html>

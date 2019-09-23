@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Vim&#047;バッファをページ送りする - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Vim&#047;バッファをページ送りする</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="k6d84051" href="page/Vim/%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%E3%82%92%E3%83%9A%E3%83%BC%E3%82%B8%E9%80%81%E3%82%8A%E3%81%99%E3%82%8B.html#k6d84051" title="k6d84051">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Vim</li></ul>
+
+<div class="jumpmenu"><a href="page/Vim/バッファをページ送りする.html#navigator">↑</a></div><h2 id="content_1_1">やりたいこと  <a class="anchor_super" id="b34d1fdc" href="page/Vim/%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%E3%82%92%E3%83%9A%E3%83%BC%E3%82%B8%E9%80%81%E3%82%8A%E3%81%99%E3%82%8B.html#b34d1fdc" title="b34d1fdc">†</a></h2>
+<p>バッファにあるファイルをショートカットでページ送りします。</p>
+
+<div class="jumpmenu"><a href="page/Vim/バッファをページ送りする.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="ocd45659" href="page/Vim/%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%E3%82%92%E3%83%9A%E3%83%BC%E3%82%B8%E9%80%81%E3%82%8A%E3%81%99%E3%82%8B.html#ocd45659" title="ocd45659">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>_gvimrc
+<pre>:map &lt;silent&gt; &lt;C-p&gt; :bp&lt;CR&gt;
+:map &lt;silent&gt; &lt;C-n&gt; :bn&lt;CR&gt;
+:map &lt;silent&gt; &lt;F2&gt; :bp&lt;CR&gt;
+:map &lt;silent&gt; &lt;F4&gt; :bn&lt;CR&gt;
+:map &lt;silent&gt; &lt;F3&gt; :call BufferList()&lt;CR&gt;</pre></li></ul>
+
+<div class="jumpmenu"><a href="page/Vim/バッファをページ送りする.html#navigator">↑</a></div><h2 id="content_1_3">詳細  <a class="anchor_super" id="ge6e42d7" href="page/Vim/%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%E3%82%92%E3%83%9A%E3%83%BC%E3%82%B8%E9%80%81%E3%82%8A%E3%81%99%E3%82%8B.html#ge6e42d7" title="ge6e42d7">†</a></h2>
+<dl class="list1" style="padding-left:16px;margin-left:16px"><dt>ページ送り(次)</dt>
+<dd>C-n, F4</dd>
+<dt>ページ送り(前)</dt>
+<dd>C-p, F2</dd>
+<dt>バッファ一覧</dt>
+<dd>F3</dd></dl>
+<p>F3 の分はプラグインが必要です。</p>
+
+<div class="jumpmenu"><a href="page/Vim/バッファをページ送りする.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="ld0e09e7" href="page/Vim/%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%E3%82%92%E3%83%9A%E3%83%BC%E3%82%B8%E9%80%81%E3%82%8A%E3%81%99%E3%82%8B.html#ld0e09e7" title="ld0e09e7">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://nanasi.jp/articles/vim/bufferlist_vim.html" rel="nofollow">bufferlist.vim : シンプルで軽量なバッファ管理マネージャ — 名無しのvim使い</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2014-05-07 (水) 15:34:04  (1964d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:19</div>
+		</div></body>
+</html>

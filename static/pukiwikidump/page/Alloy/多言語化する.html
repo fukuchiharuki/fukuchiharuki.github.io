@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Alloy&#047;多言語化する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Alloy&#047;多言語化する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="y52f1aa0" href="page/Alloy/%E5%A4%9A%E8%A8%80%E8%AA%9E%E5%8C%96%E3%81%99%E3%82%8B.html#y52f1aa0" title="y52f1aa0">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Titanium Mobile</li>
+<li>Alloy</li></ul>
+
+<div class="jumpmenu"><a href="page/Alloy/多言語化する.html#navigator">↑</a></div><h2 id="content_1_1">目標  <a class="anchor_super" id="c23b3103" href="page/Alloy/%E5%A4%9A%E8%A8%80%E8%AA%9E%E5%8C%96%E3%81%99%E3%82%8B.html#c23b3103" title="c23b3103">†</a></h2>
+<p>多言語化(iPhone の言語設定に合わせる)します。</p>
+
+<div class="jumpmenu"><a href="page/Alloy/多言語化する.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="i9033486" href="page/Alloy/%E5%A4%9A%E8%A8%80%E8%AA%9E%E5%8C%96%E3%81%99%E3%82%8B.html#i9033486" title="i9033486">†</a></h2>
+<p>プロジェクト直下に「i18n」ディレクトリを作成します。</p>
+<pre>{Project}/
+└ i18n/
+　├ en/
+　│└ strings.xml
+　└ ja/
+　　└ strings.xml</pre>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>i18n/en/strings.xml
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;resources&gt;
+	&lt;string name="key"&gt;value&lt;/string&gt;	
+&lt;/resources&gt;</pre></li></ul>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>i18n/ja/strings.xml
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;resources&gt;
+	&lt;string name="key"&gt;値&lt;/string&gt;	
+&lt;/resources&gt;</pre></li></ul>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>app/styles/Window.xml
+<pre>'#window': {
+	title: L('key'),
+}</pre></li></ul>
+
+<div class="jumpmenu"><a href="page/Alloy/多言語化する.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="za05ba1a" href="page/Alloy/%E5%A4%9A%E8%A8%80%E8%AA%9E%E5%8C%96%E3%81%99%E3%82%8B.html#za05ba1a" title="za05ba1a">†</a></h2>
+<p>どうもビューからバインドすることはできないようなので、スタイルかコントローラから指定します。</p>
+
+<div class="jumpmenu"><a href="page/Alloy/多言語化する.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="v381ae44" href="page/Alloy/%E5%A4%9A%E8%A8%80%E8%AA%9E%E5%8C%96%E3%81%99%E3%82%8B.html#v381ae44" title="v381ae44">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://webengineerlife.com/2012/12/21/titanium-mobile%E3%81%AEalloy%E3%81%A7%E5%A4%9A%E8%A8%80%E8%AA%9E%E5%8C%96%EF%BC%88i18n%EF%BC%89%E5%AF%BE%E5%BF%9C%E3%81%99%E3%82%8B/" rel="nofollow">Titanium MobileのAlloyで多言語化（i18n）対応する #titaniumjp | Webエンジニアライフ</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2014-01-01 (水) 10:09:16  (2090d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:31</div>
+		</div></body>
+</html>

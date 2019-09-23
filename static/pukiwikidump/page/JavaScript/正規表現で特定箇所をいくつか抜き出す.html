@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>JavaScript&#047;正規表現で特定箇所をいくつか抜き出す - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>JavaScript&#047;正規表現で特定箇所をいくつか抜き出す</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">関連  <a class="anchor_super" id="d12d2411" href="page/JavaScript/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%E3%81%A7%E7%89%B9%E5%AE%9A%E7%AE%87%E6%89%80%E3%82%92%E3%81%84%E3%81%8F%E3%81%A4%E3%81%8B%E6%8A%9C%E3%81%8D%E5%87%BA%E3%81%99.html#d12d2411" title="d12d2411">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>JavaScript</li>
+<li>正規表現</li></ul>
+
+<div class="jumpmenu"><a href="page/JavaScript/正規表現で特定箇所をいくつか抜き出す.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="adf18ca1" href="page/JavaScript/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%E3%81%A7%E7%89%B9%E5%AE%9A%E7%AE%87%E6%89%80%E3%82%92%E3%81%84%E3%81%8F%E3%81%A4%E3%81%8B%E6%8A%9C%E3%81%8D%E5%87%BA%E3%81%99.html#adf18ca1" title="adf18ca1">†</a></h2>
+<p>正規表現で特定箇所をいくつか抜き出したい。</p>
+
+<div class="jumpmenu"><a href="page/JavaScript/正規表現で特定箇所をいくつか抜き出す.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="w29158b0" href="page/JavaScript/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%E3%81%A7%E7%89%B9%E5%AE%9A%E7%AE%87%E6%89%80%E3%82%92%E3%81%84%E3%81%8F%E3%81%A4%E3%81%8B%E6%8A%9C%E3%81%8D%E5%87%BA%E3%81%99.html#w29158b0" title="w29158b0">†</a></h2>
+<pre>var text = "1984-03-12";
+var regexp = new RegExp("^([0-9][0-9][0-9][0-9])-([0-9][0-9])-([0-9][0-9])$");
+var matcher = text.match(regexp);
+if (matcher) {
+  year = RegExp.$1; // "1984"
+  month = RegExp.$2; // "03"
+  day = RegExp.$3; // "12"
+}</pre>
+
+<div class="jumpmenu"><a href="page/JavaScript/正規表現で特定箇所をいくつか抜き出す.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="j910851c" href="page/JavaScript/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%E3%81%A7%E7%89%B9%E5%AE%9A%E7%AE%87%E6%89%80%E3%82%92%E3%81%84%E3%81%8F%E3%81%A4%E3%81%8B%E6%8A%9C%E3%81%8D%E5%87%BA%E3%81%99.html#j910851c" title="j910851c">†</a></h2>
+<p>RegExpクラスを使用すると特定箇所を抜き出すことができます。</p>
+
+<div class="jumpmenu"><a href="page/JavaScript/正規表現で特定箇所をいくつか抜き出す.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="s19b6187" href="page/JavaScript/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%E3%81%A7%E7%89%B9%E5%AE%9A%E7%AE%87%E6%89%80%E3%82%92%E3%81%84%E3%81%8F%E3%81%A4%E3%81%8B%E6%8A%9C%E3%81%8D%E5%87%BA%E3%81%99.html#s19b6187" title="s19b6187">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://www.tohoho-web.com/js/regexp.htm" rel="nofollow">http://www.tohoho-web.com/js/regexp.htm</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:49</div>
+		</div></body>
+</html>

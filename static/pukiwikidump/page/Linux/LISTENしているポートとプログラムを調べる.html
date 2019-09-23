@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Linux&#047;LISTENしているポートとプログラムを調べる - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Linux&#047;LISTENしているポートとプログラムを調べる</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="te43d38d" href="page/Linux/LISTEN%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E8%AA%BF%E3%81%B9%E3%82%8B.html#te43d38d" title="te43d38d">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Linux</li>
+<li>netstat</li>
+<li>ポート</li>
+<li>LISTEN</li></ul>
+
+<div class="jumpmenu"><a href="page/Linux/LISTENしているポートとプログラムを調べる.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="ha8bee41" href="page/Linux/LISTEN%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E8%AA%BF%E3%81%B9%E3%82%8B.html#ha8bee41" title="ha8bee41">†</a></h2>
+<p>LISTEN しているポートとプログラムを netstat を使って調べます。</p>
+
+<div class="jumpmenu"><a href="page/Linux/LISTENしているポートとプログラムを調べる.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="t2b6df1d" href="page/Linux/LISTEN%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E8%AA%BF%E3%81%B9%E3%82%8B.html#t2b6df1d" title="t2b6df1d">†</a></h2>
+<pre># netstat -lanput</pre>
+<p>参考サイトによると「らんぷっと」と覚えるのだそうですｗ</p>
+
+<div class="jumpmenu"><a href="page/Linux/LISTENしているポートとプログラムを調べる.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="r7bde782" href="page/Linux/LISTEN%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E8%AA%BF%E3%81%B9%E3%82%8B.html#r7bde782" title="r7bde782">†</a></h2>
+<p>せっかくなのでオプションを調べました。man コマンドで。</p>
+<dl class="list1" style="padding-left:16px;margin-left:16px"><dt>-l, --listening</dt>
+<dd>接続待ち (listen) 状態にあるソケットのみを表示する。</dd>
+<dt>-a, --all</dt>
+<dd>接続待ち状態にあるソケットも、接続待ち状態にないソケットも表示する。</dd>
+<dt>-n, --numeric</dt>
+<dd>ホスト・ポート・ユーザーなどの名前を解決せずに、数字のアドレスで表示する。</dd>
+<dt>-p, --program</dt>
+<dd>各ソケットが属しているプログラムの PID と名前が表示される。</dd>
+<dt>-u, --udp</dt>
+<dd>UDPのポートを表示？</dd>
+<dt>-t, --tcp</dt>
+<dd>TCPのポートを表示？</dd></dl>
+
+<div class="jumpmenu"><a href="page/Linux/LISTENしているポートとプログラムを調べる.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="v3c0ef9b" href="page/Linux/LISTEN%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E8%AA%BF%E3%81%B9%E3%82%8B.html#v3c0ef9b" title="v3c0ef9b">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://d.hatena.ne.jp/elf/20070819/1187455806" rel="nofollow">netstatでポートを空けているプログラムを知る - よくきたはてダ</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:51</div>
+		</div></body>
+</html>

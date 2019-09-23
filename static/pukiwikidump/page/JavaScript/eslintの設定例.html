@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>JavaScript&#047;eslintの設定例 - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>JavaScript&#047;eslintの設定例</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>ES6</li>
+<li>React</li>
+<li>セミコロンあり</li>
+<li>使わない変数なし</li></ul>
+<p>くらいのチェックができるまでで仮作成したもの。覚書。</p>
+<pre>{
+        "extends": [
+                "eslint:recommended",
+                "plugin:react/recommended"
+        ],
+        "env": {
+                "es6": true,
+                "node": true,
+                "browser": true
+        },
+        "parser": "babel-eslint",
+        "parserOptions": {
+                "sourceType": "module",
+                "ecmaVersion": 6,
+                "ecmaFeatures": {
+                        "experimentalObjectRestSpread": true,
+                        "jsx": true
+                }
+        },
+        "rules": {
+                "strict": [
+                        0
+                ],
+                "react/jsx-uses-react": [
+                        1
+                ],
+                "no-console": [
+                        0
+                ],
+                "semi": [
+                        2,
+                        "always"
+                ],
+                "no-unused-vars": [
+                        2
+                ]
+        }
+}</pre>
+</div><div id="lastmodified">Last-modified: 2018-03-15 (木) 11:21:17  (556d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:46</div>
+		</div></body>
+</html>

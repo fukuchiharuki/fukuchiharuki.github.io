@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;MySQLにログインできない「Can't get hostname for your address」 - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;MySQLにログインできない「Can't get hostname for your address」</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="g5deab27" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/MySQL%E3%81%AB%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%80%8CCan%27t%20get%20hostname%20for%20your%20address%E3%80%8D.html#g5deab27" title="g5deab27">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>MySQL</li>
+<li>hosts</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/MySQLにログインできない「Can't get hostname for your address」.html#navigator">↑</a></div><h2 id="content_1_1">関連  <a class="anchor_super" id="f3546f74" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/MySQL%E3%81%AB%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%80%8CCan%27t%20get%20hostname%20for%20your%20address%E3%80%8D.html#f3546f74" title="f3546f74">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/MySQL%E9%96%A2%E9%80%A3.html" title="障害メモ/MySQL関連 (2227d)">障害メモ/MySQL関連</a></li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/MySQLにログインできない「Can't get hostname for your address」.html#navigator">↑</a></div><h2 id="content_1_2">現象  <a class="anchor_super" id="a29eacf0" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/MySQL%E3%81%AB%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%80%8CCan%27t%20get%20hostname%20for%20your%20address%E3%80%8D.html#a29eacf0" title="a29eacf0">†</a></h2>
+<p>リモートからMySQLに接続できない。エラーメッセージは次。</p>
+<pre>Can't get hostname for your address</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/MySQLにログインできない「Can't get hostname for your address」.html#navigator">↑</a></div><h2 id="content_1_3">原因  <a class="anchor_super" id="r1d476fd" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/MySQL%E3%81%AB%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%80%8CCan%27t%20get%20hostname%20for%20your%20address%E3%80%8D.html#r1d476fd" title="r1d476fd">†</a></h2>
+<p>あなたのアドレスからホスト名を取得できません。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/MySQLにログインできない「Can't get hostname for your address」.html#navigator">↑</a></div><h2 id="content_1_4">対策  <a class="anchor_super" id="vb2fd3b2" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/MySQL%E3%81%AB%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%80%8CCan%27t%20get%20hostname%20for%20your%20address%E3%80%8D.html#vb2fd3b2" title="vb2fd3b2">†</a></h2>
+<p>サーバ側のhostsファイルに接続元のIPアドレスを登録しておくことで解決できます。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>hosts
+<pre>接続元のIPアドレス 何か適当な名前</pre></li></ul>
+<p>あるいは名前サーバを立てるか、逆引きさせない手段もあるようです。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/MySQLにログインできない「Can't get hostname for your address」.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="n04dc3c2" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/MySQL%E3%81%AB%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%80%8CCan%27t%20get%20hostname%20for%20your%20address%E3%80%8D.html#n04dc3c2" title="n04dc3c2">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://q.hatena.ne.jp/1301120736" rel="nofollow">MYSQLについて教えてください。Win XP SP3にMYSQL 5.58をインス.. - 人力検索はてな</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:50</div>
+		</div></body>
+</html>

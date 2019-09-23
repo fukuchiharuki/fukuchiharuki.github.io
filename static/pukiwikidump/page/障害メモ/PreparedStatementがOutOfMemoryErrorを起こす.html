@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;PreparedStatementがOutOfMemoryErrorを起こす - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;PreparedStatementがOutOfMemoryErrorを起こす</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="gae867ec" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/PreparedStatement%E3%81%8COutOfMemoryError%E3%82%92%E8%B5%B7%E3%81%93%E3%81%99.html#gae867ec" title="gae867ec">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>MySQL</li>
+<li>PreparedStatement</li>
+<li>ResultSet</li>
+<li>OutOfMemoryError</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/PreparedStatementがOutOfMemoryErrorを起こす.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="u465d824" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/PreparedStatement%E3%81%8COutOfMemoryError%E3%82%92%E8%B5%B7%E3%81%93%E3%81%99.html#u465d824" title="u465d824">†</a></h2>
+<p>一行ずつResultSetからデータ取得しているはずなのにOutOfMemoryErrorになる。</p>
+<pre>Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at com.mysql.jdbc.MysqlIO.nextRowFast(MysqlIO.java:1649)
+	at com.mysql.jdbc.MysqlIO.nextRow(MysqlIO.java:1426)
+	at com.mysql.jdbc.MysqlIO.readSingleRowSet(MysqlIO.java:2924)
+	at com.mysql.jdbc.MysqlIO.getResultSet(MysqlIO.java:477)
+	at com.mysql.jdbc.MysqlIO.readResultsForQueryOrUpdate(MysqlIO.java:2619)
+	at com.mysql.jdbc.MysqlIO.readAllResults(MysqlIO.java:1788)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2209)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2625)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2119)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2281)</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/PreparedStatementがOutOfMemoryErrorを起こす.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="u0c975fb" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/PreparedStatement%E3%81%8COutOfMemoryError%E3%82%92%E8%B5%B7%E3%81%93%E3%81%99.html#u0c975fb" title="u0c975fb">†</a></h2>
+<p>すべての行をfetchしてResultSetを生成しようとするようです。なので、取得対象が膨大になるとすぐにOutOfMemoryErrorを起こします。</p>
+<p>一行ずつ取得するようにした実装が泣くね。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/PreparedStatementがOutOfMemoryErrorを起こす.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="l85799df" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/PreparedStatement%E3%81%8COutOfMemoryError%E3%82%92%E8%B5%B7%E3%81%93%E3%81%99.html#l85799df" title="l85799df">†</a></h2>
+<p>一定行ずつfetchするようにMySQLを設定します。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/PreparedStatementがOutOfMemoryErrorを起こす.html#navigator">↑</a></div><h3 id="content_1_4">接続プロパティで指定する方法  <a class="anchor_super" id="bc1e7393" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/PreparedStatement%E3%81%8COutOfMemoryError%E3%82%92%E8%B5%B7%E3%81%93%E3%81%99.html#bc1e7393" title="bc1e7393">†</a></h3>
+<p>次のクエリストリングを接続プロパティに加えます。</p>
+<pre>useCursorFetch=true&amp;defaultFetchSize=100</pre>
+<p>100は一度にfetchする行数のよう。なので様子みて適宜。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/PreparedStatementがOutOfMemoryErrorを起こす.html#navigator">↑</a></div><h3 id="content_1_5">コードで指定する方法  <a class="anchor_super" id="a153f6e9" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/PreparedStatement%E3%81%8COutOfMemoryError%E3%82%92%E8%B5%B7%E3%81%93%E3%81%99.html#a153f6e9" title="a153f6e9">†</a></h3>
+<pre>stmt = conn.createStatement(
+         java.sql.ResultSet.TYPE_FORWARD_ONLY, 
+         java.sql.ResultSet.CONCUR_READ_ONLY
+       );
+stmt.setFetchSize(Integer.MIN_VALUE);</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/PreparedStatementがOutOfMemoryErrorを起こす.html#navigator">↑</a></div><h2 id="content_1_6">備考  <a class="anchor_super" id="o02ff04d" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/PreparedStatement%E3%81%8COutOfMemoryError%E3%82%92%E8%B5%B7%E3%81%93%E3%81%99.html#o02ff04d" title="o02ff04d">†</a></h2>
+<p>PreparedStetementもデフォルトではPreparedしてないというとんでも罠があったりするの注意。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/PreparedStatementがOutOfMemoryErrorを起こす.html#navigator">↑</a></div><h2 id="content_1_7">参考  <a class="anchor_super" id="oa2bd815" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/PreparedStatement%E3%81%8COutOfMemoryError%E3%82%92%E8%B5%B7%E3%81%93%E3%81%99.html#oa2bd815" title="oa2bd815">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://lab.bizreach.co.jp/63/" rel="nofollow">Connector/J でOutOfMemoryError | ビズリーチラボ</a></li>
+<li><a href="http://d.hatena.ne.jp/wyukawa/20140730/1406719449" rel="nofollow">sqoopでOutOfMemoryError - wyukawa’s blog</a></li>
+<li><a href="http://stackoverflow.com/questions/3443937/java-heap-memory-error" rel="nofollow">exception - Java Heap Memory error - Stack Overflow</a></li>
+<li><a href="http://community.lavastorm.com/archive/index.php/t-746.html" rel="nofollow">OutOfMemoryError: Java heap space [Archive]  - Lavastorm Forums</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2015-08-11 (火) 16:36:10  (1503d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:51</div>
+		</div></body>
+</html>

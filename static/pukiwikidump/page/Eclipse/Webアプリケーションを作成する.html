@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Eclipse&#047;Webアプリケーションを作成する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Eclipse&#047;Webアプリケーションを作成する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">目標  <a class="anchor_super" id="ndba763d" href="page/Eclipse/Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#ndba763d" title="ndba763d">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Webアプリケーションプロジェクトを作成する</li>
+<li>ServletとJSPを使ってWebアプリケーションを作成する</li>
+<li>ブラウザでWebページの表示を確認する</li></ul>
+
+<div class="jumpmenu"><a href="page/Eclipse/Webアプリケーションを作成する.html#navigator">↑</a></div><h2 id="content_1_1">手順  <a class="anchor_super" id="ya23924d" href="page/Eclipse/Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#ya23924d" title="ya23924d">†</a></h2>
+
+<div class="jumpmenu"><a href="page/Eclipse/Webアプリケーションを作成する.html#navigator">↑</a></div><h3 id="content_1_2">Webアプリケーションプロジェクトを作成する  <a class="anchor_super" id="d94fd4a2" href="page/Eclipse/Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#d94fd4a2" title="d94fd4a2">†</a></h3>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>メニューから File-&gt;New-&gt;Dynamic Web Project を選択する
+<ol class="list2" style="padding-left:16px;margin-left:16px"><li>該当項目がない場合、Other... から探す</li></ol></li>
+<li>Project name に好きな名前をつける</li>
+<li>Target runtime の New Runtime を選択してアプリケーションサーバを追加する
+<ol class="list2" style="padding-left:16px;margin-left:16px"><li>一覧から Apache Tomcat v7.0 を選択する</li>
+<li>Create a new local server にチェックを入れる</li>
+<li>Tomcat installation directory の Browse... を選択してTomcatのディレクトリを選択する
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li>ここでは C:\opt\tomcat\apache-tomcat-7.0.12 とした</li></ul></li>
+<li>JRE の選択項目から jdk1.6.0_24 を選択する（インストールしたJDK次第で）</li></ol></li>
+<li>Next、Next と続ける</li>
+<li>Web Module の Generate web.xml deployment descriptor にチェックを入れる</li></ol>
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9000.JPG" title="Webアプリケーション作成00.JPG"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9000.JPG" alt="Webアプリケーション作成00.JPG" title="Webアプリケーション作成00.JPG" width="474" height="364"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9001.JPG" title="Webアプリケーション作成01.JPG"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9001.JPG" alt="Webアプリケーション作成01.JPG" title="Webアプリケーション作成01.JPG" width="406" height="457"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9002.JPG" title="Webアプリケーション作成02.JPG"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9002.JPG" alt="Webアプリケーション作成02.JPG" title="Webアプリケーション作成02.JPG" width="306" height="375"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9003.JPG" title="Webアプリケーション作成03.JPG"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9003.JPG" alt="Webアプリケーション作成03.JPG" title="Webアプリケーション作成03.JPG" width="306" height="375"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9004.JPG" title="Webアプリケーション作成04.JPG"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9004.JPG" alt="Webアプリケーション作成04.JPG" title="Webアプリケーション作成04.JPG" width="406" height="457"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9005.JPG" title="Webアプリケーション作成05.JPG"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9005.JPG" alt="Webアプリケーション作成05.JPG" title="Webアプリケーション作成05.JPG" width="406" height="457"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9006.JPG" title="Webアプリケーション作成06.JPG"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%9006.JPG" alt="Webアプリケーション作成06.JPG" title="Webアプリケーション作成06.JPG" width="406" height="457"></a></div>
+
+
+<div class="jumpmenu"><a href="page/Eclipse/Webアプリケーションを作成する.html#navigator">↑</a></div><h3 id="content_1_3">ServletとJSPを使ってWebアプリケーションを作成する  <a class="anchor_super" id="z0a01428" href="page/Eclipse/Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#z0a01428" title="z0a01428">†</a></h3>
+
+<div class="jumpmenu"><a href="page/Eclipse/Webアプリケーションを作成する.html#navigator">↑</a></div><h4 id="content_1_4">パッケージを作成する  <a class="anchor_super" id="pef97d7f" href="page/Eclipse/Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#pef97d7f" title="pef97d7f">†</a></h4>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>Package Explore ビューから 右クリック-&gt;New-&gt;Package を選択する
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>src の上で右クリックする</li>
+<li>該当項目がない場合、Other... から探す</li></ul></li>
+<li>folder's corresponding の Name に任意のパッケージ名を入力する</li></ol>
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B00.JPG" title="パッケージを作成する00.JPG"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B00.JPG" alt="パッケージを作成する00.JPG" title="パッケージを作成する00.JPG" width="476" height="442"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B01.JPG" title="パッケージを作成する01.JPG"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B01.JPG" alt="パッケージを作成する01.JPG" title="パッケージを作成する01.JPG" width="350" height="350"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B02.jpg" title="パッケージを作成する02.jpg"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B02.jpg" alt="パッケージを作成する02.jpg" title="パッケージを作成する02.jpg" width="350" height="350"></a></div>
+
+
+<div class="jumpmenu"><a href="page/Eclipse/Webアプリケーションを作成する.html#navigator">↑</a></div><h4 id="content_1_5">Servletを作成する  <a class="anchor_super" id="g2c5ef92" href="page/Eclipse/Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#g2c5ef92" title="g2c5ef92">†</a></h4>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>Packege Explore ビューから 右クリック-&gt;New-&gt;Servlet を選択する
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>先に作成したパッケージの上で右クリックする</li></ul></li>
+<li>Class name に任意のクラス名を入力する</li>
+<li>作成したクラスのメソッドをすべて削除し、下記のメソッドを追記する</li></ol>
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Servlet%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B00.jpg" title="Servletを作成する00.jpg"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Servlet%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B00.jpg" alt="Servletを作成する00.jpg" title="Servletを作成する00.jpg" width="476" height="442"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Servlet%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B01.jpg" title="Servletを作成する01.jpg"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Servlet%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B01.jpg" alt="Servletを作成する01.jpg" title="Servletを作成する01.jpg" width="350" height="350"></a></div>
+
+<pre>@Override
+protected void service(HttpServletRequest request, HttpServletResponse response) 
+throws ServletException, IOException {
+    ServletContext sc = getServletContext();
+    RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/jsp/Sample.jsp");
+    rd.forward(request, response);
+}</pre>
+
+<div class="jumpmenu"><a href="page/Eclipse/Webアプリケーションを作成する.html#navigator">↑</a></div><h4 id="content_1_6">JSPを作成する  <a class="anchor_super" id="o44880d6" href="page/Eclipse/Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#o44880d6" title="o44880d6">†</a></h4>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>右クリック-&gt;New-&gt;Folder を選択する
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>WebContent-&gt;WEB-INF の上で右クリックする</li></ul></li>
+<li>Folder name に「jsp」を入力する</li>
+<li>Package Explore ビューから 右クリック-&gt;New-&gt;JSP File を選択する
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>先に作成したディレクトリの上で右クリックする</li></ul></li>
+<li>File name に「Sample」を入力する</li></ol>
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__JSP%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B00.jpg" title="JSPを作成する00.jpg"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__JSP%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B00.jpg" alt="JSPを作成する00.jpg" title="JSPを作成する00.jpg" width="427" height="399"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__JSP%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B01.JPG" title="JSPを作成する01.JPG"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__JSP%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B01.JPG" alt="JSPを作成する01.JPG" title="JSPを作成する01.JPG" width="350" height="404"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__JSP%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B02.jpg" title="JSPを作成する02.jpg"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__JSP%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B02.jpg" alt="JSPを作成する02.jpg" title="JSPを作成する02.jpg" width="427" height="399"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__JSP%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B03.JPG" title="JSPを作成する03.JPG"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__JSP%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B03.JPG" alt="JSPを作成する03.JPG" title="JSPを作成する03.JPG" width="350" height="350"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__JSP%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B04.JPG" title="JSPを作成する04.JPG"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__JSP%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B04.JPG" alt="JSPを作成する04.JPG" title="JSPを作成する04.JPG" width="350" height="404"></a></div>
+
+<p>作成したJSPファイルはsjisになってしまっているのでUTF-8に直しましょう。</p>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>JSPファイル上のエンコードに関する記述を修正する
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>「windows-31j」→「UTF-8」</li></ul></li>
+<li>Package Explore ビューから右クリック-&gt;Properties を選択する
+<ol class="list2" style="padding-left:16px;margin-left:16px"><li>Text file en
+coding の Other を選択して UTF-8 を設定する</li></ol></li></ol>
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__JSP%E3%81%AE%E6%96%87%E5%AD%97%E3%82%B3%E3%83%BC%E3%83%89%E4%BF%AE%E6%AD%A300.JPG" title="JSPの文字コード修正00.JPG"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__JSP%E3%81%AE%E6%96%87%E5%AD%97%E3%82%B3%E3%83%BC%E3%83%89%E4%BF%AE%E6%AD%A300.JPG" alt="JSPの文字コード修正00.JPG" title="JSPの文字コード修正00.JPG" width="483" height="280"></a></div>
+
+
+<div class="jumpmenu"><a href="page/Eclipse/Webアプリケーションを作成する.html#navigator">↑</a></div><h3 id="content_1_7">ブラウザでWebページの表示を確認する  <a class="anchor_super" id="nd69efa1" href="page/Eclipse/Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#nd69efa1" title="nd69efa1">†</a></h3>
+
+<div class="jumpmenu"><a href="page/Eclipse/Webアプリケーションを作成する.html#navigator">↑</a></div><h4 id="content_1_8">Webアプリケーションをサーバに登録する  <a class="anchor_super" id="j145b3b1" href="page/Eclipse/Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#j145b3b1" title="j145b3b1">†</a></h4>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>Sample プロジェクトを「Tomcat v7.0 Server at localhost」にドラッグする
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>Package Explore ビューから Servers ビュー</li></ul></li></ol>
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B200.jpg" title="Webアプリケーション登録00.jpg"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B200.jpg" alt="Webアプリケーション登録00.jpg" title="Webアプリケーション登録00.jpg" width="486" height="394"></a></div>
+
+
+<div class="jumpmenu"><a href="page/Eclipse/Webアプリケーションを作成する.html#navigator">↑</a></div><h4 id="content_1_9">Tomcatを起動する  <a class="anchor_super" id="ie55db4d" href="page/Eclipse/Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#ie55db4d" title="ie55db4d">†</a></h4>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>Servers ビューの虫アイコンをクリックする
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>「Tomcat ...」に [Debugging, Synchronized] が表示される</li>
+<li>「Sample」に [Synchronized] が表示される</li></ul></li></ol>
+<div class="img_margin" style="text-align:center"><a href="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__%E3%83%87%E3%83%90%E3%82%B0%E5%AE%9F%E8%A1%8C01.jpg" title="デバグ実行01.jpg"><img src="page/Eclipse%2FWeb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html__%E3%83%87%E3%83%90%E3%82%B0%E5%AE%9F%E8%A1%8C01.jpg" alt="デバグ実行01.jpg" title="デバグ実行01.jpg" width="486" height="394"></a></div>
+
+
+<div class="jumpmenu"><a href="page/Eclipse/Webアプリケーションを作成する.html#navigator">↑</a></div><h4 id="content_1_10">ブラウザで表示を確認する  <a class="anchor_super" id="ed8fa68b" href="page/Eclipse/Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#ed8fa68b" title="ed8fa68b">†</a></h4>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>アドレス欄に次を入力してアクセスする
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="http://localhost:8080/Sample/SampleServlet" rel="nofollow">http://localhost:8080/Sample/SampleServlet</a></li></ul></li></ol>
+<p>「Insert title here」というタイトルで白い画面が表示されたらOKです。</p>
+
+<div class="jumpmenu"><a href="page/Eclipse/Webアプリケーションを作成する.html#navigator">↑</a></div><h2 id="content_1_11">参考  <a class="anchor_super" id="tacb3384" href="page/Eclipse/Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html#tacb3384" title="tacb3384">†</a></h2>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:38</div>
+		</div></body>
+</html>

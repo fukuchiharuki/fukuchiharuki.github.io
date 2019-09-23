@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>はじめてのAngular2&#047;EclipseでTypeScript - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>はじめてのAngular2&#047;EclipseでTypeScript</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><p>vimでもいいのですが、やっぱりIDEがほしい。使い慣れたEclipseでTypeScriptな環境を作ることにしました。</p>
+<p><span style="color:red">-- 嘘です！<a href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/Atom%E3%81%A7TypeScript.html" title="はじめてのAngular2/AtomでTypeScript (1177d)">Atomを使うことにしました</a></span></p>
+<h2 id="content_1_0">TypEcs - TypeScript IDE for Eclipse  <a class="anchor_super" id="oce6a7be" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/Eclipse%E3%81%A7TypeScript.html#oce6a7be" title="oce6a7be">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://typecsdev.com" rel="nofollow">TypEcs - TypeScript IDE for Eclipse</a></li></ul>
+<p>Quick Startのとおりでインストールできる。普通にプラグインをインストールするやり方。</p>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/EclipseでTypeScript.html#navigator">↑</a></div><h3 id="content_1_1">NodeJSがインストールされていません  <a class="anchor_super" id="y81968bc" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/Eclipse%E3%81%A7TypeScript.html#y81968bc" title="y81968bc">†</a></h3>
+<div class="img_margin" style="text-align:center"><a href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__an_error.png" title="an_error.png"><img src="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__an_error.png" alt="an_error.png" title="an_error.png" width="514" height="160"></a></div>
+
+<pre>An error occured during TypeScript engine initialization.
+TypeScript runtime requires NodeJS that should be installed separately.
+It seems NodeJS is not installed or is not available in system path.</pre>
+<p>NodeJSが見つからないからTypeScriptエンジンが初期化できないそうです。いやいや、まてまて、そんなはずはない。Hello Worldやったもん。nodeもnpmも動いてるはずだよ？</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Macを使っています</li>
+<li>nodebrewでnodeをインストールしました</li></ul>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/EclipseでTypeScript.html#navigator">↑</a></div><h4 id="content_1_2">/usr/local/bin/nodeなら見つかった  <a class="anchor_super" id="i07a3879" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/Eclipse%E3%81%A7TypeScript.html#i07a3879" title="i07a3879">†</a></h4>
+<p>シンボリックリンクで /usr/local/bin/node を作ってあげるとエラーはでなくなった。PATH変数をみているのではどうやらなさそう。でもこのシンボリックリンクは気持ちが悪い。共有の場所からホームディレクトリへのシンボリックリンクはさすがにイヤ。</p>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/EclipseでTypeScript.html#navigator">↑</a></div><h4 id="content_1_3">/usr/local/bin/nodeを作る  <a class="anchor_super" id="sf54ae7d" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/Eclipse%E3%81%A7TypeScript.html#sf54ae7d" title="sf54ae7d">†</a></h4>
+<p>ホームディレクトリを直に書いてシンボリックリンクを張るのは気持ちが悪いので、環境変数を使ってホームディレクトリ下のnodeに橋渡しするスクリプトを書いて置いておくことにしました。なければ呼べないだけ。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>/usr/local/bin/node
+<pre>$HOME/.nodebrew/current/bin/node $@</pre></li></ul>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/EclipseでTypeScript.html#navigator">↑</a></div><h4 id="content_1_4"><del>システムパスにnodebrewを追加する</del>  <a class="anchor_super" id="sf1f3da9" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/Eclipse%E3%81%A7TypeScript.html#sf1f3da9" title="sf1f3da9">†</a></h4>
+<p><span style="color:red">-- この方法では解決できていませんでした</span></p>
+<p>Macのシステムパスを追加するには/etc/paths.d/にパスを書いたファイルを作成してあげればよいみたいです。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>/etc/paths.d/node
+<pre>~/.nodebrew/current/bin</pre></li></ul>
+<p>次のようにたどれます。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>/etc/profile から /usr/libexec/path_helper を実行している</li>
+<li>path_helperは /etc/paths.d/* を読み上げている</li>
+<li>/etc/paths.d/node を追加する</li></ul>
+<p>この記事が教えてくれました。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://qiita.com/gm_kou/items/24dec9f0e51b9343651b" rel="nofollow">PATH設定がどこにあるか分からないときに見るべきファイル - Qiita</a></li></ul>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/EclipseでTypeScript.html#navigator">↑</a></div><h2 id="content_1_5">Validationを省く  <a class="anchor_super" id="nc86c252" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/Eclipse%E3%81%A7TypeScript.html#nc86c252" title="nc86c252">†</a></h2>
+<p>ううん、エラーがいっぱい出るよう。動くからいいんだけど、さすがに気になるのでエラーがでないようにします。</p>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/EclipseでTypeScript.html#navigator">↑</a></div><h3 id="content_1_6">node_modulesは見ない  <a class="anchor_super" id="aa82de17" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/Eclipse%E3%81%A7TypeScript.html#aa82de17" title="aa82de17">†</a></h3>
+<p>node_modulesはnpmでインストールされるものなのでここはみてくれなくてもいい。くれなくてもいいというか、ここでエラー出ちゃうのって＞＜</p>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/EclipseでTypeScript.html#navigator">↑</a></div><h4 id="content_1_7">Include Path  <a class="anchor_super" id="m5c317f2" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/Eclipse%E3%81%A7TypeScript.html#m5c317f2" title="m5c317f2">†</a></h4>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>プロジェクトを右クリックして Properties を開く</li>
+<li>JavaScript &gt; Include Path を選択</li>
+<li>Excluded: (None) を選択して Edit... をクリック
+<div class="img_margin" style="text-align:center"><a href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__include_path_1.png" title="include_path_1.png"><img src="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__include_path_1.png" alt="include_path_1.png" title="include_path_1.png" width="743" height="536"></a></div>
+</li>
+<li>Exclusion patterns: の方の　Add... をクリック
+<div class="img_margin" style="text-align:center"><a href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__include_path_2.png" title="include_path_2.png"><img src="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__include_path_2.png" alt="include_path_2.png" title="include_path_2.png" width="526" height="537"></a></div>
+</li>
+<li>Browse... をクリック
+<div class="img_margin" style="text-align:center"><a href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__include_path_3.png" title="include_path_3.png"><img src="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__include_path_3.png" alt="include_path_3.png" title="include_path_3.png" width="503" height="197"></a></div>
+</li>
+<li>ファイル一覧から node_modules を選択して OK、OK、Finish をクリック
+<div class="img_margin" style="text-align:center"><a href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__include_path_4.png" title="include_path_4.png"><img src="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__include_path_4.png" alt="include_path_4.png" title="include_path_4.png" width="398" height="390"></a></div>
+</li>
+<li>Excluded: node_modules/ の表示を確認
+<div class="img_margin" style="text-align:center"><a href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__include_path_5.png" title="include_path_5.png"><img src="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__include_path_5.png" alt="include_path_5.png" title="include_path_5.png" width="741" height="534"></a></div>
+</li></ol>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/EclipseでTypeScript.html#navigator">↑</a></div><h4 id="content_1_8">HTMLとJSON  <a class="anchor_super" id="k45f7558" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/Eclipse%E3%81%A7TypeScript.html#k45f7558" title="k45f7558">†</a></h4>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>メニューの Eclipse &gt; 環境設定... をクリック</li>
+<li>Validation を選択</li>
+<li>HTML Syntax Validator のチェックを外す（Angular2の書き方だと必ず警告が出てダルいので）</li>
+<li>JSON Validator 行の ... をクリック
+<div class="img_margin" style="text-align:center"><a href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__json_1.png" title="json_1.png"><img src="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__json_1.png" alt="json_1.png" title="json_1.png" width="620" height="534"></a></div>
+</li>
+<li>Add Exclude Group... をクリック</li>
+<li>Exclude Group を選択して Add Rule... をクリック
+<div class="img_margin" style="text-align:center"><a href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__json_2.png" title="json_2.png"><img src="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__json_2.png" alt="json_2.png" title="json_2.png" width="598" height="474"></a></div>
+</li>
+<li>Folder or file name を選択して Next &gt; をクリック
+<div class="img_margin" style="text-align:center"><a href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__json_3.png" title="json_3.png"><img src="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__json_3.png" alt="json_3.png" title="json_3.png" width="523" height="320"></a></div>
+</li>
+<li>Browse Folder... をクリック</li>
+<li>何も選択せずそのまま 開く をクリック（ここが謎のコツ）
+<div class="img_margin" style="text-align:center"><a href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__json_4.png" title="json_4.png"><img src="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__json_4.png" alt="json_4.png" title="json_4.png" width="630" height="320"></a></div>
+</li>
+<li>node_modules を入力して Finish をクリック
+<div class="img_margin" style="text-align:center"><a href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__json_5.png" title="json_5.png"><img src="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__json_5.png" alt="json_5.png" title="json_5.png" width="629" height="320"></a></div>
+</li>
+<li>Exclude Group に Folder: node_modules の表示を確認
+<div class="img_margin" style="text-align:center"><a href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__json_6.png" title="json_6.png"><img src="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2%2FEclipse%E3%81%A7TypeScript.html__json_6.png" alt="json_6.png" title="json_6.png" width="598" height="473"></a></div>
+</li></ol>
+</div><div id="lastmodified">Last-modified: 2016-07-02 (土) 17:25:53  (1177d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:28</div>
+		</div></body>
+</html>

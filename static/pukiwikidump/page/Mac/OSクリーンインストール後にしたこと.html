@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Mac&#047;OSクリーンインストール後にしたこと - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Mac&#047;OSクリーンインストール後にしたこと</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<div class="contents">
+<a id="contents_1"></a>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="#medcc88f">  3本指でドラッグする </a></li>
+<li><a href="#a5b11f54">  .bashrcと.bash_profileの作成 </a></li>
+<li><a href="#e4d62b99">  コンピュータ名の変更 </a></li>
+<li><a href="#r6d12dc8">  .ssh/の作成 </a></li>
+<li><a href="#g8f908cc">  開発系ツールのインストール </a></li></ul>
+</div>
+
+<h2 id="content_1_0">3本指でドラッグする  <a class="anchor_super" id="medcc88f" href="page/Mac/OS%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8.html#medcc88f" title="medcc88f">†</a></h2>
+<p>さすがにこれができないのはつらい。</p>
+<div class="img_margin" style="text-align:center"><a href="page/Mac%2FOS%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8.html__drag1.png" title="drag1.png"><img src="page/Mac%2FOS%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8.html__drag1.png" alt="drag1.png" title="drag1.png" width="585" height="448"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Mac%2FOS%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8.html__drag2.png" title="drag2.png"><img src="page/Mac%2FOS%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8.html__drag2.png" alt="drag2.png" title="drag2.png" width="585" height="408"></a></div>
+
+
+<div class="jumpmenu"><a href="page/Mac/OSクリーンインストール後にしたこと.html#navigator">↑</a></div><h2 id="content_1_1">.bashrcと.bash_profileの作成  <a class="anchor_super" id="a5b11f54" href="page/Mac/OS%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8.html#a5b11f54" title="a5b11f54">†</a></h2>
+<p>コマンド待ちの表示とエイリアスを設定した。これをしないとターミナルが使いづらい。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>$HOME/.bashrc</li></ul>
+<pre>PS1="[\u@\h \W]¥n$ "
+
+alias ll="ls -l"
+alias la="ls -la"</pre>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>$HOME/.bash_profile</li></ul>
+<pre>test -r ~/.bashrc &amp;&amp; . ~/.bashrc</pre>
+
+<div class="jumpmenu"><a href="page/Mac/OSクリーンインストール後にしたこと.html#navigator">↑</a></div><h2 id="content_1_2">コンピュータ名の変更  <a class="anchor_super" id="e4d62b99" href="page/Mac/OS%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8.html#e4d62b99" title="e4d62b99">†</a></h2>
+<p>コンピュータにはお花の名前をつけると決めている。</p>
+<div class="img_margin" style="text-align:center"><a href="page/Mac%2FOS%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8.html__computername1.png" title="computername1.png"><img src="page/Mac%2FOS%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8.html__computername1.png" alt="computername1.png" title="computername1.png" width="585" height="448"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Mac%2FOS%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8.html__computername2.png" title="computername2.png"><img src="page/Mac%2FOS%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8.html__computername2.png" alt="computername2.png" title="computername2.png" width="585" height="482"></a></div>
+
+
+<div class="jumpmenu"><a href="page/Mac/OSクリーンインストール後にしたこと.html#navigator">↑</a></div><h2 id="content_1_3">.ssh/の作成  <a class="anchor_super" id="r6d12dc8" href="page/Mac/OS%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8.html#r6d12dc8" title="r6d12dc8">†</a></h2>
+<p>$HOME/.ssh/を作成して、バックアップしたconfigとid-rsaなどを置く。</p>
+
+<div class="jumpmenu"><a href="page/Mac/OSクリーンインストール後にしたこと.html#navigator">↑</a></div><h2 id="content_1_4">開発系ツールのインストール  <a class="anchor_super" id="g8f908cc" href="page/Mac/OS%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8.html#g8f908cc" title="g8f908cc">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>homebrew
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>homebrew-cask
+<pre>$ brew tap caskroom/cask
+$ brew tap caskroom/versions</pre></li></ul></li>
+<li>nodebrew
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>node</li>
+<li>npm</li></ul></li>
+<li>SDKMAN!
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>gradle</li>
+<li>JDK (Oracle)もいける？</li></ul></li>
+<li>エディタ
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>Visual Studio Code</li>
+<li>Vimはターミナルで使える状態</li></ul></li></ul>
+<p>次はやめた。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Atom <span style="color:green">// Visual Studio Codeに乗り換えた</span>
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>vim-mode</li>
+<li>ex-mode</li>
+<li>keyboard-localization</li>
+<li>atom-typescript</li></ul></li></ul>
+</div><div id="lastmodified">Last-modified: 2018-09-29 (土) 19:13:45  (358d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:53</div>
+		</div></body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>サーバ管理&#047;ユーザを管理する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>サーバ管理&#047;ユーザを管理する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">手順  <a class="anchor_super" id="e99a72f7" href="page/%E3%82%B5%E3%83%BC%E3%83%90%E7%AE%A1%E7%90%86/%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#e99a72f7" title="e99a72f7">†</a></h2>
+
+<div class="jumpmenu"><a href="page/サーバ管理/ユーザを管理する.html#navigator">↑</a></div><h3 id="content_1_1">ユーザ管理  <a class="anchor_super" id="fb057af5" href="page/%E3%82%B5%E3%83%BC%E3%83%90%E7%AE%A1%E7%90%86/%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#fb057af5" title="fb057af5">†</a></h3>
+
+<div class="jumpmenu"><a href="page/サーバ管理/ユーザを管理する.html#navigator">↑</a></div><h4 id="content_1_2">ユーザを追加する  <a class="anchor_super" id="t741b046" href="page/%E3%82%B5%E3%83%BC%E3%83%90%E7%AE%A1%E7%90%86/%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#t741b046" title="t741b046">†</a></h4>
+<pre># useradd &lt;ユーザ名&gt;</pre>
+<p>すぐさまユーザのパスワードを設定する。</p>
+<pre># passwd &lt;ユーザ名&gt;
+New UNIX password: （ここでパスワードを入力）
+Retype new UNIX password: （ここでパスワードを再入力）
+passwd: all authentication tokens updated successfully.</pre>
+
+<div class="jumpmenu"><a href="page/サーバ管理/ユーザを管理する.html#navigator">↑</a></div><h4 id="content_1_3">ユーザを削除する  <a class="anchor_super" id="k800df19" href="page/%E3%82%B5%E3%83%BC%E3%83%90%E7%AE%A1%E7%90%86/%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#k800df19" title="k800df19">†</a></h4>
+<pre># userdel [ -r ] login</pre>
+<p>rオプションはホームディレクトリの削除を指示する</p>
+
+<div class="jumpmenu"><a href="page/サーバ管理/ユーザを管理する.html#navigator">↑</a></div><h3 id="content_1_4">グループ管理  <a class="anchor_super" id="d45a6ef5" href="page/%E3%82%B5%E3%83%BC%E3%83%90%E7%AE%A1%E7%90%86/%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#d45a6ef5" title="d45a6ef5">†</a></h3>
+
+<div class="jumpmenu"><a href="page/サーバ管理/ユーザを管理する.html#navigator">↑</a></div><h4 id="content_1_5">グループを追加する  <a class="anchor_super" id="u7087d6c" href="page/%E3%82%B5%E3%83%BC%E3%83%90%E7%AE%A1%E7%90%86/%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#u7087d6c" title="u7087d6c">†</a></h4>
+<pre># groupadd &lt;グループ名&gt;</pre>
+
+<div class="jumpmenu"><a href="page/サーバ管理/ユーザを管理する.html#navigator">↑</a></div><h4 id="content_1_6">ユーザの所属グループを確認する  <a class="anchor_super" id="x792d29e" href="page/%E3%82%B5%E3%83%BC%E3%83%90%E7%AE%A1%E7%90%86/%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#x792d29e" title="x792d29e">†</a></h4>
+<pre>$ id</pre>
+
+<div class="jumpmenu"><a href="page/サーバ管理/ユーザを管理する.html#navigator">↑</a></div><h4 id="content_1_7">グループを確認する  <a class="anchor_super" id="ra8009a1" href="page/%E3%82%B5%E3%83%BC%E3%83%90%E7%AE%A1%E7%90%86/%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#ra8009a1" title="ra8009a1">†</a></h4>
+<pre>$ groups</pre>
+
+<div class="jumpmenu"><a href="page/サーバ管理/ユーザを管理する.html#navigator">↑</a></div><h4 id="content_1_8">グループを変更する  <a class="anchor_super" id="l90e7fbc" href="page/%E3%82%B5%E3%83%BC%E3%83%90%E7%AE%A1%E7%90%86/%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#l90e7fbc" title="l90e7fbc">†</a></h4>
+<pre># usermod -G &lt;グループ名&gt;[,&lt;グループ名&gt;] &lt;ユーザ名&gt;</pre>
+
+<div class="jumpmenu"><a href="page/サーバ管理/ユーザを管理する.html#navigator">↑</a></div><h4 id="content_1_9">デフォルトグループを変更する  <a class="anchor_super" id="gcd483cd" href="page/%E3%82%B5%E3%83%BC%E3%83%90%E7%AE%A1%E7%90%86/%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#gcd483cd" title="gcd483cd">†</a></h4>
+<pre># usermod -g &lt;グループ名&gt; &lt;ユーザ名&gt;</pre>
+
+<div class="jumpmenu"><a href="page/サーバ管理/ユーザを管理する.html#navigator">↑</a></div><h2 id="content_1_10">参考  <a class="anchor_super" id="d187cc32" href="page/%E3%82%B5%E3%83%BC%E3%83%90%E7%AE%A1%E7%90%86/%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#d187cc32" title="d187cc32">†</a></h2>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:30</div>
+		</div></body>
+</html>

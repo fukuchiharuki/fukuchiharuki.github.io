@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>シェル&#047;ディスク使用量を確認する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>シェル&#047;ディスク使用量を確認する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="f31dd303" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF%E4%BD%BF%E7%94%A8%E9%87%8F%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B.html#f31dd303" title="f31dd303">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Linux</li>
+<li>du</li>
+<li>--max-depth</li></ul>
+
+<div class="jumpmenu"><a href="page/シェル/ディスク使用量を確認する.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="zf57f66a" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF%E4%BD%BF%E7%94%A8%E9%87%8F%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B.html#zf57f66a" title="zf57f66a">†</a></h2>
+<p>どのディレクトリがたくさん使っているか、とか。</p>
+
+<div class="jumpmenu"><a href="page/シェル/ディスク使用量を確認する.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="nc4100eb" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF%E4%BD%BF%E7%94%A8%E9%87%8F%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B.html#nc4100eb" title="nc4100eb">†</a></h2>
+<pre># du -h --max-depth 1 /</pre>
+
+<div class="jumpmenu"><a href="page/シェル/ディスク使用量を確認する.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="g6080c4b" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF%E4%BD%BF%E7%94%A8%E9%87%8F%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B.html#g6080c4b" title="g6080c4b">†</a></h2>
+
+<div class="jumpmenu"><a href="page/シェル/ディスク使用量を確認する.html#navigator">↑</a></div><h3 id="content_1_4">-h  <a class="anchor_super" id="m5345ee9" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF%E4%BD%BF%E7%94%A8%E9%87%8F%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B.html#m5345ee9" title="m5345ee9">†</a></h3>
+<p>「7.0G」のような形式で使用量を表示する。</p>
+
+<div class="jumpmenu"><a href="page/シェル/ディスク使用量を確認する.html#navigator">↑</a></div><h3 id="content_1_5">--max-depth 1  <a class="anchor_super" id="i4357539" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF%E4%BD%BF%E7%94%A8%E9%87%8F%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B.html#i4357539" title="i4357539">†</a></h3>
+<p>深さを指定する。これがないとどこまでも再帰するので見づらい。</p>
+
+<div class="jumpmenu"><a href="page/シェル/ディスク使用量を確認する.html#navigator">↑</a></div><h3 id="content_1_6">/  <a class="anchor_super" id="i5343021" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF%E4%BD%BF%E7%94%A8%E9%87%8F%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B.html#i5343021" title="i5343021">†</a></h3>
+<p>最後に確認するディレクトリを指定する。この例はルートディレクトリ。</p>
+
+<div class="jumpmenu"><a href="page/シェル/ディスク使用量を確認する.html#navigator">↑</a></div><h2 id="content_1_7">参考  <a class="anchor_super" id="s5a7cad7" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF%E4%BD%BF%E7%94%A8%E9%87%8F%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B.html#s5a7cad7" title="s5a7cad7">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://blog.majide.com/2006/01/linux-df-du-quota-command/" rel="nofollow">[Linux] ディスク容量を表示 df,du,quotaコマンド</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:35</div>
+		</div></body>
+</html>

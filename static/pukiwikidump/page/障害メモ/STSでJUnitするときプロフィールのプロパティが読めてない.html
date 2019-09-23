@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;STSでJUnitするときプロフィールのプロパティが読めてない - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;STSでJUnitするときプロフィールのプロパティが読めてない</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="v505abd7" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/STS%E3%81%A7JUnit%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB%E3%81%AE%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%8C%E8%AA%AD%E3%82%81%E3%81%A6%E3%81%AA%E3%81%84.html#v505abd7" title="v505abd7">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Spring Boot</li>
+<li>JUnit</li>
+<li>STS</li>
+<li>Eclipse</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/STSでJUnitするときプロフィールのプロパティが読めてない.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="m227f3d8" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/STS%E3%81%A7JUnit%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB%E3%81%AE%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%8C%E8%AA%AD%E3%82%81%E3%81%A6%E3%81%AA%E3%81%84.html#m227f3d8" title="m227f3d8">†</a></h2>
+<p>STS(Eclipse)でJUnitのテストをするとき、プロフィールのプロパティが読めない。</p>
+<p>次を試したがだめだった。</p>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><thead><tr><td class="style_td">項目</td><td class="style_td">設定内容</td></tr></thead><tbody><tr><td class="style_td">Program arguments</td><td class="style_td">--spring.profiles.active=dev</td></tr><tr><td class="style_td">Environment variables to set</td><td class="style_td">(Variable,Value)=(SPRING_PROFILES_ACTIVE,dev)</td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/障害メモ/STSでJUnitするときプロフィールのプロパティが読めてない.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="r35fd540" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/STS%E3%81%A7JUnit%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB%E3%81%AE%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%8C%E8%AA%AD%E3%82%81%E3%81%A6%E3%81%AA%E3%81%84.html#r35fd540" title="r35fd540">†</a></h2>
+<p>EclipseのJUnit test runnerがSpring Bootのようにやってくれないから？</p>
+<pre>the JUnit runner simply doesn't parse arguments the same way that a spring boot app does.</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/STSでJUnitするときプロフィールのプロパティが読めてない.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="ada267ce" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/STS%E3%81%A7JUnit%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB%E3%81%AE%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%8C%E8%AA%AD%E3%82%81%E3%81%A6%E3%81%AA%E3%81%84.html#ada267ce" title="ada267ce">†</a></h2>
+<p>次のようにプロパティファイルを用意している場合、</p>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><thead><tr><td class="style_td">プロパティファイル</td><td class="style_td">内容</td></tr></thead><tbody><tr><td class="style_td">application.yml</td><td class="style_td">環境依存の設定を除く</td></tr><tr><td class="style_td">application-dev.yml</td><td class="style_td">環境依存の設定のみ</td></tr></tbody></table></div>
+<p>application.ymlに環境依存の設定も合わせて記述する。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/STSでJUnitするときプロフィールのプロパティが読めてない.html#navigator">↑</a></div><h2 id="content_1_4">備考  <a class="anchor_super" id="s0de569f" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/STS%E3%81%A7JUnit%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB%E3%81%AE%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%8C%E8%AA%AD%E3%82%81%E3%81%A6%E3%81%AA%E3%81%84.html#s0de569f" title="s0de569f">†</a></h2>
+<p>Gradleからテストする場合、</p>
+<pre>export SPRING_PROFILES_ACTIVE=dev</pre>
+<p>をすれば</p>
+<pre>gradle test</pre>
+<p>できる。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/STSでJUnitするときプロフィールのプロパティが読めてない.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="y828e316" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/STS%E3%81%A7JUnit%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB%E3%81%AE%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%81%8C%E8%AA%AD%E3%82%81%E3%81%A6%E3%81%AA%E3%81%84.html#y828e316" title="y828e316">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://stackoverflow.com/questions/37500403/spring-boot-junit-test-cannot-get-command-line-argument-eclipse-sts" rel="nofollow">Spring boot junit test cannot get command line argument (Eclipse - STS) - Stack Overflow</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-04-20 (木) 16:59:00  (885d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:52</div>
+		</div></body>
+</html>

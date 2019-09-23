@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MySQL&#047;ユーザーを管理する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>MySQL&#047;ユーザーを管理する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">関連  <a class="anchor_super" id="e943eef5" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#e943eef5" title="e943eef5">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>MySQL</li></ul>
+
+<div class="jumpmenu"><a href="page/MySQL/ユーザーを管理する.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="l528dc31" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#l528dc31" title="l528dc31">†</a></h2>
+<p>ユーザ情報を参照する方法などです。</p>
+
+<div class="jumpmenu"><a href="page/MySQL/ユーザーを管理する.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="i29e63a0" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#i29e63a0" title="i29e63a0">†</a></h2>
+
+<div class="jumpmenu"><a href="page/MySQL/ユーザーを管理する.html#navigator">↑</a></div><h3 id="content_1_3">ユーザを表示する  <a class="anchor_super" id="hbb830c9" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#hbb830c9" title="hbb830c9">†</a></h3>
+<pre>mysql&gt; select user,host,password from mysql.user;</pre>
+
+<div class="jumpmenu"><a href="page/MySQL/ユーザーを管理する.html#navigator">↑</a></div><h3 id="content_1_4">ユーザの権限を確認する  <a class="anchor_super" id="b687889c" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#b687889c" title="b687889c">†</a></h3>
+<pre>mysql&gt; show grants for 'ユーザ名'@'ホスト名';</pre>
+
+<div class="jumpmenu"><a href="page/MySQL/ユーザーを管理する.html#navigator">↑</a></div><h3 id="content_1_5">パスワードを設定する  <a class="anchor_super" id="od655d58" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#od655d58" title="od655d58">†</a></h3>
+<pre>mysql&gt; update mysql.user set password=password('&lt;ここにパスワード&gt;') where &lt;条件&gt;;
+mysql&gt; flush privileges;</pre>
+
+<div class="jumpmenu"><a href="page/MySQL/ユーザーを管理する.html#navigator">↑</a></div><h3 id="content_1_6">ユーザを削除する  <a class="anchor_super" id="yfdaebcf" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#yfdaebcf" title="yfdaebcf">†</a></h3>
+<pre>mysql&gt; delete from mysql.user where &lt;条件&gt;;
+mysql&gt; flush privileges;</pre>
+
+<div class="jumpmenu"><a href="page/MySQL/ユーザーを管理する.html#navigator">↑</a></div><h2 id="content_1_7">参考  <a class="anchor_super" id="f305ad6b" href="page/MySQL/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B.html#f305ad6b" title="f305ad6b">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://centossrv.com/mysql.shtml" rel="nofollow">http://centossrv.com/mysql.shtml</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:57</div>
+		</div></body>
+</html>

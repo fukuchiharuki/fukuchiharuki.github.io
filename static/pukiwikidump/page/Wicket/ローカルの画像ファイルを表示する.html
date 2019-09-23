@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Wicket&#047;ローカルの画像ファイルを表示する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Wicket&#047;ローカルの画像ファイルを表示する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">実装  <a class="anchor_super" id="l19c92b0" href="page/Wicket/%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AE%E7%94%BB%E5%83%8F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B.html#l19c92b0" title="l19c92b0">†</a></h2>
+
+<div class="jumpmenu"><a href="page/Wicket/ローカルの画像ファイルを表示する.html#navigator">↑</a></div><h3 id="content_1_1">コンテキスト内  <a class="anchor_super" id="k1f5b3d6" href="page/Wicket/%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AE%E7%94%BB%E5%83%8F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B.html#k1f5b3d6" title="k1f5b3d6">†</a></h3>
+<p>公開ディレクトリに配置しているコンテキスト内の静的ファイルならば、src属性に画像の相対パス（またはURL）を指定したほうが無駄な処理がない。</p>
+<pre>item.add(
+  new WebMarkupContainer("hoge")
+  .add(new SimpleAttributeModifier("src", "moge.jpg"))
+);</pre>
+<p>URLでアクセスできる画像ならば、そのURLを指定することで表示させることができる（src属性値を書くのと同じだから。）</p>
+
+<div class="jumpmenu"><a href="page/Wicket/ローカルの画像ファイルを表示する.html#navigator">↑</a></div><h3 id="content_1_2">コンテキスト外  <a class="anchor_super" id="a3e74713" href="page/Wicket/%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AE%E7%94%BB%E5%83%8F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B.html#a3e74713" title="a3e74713">†</a></h3>
+<p>非公開ディレクトに配置した画像をアプリケーションを介して表示させるたいとき、Imageコンポーネントにバイナリを読み込んで渡してあげる。</p>
+<pre>final String imagePath = &lt;ファイルパス&gt;;
+Resource image = new DynamicImageResource() {
+  @Override
+  protected byte[] getImageData() {
+    // imagePathから画像のバイト列を取得する
+    return &lt;画像のバイト列&gt;;
+  }
+};
+item.add(new Image("hoge", image));</pre>
+<p>注意しなければならないのは、アプリケーションがgetImageData()をコールするのはブラウザが画像を取得するときだということ。つまり、ページをレンダリングした後、になる。リソースのファイルパスをLoadableDetachableModelに保持していると、アプリケーションはファイルパスを取得できなくなる。</p>
+
+<div class="jumpmenu"><a href="page/Wicket/ローカルの画像ファイルを表示する.html#navigator">↑</a></div><h2 id="content_1_3">参照  <a class="anchor_super" id="ua228138" href="page/Wicket/%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AE%E7%94%BB%E5%83%8F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B.html#ua228138" title="ua228138">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://wicket.apache.org/apidocs/1.3/org/apache/wicket/markup/html/image/resource/DynamicImageResource.html" rel="nofollow">http://wicket.apache.org/apidocs/1.3/org/apache/wicket/markup/html/image/resource/DynamicImageResource.html</a></li>
+<li><a href="http://java.sun.com/j2se/1.5.0/ja/docs/ja/api/java/io/FileOutputStream.html" rel="nofollow">http://java.sun.com/j2se/1.5.0/ja/docs/ja/api/java/io/FileOutputStream.html</a></li>
+<li><a href="http://java.sun.com/javase/ja/6/docs/ja/api/java/io/FileInputStream.html" rel="nofollow">http://java.sun.com/javase/ja/6/docs/ja/api/java/io/FileInputStream.html</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:20</div>
+		</div></body>
+</html>

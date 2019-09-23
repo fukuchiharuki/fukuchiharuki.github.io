@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>JavaScript&#047;別ファイルの内容をダイアログ表示する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>JavaScript&#047;別ファイルの内容をダイアログ表示する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="w9522de9" href="page/JavaScript/%E5%88%A5%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E3%83%80%E3%82%A4%E3%82%A2%E3%83%AD%E3%82%B0%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B.html#w9522de9" title="w9522de9">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>jQuery</li>
+<li>jQuery UI</li>
+<li>dialog</li></ul>
+
+<div class="jumpmenu"><a href="page/JavaScript/別ファイルの内容をダイアログ表示する.html#navigator">↑</a></div><h2 id="content_1_1">やりたいこと  <a class="anchor_super" id="b3ce488f" href="page/JavaScript/%E5%88%A5%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E3%83%80%E3%82%A4%E3%82%A2%E3%83%AD%E3%82%B0%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B.html#b3ce488f" title="b3ce488f">†</a></h2>
+<p>別ファイルに切り出した html ファイルの内容をダイアログ表示します。</p>
+
+<div class="jumpmenu"><a href="page/JavaScript/別ファイルの内容をダイアログ表示する.html#navigator">↑</a></div><h3 id="content_1_2">前提条件  <a class="anchor_super" id="v179d2f3" href="page/JavaScript/%E5%88%A5%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E3%83%80%E3%82%A4%E3%82%A2%E3%83%AD%E3%82%B0%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B.html#v179d2f3" title="v179d2f3">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>jQuery/jQuery UI を使う</li></ul>
+
+<div class="jumpmenu"><a href="page/JavaScript/別ファイルの内容をダイアログ表示する.html#navigator">↑</a></div><h2 id="content_1_3">方法  <a class="anchor_super" id="d4101add" href="page/JavaScript/%E5%88%A5%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E3%83%80%E3%82%A4%E3%82%A2%E3%83%AD%E3%82%B0%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B.html#d4101add" title="d4101add">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>id="popup-button" をクリックして</li>
+<li>dialog.html の要素 id="document-root" の内容を</li>
+<li>ダイアログ表示する</li></ul>
+<p>には次のようにします。</p>
+<pre>$('#popup-button').click(function() {
+	$('&lt;div /&gt;')
+	.load('dialog.html #document-root')
+	.dialog({
+		modal: true,
+		title: 'ダイアログのタイトル',
+		resizable: false,
+		width: 600,
+		height: 400
+	}).dialog('open');
+	return false;
+});</pre>
+
+<div class="jumpmenu"><a href="page/JavaScript/別ファイルの内容をダイアログ表示する.html#navigator">↑</a></div><h2 id="content_1_4">詳細  <a class="anchor_super" id="yd11787d" href="page/JavaScript/%E5%88%A5%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E3%83%80%E3%82%A4%E3%82%A2%E3%83%AD%E3%82%B0%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B.html#yd11787d" title="yd11787d">†</a></h2>
+<p>関数 load() はファイルパスに続けてセレクタを記述することができます。セレクタを記述しないと、別ファイルに完全な html を書いている場合 link タグや script タグも入れ込んでしまうので注意です。</p>
+
+<div class="jumpmenu"><a href="page/JavaScript/別ファイルの内容をダイアログ表示する.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="kc5719e9" href="page/JavaScript/%E5%88%A5%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E3%83%80%E3%82%A4%E3%82%A2%E3%83%AD%E3%82%B0%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B.html#kc5719e9" title="kc5719e9">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://api.jqueryui.com/dialog/" rel="nofollow">Dialog Widget | jQuery UI API Documentation</a></li>
+<li><a href="http://uedatakeshi.blogspot.jp/2010/10/jquery-uidialog.html" rel="nofollow">ブログ：図書館合金: jQuery UIのDialogで、開くウインドウの中身を別ファイルにしたい</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2014-04-02 (水) 20:22:35  (1999d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:48</div>
+		</div></body>
+</html>

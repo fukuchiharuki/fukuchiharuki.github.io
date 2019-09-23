@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>React&#047;Rechartsで円グラフを描く - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>React&#047;Rechartsで円グラフを描く</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="u16919f3" href="page/React/Recharts%E3%81%A7%E5%86%86%E3%82%B0%E3%83%A9%E3%83%95%E3%82%92%E6%8F%8F%E3%81%8F.html#u16919f3" title="u16919f3">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>React</li>
+<li>Recharts</li>
+<li>Pie chart</li>
+<li>円グラフ</li></ul>
+
+<div class="jumpmenu"><a href="page/React/Rechartsで円グラフを描く.html#navigator">↑</a></div><h2 id="content_1_1">したいこと  <a class="anchor_super" id="ab3312da" href="page/React/Recharts%E3%81%A7%E5%86%86%E3%82%B0%E3%83%A9%E3%83%95%E3%82%92%E6%8F%8F%E3%81%8F.html#ab3312da" title="ab3312da">†</a></h2>
+<p>Reactでグラフを描きたい。Rechartsというものがある。円グラフを描きたい。PieChartが用意されている。</p>
+<p>が、しかし。</p>
+<p>開始が3時の方向で反時計回りに描くんですね、これが。第1象限とかいうのを思い出します。</p>
+<p>そうではなくて、普通に0時方向から時計回りに描きたい。</p>
+
+<div class="jumpmenu"><a href="page/React/Rechartsで円グラフを描く.html#navigator">↑</a></div><h2 id="content_1_2">どうやって  <a class="anchor_super" id="y693172d" href="page/React/Recharts%E3%81%A7%E5%86%86%E3%82%B0%E3%83%A9%E3%83%95%E3%82%92%E6%8F%8F%E3%81%8F.html#y693172d" title="y693172d">†</a></h2>
+<p>開始角度（0時方向）と終了角度（逆回りに0時方向）をセットする。</p>
+<pre>&lt;Pie
+  startAngle={90}
+  endAngle={-270}
+/&gt;</pre>
+<p>まさかうまくいくとは思わなかった。。</p>
+
+<div class="jumpmenu"><a href="page/React/Rechartsで円グラフを描く.html#navigator">↑</a></div><h2 id="content_1_3">参考  <a class="anchor_super" id="p099b4a7" href="page/React/Recharts%E3%81%A7%E5%86%86%E3%82%B0%E3%83%A9%E3%83%95%E3%82%92%E6%8F%8F%E3%81%8F.html#p099b4a7" title="p099b4a7">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://recharts.org/#/en-US/api/Pie" rel="nofollow">Pie | Recharts</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2018-03-23 (金) 18:31:05  (548d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:03</div>
+		</div></body>
+</html>

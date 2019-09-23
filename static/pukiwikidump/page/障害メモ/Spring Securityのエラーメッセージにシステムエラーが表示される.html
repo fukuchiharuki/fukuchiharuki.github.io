@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;Spring Securityのエラーメッセージにシステムエラーが表示される - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;Spring Securityのエラーメッセージにシステムエラーが表示される</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="m09109f5" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Security%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8B.html#m09109f5" title="m09109f5">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Spring Boot</li>
+<li>Spring Security</li>
+<li>エラーメッセージ</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Spring Securityのエラーメッセージにシステムエラーが表示される.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="vf91a3c5" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Security%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8B.html#vf91a3c5" title="vf91a3c5">†</a></h2>
+<p>Spring Securityでログインページを作成するとき、エラーメッセージにシステムエラーが表示されてしまう。たとえば、JDBCアクセスできなかったという詳細なエラーメッセージが「ログインIDかパスワードが間違っています。」と表示したい箇所にモロ出しになる。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Spring Securityのエラーメッセージにシステムエラーが表示される.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="y087520b" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Security%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8B.html#y087520b" title="y087520b">†</a></h2>
+<p>ログインプロセス中に生じた例外をSpring Securityが拾ってしまうため。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Spring Securityのエラーメッセージにシステムエラーが表示される.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="o704bc5d" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Security%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8B.html#o704bc5d" title="o704bc5d">†</a></h2>
+
+<div class="jumpmenu"><a href="page/障害メモ/Spring Securityのエラーメッセージにシステムエラーが表示される.html#navigator">↑</a></div><h3 id="content_1_4">エラーページにリダイレクトする  <a class="anchor_super" id="k252631c" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Security%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8B.html#k252631c" title="k252631c">†</a></h3>
+<p>ExceptionMappingAuthenticationFailureHandlerを作成して次の例外でエラーページにリダイレクトするように設定する。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>org.springframework.security.authentication.InternalAuthenticationServiceException</li></ul>
+<pre>public class SecurityConfigAuthenticationFailureHandler extends ExceptionMappingAuthenticationFailureHandler {
+
+	public SecurityConfigAuthenticationFailureHandler() {
+		this.setDefaultFailureUrl("/");
+		this.setExceptionMappings(getFailureUrlMap());
+	}
+	
+	private Map&lt;String, String&gt; getFailureUrlMap() {
+		Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
+		map.put(InternalAuthenticationServiceException.class.getName(), "/error");
+		return map;
+	}
+
+}</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/Spring Securityのエラーメッセージにシステムエラーが表示される.html#navigator">↑</a></div><h3 id="content_1_5">ログ出力する  <a class="anchor_super" id="nb308b1c" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Security%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8B.html#nb308b1c" title="nb308b1c">†</a></h3>
+<p>エラーページにリダイレクトしても例外オブジェクトは届けられない。ExceptionMappingAuthenticationFailureHandlerは単純にリダイレクトをしているだけだから。なので、このハンドラ中でエラーログ出力してあげる必要がある。</p>
+<pre>	@Override
+	public void onAuthenticationFailure(
+			HttpServletRequest request,
+			HttpServletResponse response, 
+			AuthenticationException exception
+	) throws IOException, ServletException {
+
+		// TODO: ここで、exceptionを利用してエラーログ出力する
+
+		super.onAuthenticationFailure(request, response, exception);
+	}</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/Spring Securityのエラーメッセージにシステムエラーが表示される.html#navigator">↑</a></div><h2 id="content_1_6">備考  <a class="anchor_super" id="g1d6acad" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Security%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8B.html#g1d6acad" title="g1d6acad">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>InternalAuthenticationServiceExceptionは名前どおり、内部的なエラーを包む。</li>
+<li>InternalAuthenticationServiceExceptionに対するメッセージを定義するだけで足りたりする？(試してない)
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>それにしてもエラーログ出力はしたいから何か手を打つ必要はある</li></ul></li>
+<li><span style="color:red">SimpleUrlAuthenticationFailureHandlerを継承するようにして、InternalAuthenticationServiceExceptionであればthrowする方がよいような気がしました</span>
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>例外のロギングをいろんなところに書きたくない</li>
+<li>例外はErrorControllerがもつ、がシンプルでいい</li></ul></li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Spring Securityのエラーメッセージにシステムエラーが表示される.html#navigator">↑</a></div><h2 id="content_1_7">参考  <a class="anchor_super" id="ga5691d7" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Security%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8B.html#ga5691d7" title="ga5691d7">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://github.com/terasolunaorg/guideline/issues/811" rel="nofollow">[Authentication] DBエラー発生時に例外メッセージが出力されるケースがある · Issue #811 · terasolunaorg/guideline · GitHub</a></li>
+<li><a href="https://docs.spring.io/spring-security/site/docs/current/apidocs/org/springframework/security/authentication/InternalAuthenticationServiceException.html" rel="nofollow">InternalAuthenticationServiceException (Spring Security 4.2.2.RELEASE API)</a></li>
+<li><a href="page/Spring%20Boot/%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A7%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E3%81%99%E3%82%8B.html" title="Spring Boot/特定のログインエラーで画面遷移する (851d)">Spring Boot/特定のログインエラーで画面遷移する</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-06-07 (水) 11:29:52  (837d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:53</div>
+		</div></body>
+</html>

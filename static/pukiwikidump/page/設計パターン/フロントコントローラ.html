@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>設計パターン&#047;フロントコントローラ - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>設計パターン&#047;フロントコントローラ</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="id4595a1" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9.html#id4595a1" title="id4595a1">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Webアプリケーション</li>
+<li>リクエスト</li></ul>
+
+<div class="jumpmenu"><a href="page/設計パターン/フロントコントローラ.html#navigator">↑</a></div><h2 id="content_1_1">何か  <a class="anchor_super" id="w2634f71" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9.html#w2634f71" title="w2634f71">†</a></h2>
+<pre>たったひとつの入口</pre>
+<p>すべてのリクエストを一旦受け付けます。受け付けた後、リクエストの内容に応じてコマンドを選択してアプリケーション処理を委譲します。ハンドラ。</p>
+
+<div class="jumpmenu"><a href="page/設計パターン/フロントコントローラ.html#navigator">↑</a></div><h2 id="content_1_2">なぜか  <a class="anchor_super" id="c149caa1" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9.html#c149caa1" title="c149caa1">†</a></h2>
+<p>複雑なWebサイトになるといたるところで似通った処理をするようになります。セキュリティに関することやローカリゼーションなどです。リクエストの入口をひとつにすることで、これらの処理を1箇所にまとめることができます。コードの重複を回避できます。また、Javaにおいてはスレッドセーフでないサーブレット処理をコマンド(オブジェクト)に委譲することでスレッドセーフであることを気にしなくてよくなります。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>コード重複の回避</li>
+<li>スレッドセーフ(Java/Servlet)</li></ul>
+<p>コード重複の回避については注意が必要です。共通化という名目のもと多くの処理をフロントコントローラに寄せ過ぎてしまうと、フロントコントローラが肥大化してしまいます。フロントコントローラの役割はあくまでコマンドの選択に留めておきましょう。選択されたコマンドがフロントコントローラを制御したくなるようなら寄せ過ぎです。そうならない限りにおいてならばよいでしょう。</p>
+
+<div class="jumpmenu"><a href="page/設計パターン/フロントコントローラ.html#navigator">↑</a></div><h2 id="content_1_3">どのように  <a class="anchor_super" id="c5a5a61d" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9.html#c5a5a61d" title="c5a5a61d">†</a></h2>
+<p>Javaにおいてはweb.xmlにてすべてのURLパターンをひとつのサーブレットにマップします。PHPにおいては.htaccessにてすべてのURLパターンをひとつのphpファイルにマップすることができます。</p>
+
+<div class="jumpmenu"><a href="page/設計パターン/フロントコントローラ.html#navigator">↑</a></div><h2 id="content_1_4">関連  <a class="anchor_super" id="hfdb6019" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9.html#hfdb6019" title="hfdb6019">†</a></h2>
+
+
+<div class="jumpmenu"><a href="page/設計パターン/フロントコントローラ.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="d873db23" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9.html#d873db23" title="d873db23">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://www.martinfowler.com/eaaCatalog/frontController.html" rel="nofollow">&gt;P of EAA: Front Controller</a></li>
+<li><a href="http://d.hatena.ne.jp/asakichy/20120627/1340748302" rel="nofollow">フロントコントローラ - Strategic Choice</a></li>
+<li><a href="http://choilog.com/katty0324/blog/6" rel="nofollow">PHP10行で作る超シンプルフレームワーク - かってぃのブログ | choilog [チョイログ]</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2014-07-24 (木) 17:54:14  (1886d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:42</div>
+		</div></body>
+</html>

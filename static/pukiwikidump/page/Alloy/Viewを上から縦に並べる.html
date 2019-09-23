@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Alloy&#047;Viewを上から縦に並べる - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Alloy&#047;Viewを上から縦に並べる</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="aae7f615" href="page/Alloy/View%E3%82%92%E4%B8%8A%E3%81%8B%E3%82%89%E7%B8%A6%E3%81%AB%E4%B8%A6%E3%81%B9%E3%82%8B.html#aae7f615" title="aae7f615">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Titanium Mobile</li>
+<li>Alloy</li></ul>
+
+<div class="jumpmenu"><a href="page/Alloy/Viewを上から縦に並べる.html#navigator">↑</a></div><h2 id="content_1_1">目標  <a class="anchor_super" id="kf6851fa" href="page/Alloy/View%E3%82%92%E4%B8%8A%E3%81%8B%E3%82%89%E7%B8%A6%E3%81%AB%E4%B8%A6%E3%81%B9%E3%82%8B.html#kf6851fa" title="kf6851fa">†</a></h2>
+<p>View を上から縦に並べます。</p>
+<div class="img_margin" style="text-align:center"><a href="page/Alloy%2FView%E3%82%92%E4%B8%8A%E3%81%8B%E3%82%89%E7%B8%A6%E3%81%AB%E4%B8%A6%E3%81%B9%E3%82%8B.html__vertical.png" title="vertical.png"><img src="page/Alloy%2FView%E3%82%92%E4%B8%8A%E3%81%8B%E3%82%89%E7%B8%A6%E3%81%AB%E4%B8%A6%E3%81%B9%E3%82%8B.html__vertical.png" alt="vertical.png" title="vertical.png" width="240" height="338"></a></div>
+
+
+<div class="jumpmenu"><a href="page/Alloy/Viewを上から縦に並べる.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="x9dc7ca3" href="page/Alloy/View%E3%82%92%E4%B8%8A%E3%81%8B%E3%82%89%E7%B8%A6%E3%81%AB%E4%B8%A6%E3%81%B9%E3%82%8B.html#x9dc7ca3" title="x9dc7ca3">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Window.xml
+<pre>&lt;Alloy&gt;
+	&lt;Window id="window"&gt;
+		&lt;View id="view1"&gt;
+			&lt;Label&gt;View 1&lt;/Label&gt;
+		&lt;/View&gt;
+		&lt;View id="view2"&gt;
+			&lt;Label&gt;View 2&lt;/Label&gt;
+		&lt;/View&gt;
+		&lt;View id="view3"&gt;
+			&lt;Label&gt;View 3&lt;/Label&gt;
+		&lt;/View&gt;
+	&lt;/Window&gt;
+&lt;/Alloy&gt;</pre></li></ul>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Window.tss
+<pre>'#window': {
+	layout: 'vertical',
+	backgroundColor: '#90EE90',
+},
+'#view1': {
+	height: Ti.UI.SIZE,
+	top: 10,
+	bottom: 10,
+	backgroundColor: 'red',
+},
+'#view2': {
+	height: Ti.UI.SIZE,
+	left: 10,
+	right: 10,
+	backgroundColor: 'red',
+},
+'#view3': {
+	height: Ti.UI.SIZE,
+	backgroundColor: 'red',
+}</pre></li></ul>
+
+<div class="jumpmenu"><a href="page/Alloy/Viewを上から縦に並べる.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="lcbd5a73" href="page/Alloy/View%E3%82%92%E4%B8%8A%E3%81%8B%E3%82%89%E7%B8%A6%E3%81%AB%E4%B8%A6%E3%81%B9%E3%82%8B.html#lcbd5a73" title="lcbd5a73">†</a></h2>
+<p>縦に並べたい要素の<strong>親</strong>に「layout: 'vertical'」を指定します。HTML で「position: 'relative'」を指定するのとは少し違いますね。</p>
+
+<div class="jumpmenu"><a href="page/Alloy/Viewを上から縦に並べる.html#navigator">↑</a></div><h3 id="content_1_4">tss 属性  <a class="anchor_super" id="ba2e9024" href="page/Alloy/View%E3%82%92%E4%B8%8A%E3%81%8B%E3%82%89%E7%B8%A6%E3%81%AB%E4%B8%A6%E3%81%B9%E3%82%8B.html#ba2e9024" title="ba2e9024">†</a></h3>
+<dl class="list1" style="padding-left:16px;margin-left:16px"><dt>layout</dt>
+<dd>子要素の並べ方を指定します(horizontal/vertical)</dd>
+<dt>top, bottom, left, right</dt>
+<dd>CSS でいうところの margin-* です</dd>
+<dt>backgroundColor</dt>
+<dd>CSS でいうところの background-color です</dd></dl>
+
+<div class="jumpmenu"><a href="page/Alloy/Viewを上から縦に並べる.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="l73c4aec" href="page/Alloy/View%E3%82%92%E4%B8%8A%E3%81%8B%E3%82%89%E7%B8%A6%E3%81%AB%E4%B8%A6%E3%81%B9%E3%82%8B.html#l73c4aec" title="l73c4aec">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://developer.appcelerator.com/question/154887/relative-layout-with-alloy---possible-" rel="nofollow">Relative layout with Alloy - Possible ? » Community Questions &amp; Answers » Appcelerator Developer Center</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2014-01-01 (水) 00:13:36  (2091d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:30</div>
+		</div></body>
+</html>

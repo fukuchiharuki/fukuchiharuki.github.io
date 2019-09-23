@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;SpringApplicationConfigurationが見つからない - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;SpringApplicationConfigurationが見つからない</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="hc8849c2" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/SpringApplicationConfiguration%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%84.html#hc8849c2" title="hc8849c2">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>SpringApplicationConfiguration</li>
+<li>SpringBootTest</li>
+<li>Spring Boot</li>
+<li>ユニットテスト</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/SpringApplicationConfigurationが見つからない.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="h14a777f" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/SpringApplicationConfiguration%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%84.html#h14a777f" title="h14a777f">†</a></h2>
+<pre>SpringApplicationConfiguration cannot be resolved to a type</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/SpringApplicationConfigurationが見つからない.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="u1ea4a1d" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/SpringApplicationConfiguration%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%84.html#u1ea4a1d" title="u1ea4a1d">†</a></h2>
+<p>@SpringApplicationConfigurationはもう使わない、ということらしい。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/SpringApplicationConfigurationが見つからない.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="b8104168" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/SpringApplicationConfiguration%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%84.html#b8104168" title="b8104168">†</a></h2>
+<p>@SpringApplicationConfigurationは@SpringBootTestに変更する。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/SpringApplicationConfigurationが見つからない.html#navigator">↑</a></div><h2 id="content_1_4">備考  <a class="anchor_super" id="m046c2d2" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/SpringApplicationConfiguration%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%84.html#m046c2d2" title="m046c2d2">†</a></h2>
+<p>@SpringApplicationConfigurationを記載の記事が多くて焦ってしまった。依存関係の指定が足りないのか？と思ったら今はそれじゃない、ということだったようだ。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/SpringApplicationConfigurationが見つからない.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="a2ebdf6a" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/SpringApplicationConfiguration%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%84.html#a2ebdf6a" title="a2ebdf6a">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://ksby.hatenablog.com/entry/2017/02/11/094253#2" rel="nofollow">Spring Boot 1.3.x の Web アプリを 1.4.x へバージョンアップする ( その４ )( build.gradle 修正後の Rebuild で出た Warning を解消する ) - かんがるーさんの日記</a></li>
+<li><a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.4-Release-Notes" rel="nofollow">Spring Boot 1.4 Release Notes · spring-projects/spring-boot Wiki · GitHub</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-04-10 (月) 13:04:43  (895d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:53</div>
+		</div></body>
+</html>

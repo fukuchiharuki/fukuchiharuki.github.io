@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Vim&#047;パターンにマッチする部分でソートする - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Vim&#047;パターンにマッチする部分でソートする</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">関連  <a class="anchor_super" id="l473a550" href="page/Vim/%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%AB%E3%83%9E%E3%83%83%E3%83%81%E3%81%99%E3%82%8B%E9%83%A8%E5%88%86%E3%81%A7%E3%82%BD%E3%83%BC%E3%83%88%E3%81%99%E3%82%8B.html#l473a550" title="l473a550">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Vim</li></ul>
+
+<div class="jumpmenu"><a href="page/Vim/パターンにマッチする部分でソートする.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="m1176ae5" href="page/Vim/%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%AB%E3%83%9E%E3%83%83%E3%83%81%E3%81%99%E3%82%8B%E9%83%A8%E5%88%86%E3%81%A7%E3%82%BD%E3%83%BC%E3%83%88%E3%81%99%E3%82%8B.html#m1176ae5" title="m1176ae5">†</a></h2>
+<p>パターン(正規表現)にマッチする部分でソートします。</p>
+
+<div class="jumpmenu"><a href="page/Vim/パターンにマッチする部分でソートする.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="m1c8711d" href="page/Vim/%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%AB%E3%83%9E%E3%83%83%E3%83%81%E3%81%99%E3%82%8B%E9%83%A8%E5%88%86%E3%81%A7%E3%82%BD%E3%83%BC%E3%83%88%E3%81%99%E3%82%8B.html#m1c8711d" title="m1c8711d">†</a></h2>
+<p>たとえば各行の最初の3文字だけでソートするには次のようにする(ヘルプまんま)。</p>
+<pre>:sort /\a\a\a/ r</pre>
+
+<div class="jumpmenu"><a href="page/Vim/パターンにマッチする部分でソートする.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="w7a6c72e" href="page/Vim/%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%AB%E3%83%9E%E3%83%83%E3%83%81%E3%81%99%E3%82%8B%E9%83%A8%E5%88%86%E3%81%A7%E3%82%BD%E3%83%BC%E3%83%88%E3%81%99%E3%82%8B.html#w7a6c72e" title="w7a6c72e">†</a></h2>
+<p>rがないとパターンにマッチするテキストはスキップされるようなので注意。</p>
+<p>詳しくはヘルプ参照。</p>
+<pre>:h :sort </pre>
+
+<div class="jumpmenu"><a href="page/Vim/パターンにマッチする部分でソートする.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="g653cb38" href="page/Vim/%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%AB%E3%83%9E%E3%83%83%E3%83%81%E3%81%99%E3%82%8B%E9%83%A8%E5%88%86%E3%81%A7%E3%82%BD%E3%83%BC%E3%83%88%E3%81%99%E3%82%8B.html#g653cb38" title="g653cb38">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://qiita.com/items/f6c175e1f7d529cb15f0" rel="nofollow">http://qiita.com/items/f6c175e1f7d529cb15f0</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:19</div>
+		</div></body>
+</html>

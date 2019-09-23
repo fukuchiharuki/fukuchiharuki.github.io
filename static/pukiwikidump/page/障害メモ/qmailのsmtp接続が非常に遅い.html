@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;qmailのsmtp接続が非常に遅い - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;qmailのsmtp接続が非常に遅い</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="ac7e49c8" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/qmail%E3%81%AEsmtp%E6%8E%A5%E7%B6%9A%E3%81%8C%E9%9D%9E%E5%B8%B8%E3%81%AB%E9%81%85%E3%81%84.html#ac7e49c8" title="ac7e49c8">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>qmail</li>
+<li>DNS</li>
+<li>逆引き</li>
+<li>resolv.conf</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/qmailのsmtp接続が非常に遅い.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="b4a5d5d9" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/qmail%E3%81%AEsmtp%E6%8E%A5%E7%B6%9A%E3%81%8C%E9%9D%9E%E5%B8%B8%E3%81%AB%E9%81%85%E3%81%84.html#b4a5d5d9" title="b4a5d5d9">†</a></h2>
+<p>qmail の smtp 接続がめっちゃ遅くて困る。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/qmailのsmtp接続が非常に遅い.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="y1e2373e" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/qmail%E3%81%AEsmtp%E6%8E%A5%E7%B6%9A%E3%81%8C%E9%9D%9E%E5%B8%B8%E3%81%AB%E9%81%85%E3%81%84.html#y1e2373e" title="y1e2373e">†</a></h2>
+<p>接続元の確認で逆引きがどうのこうのって(ごめん、よく分ってない)。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/qmailのsmtp接続が非常に遅い.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="i3483338" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/qmail%E3%81%AEsmtp%E6%8E%A5%E7%B6%9A%E3%81%8C%E9%9D%9E%E5%B8%B8%E3%81%AB%E9%81%85%E3%81%84.html#i3483338" title="i3483338">†</a></h2>
+<p>DNS の設定をする</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>/etc/resolv.conf
+<pre>nameserver (DNSサーバー)</pre></li></ul>
+<p>とにかくタイムアウトするようにしちゃうこともできる(1秒の試行を1回であきらめる)？</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>/etc/resolv.conf
+<pre>nameserver (なにか適当に)
+options timeout:1
+options attempts:1</pre></li></ul>
+<p>tcpserver のオプションで回避する手もあるらしいけどうまくいかなかった。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/qmailのsmtp接続が非常に遅い.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="y9a884cd" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/qmail%E3%81%AEsmtp%E6%8E%A5%E7%B6%9A%E3%81%8C%E9%9D%9E%E5%B8%B8%E3%81%AB%E9%81%85%E3%81%84.html#y9a884cd" title="y9a884cd">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://tmp.blogdns.org/archives/2009/07/qmailsmtp2.html" rel="nofollow">qmailへのsmtp接続が遅い2 - てんぷろぐ</a></li>
+<li><a href="http://www.drk7.jp/MT/archives/000806.html" rel="nofollow">特定の接続先からのみ qmail 認証が遅い場合 :: drk7jp</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-19 (月) 17:54:32  (2225d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:59</div>
+		</div></body>
+</html>

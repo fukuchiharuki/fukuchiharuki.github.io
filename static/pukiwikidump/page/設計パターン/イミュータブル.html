@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>設計パターン&#047;イミュータブル - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>設計パターン&#047;イミュータブル</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="n9178e5b" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%82%A4%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%96%E3%83%AB.html#n9178e5b" title="n9178e5b">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>副作用（がない）</li>
+<li>Value Object</li></ul>
+
+<div class="jumpmenu"><a href="page/設計パターン/イミュータブル.html#navigator">↑</a></div><h2 id="content_1_1">何か  <a class="anchor_super" id="qf732305" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%82%A4%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%96%E3%83%AB.html#qf732305" title="qf732305">†</a></h2>
+<pre>不変</pre>
+<p>インスタンスが作成されてから破棄されるまで、状態（属性）の変化をさせない。</p>
+
+<div class="jumpmenu"><a href="page/設計パターン/イミュータブル.html#navigator">↑</a></div><h2 id="content_1_2">なぜか  <a class="anchor_super" id="g3eea20f" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%82%A4%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%96%E3%83%AB.html#g3eea20f" title="g3eea20f">†</a></h2>
+<p>オブジェクトをイミュータブルにすると各方面がシンプルになる。オブジェクトの振舞い方がオブジェクトの中間状態によって左右されることがないので、振舞い方の定義は当然シンプルになる。また、オブジェクトを使用する側もそのことを期待できるで扱いがシンプルになる。さらに、状態の変化がないのでテストはずっとしやすくなる。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>シンプル</li>
+<li>スレッドセーフ</li>
+<li>テスタビリティ</li></ul>
+
+<div class="jumpmenu"><a href="page/設計パターン/イミュータブル.html#navigator">↑</a></div><h2 id="content_1_3">どのように  <a class="anchor_super" id="o190f7a1" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%82%A4%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%96%E3%83%AB.html#o190f7a1" title="o190f7a1">†</a></h2>
+<p>完全コンストラクタによってインスタンス生成時点で完全の状態を作る。setterによる属性値の変更は当然させない。setterでなくても（オブジェクトの内部的な）副作用を伴うメソッドももたない。</p>
+<p>たとえば「分数」というクラスを作成し次の計算式を実現したいとする。</p>
+<pre>a = new 分数(1,2) // 1/2
+b = new 分数(1,3) // 1/3
+c = a + b</pre>
+<p>このとき、a と b のインスタンスは 1/2 と 1/3 の状態を保つ。+ メソッドは計算結果である 5/6 を新しいインスタンスとして返却するようにする。</p>
+
+<div class="jumpmenu"><a href="page/設計パターン/イミュータブル.html#navigator">↑</a></div><h2 id="content_1_4">関連  <a class="anchor_super" id="r03bf320" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%82%A4%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%96%E3%83%AB.html#r03bf320" title="r03bf320">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E5%AE%8C%E5%85%A8%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF.html" title="設計パターン/完全コンストラクタ (1949d)">設計パターン/完全コンストラクタ</a></li></ul>
+
+<div class="jumpmenu"><a href="page/設計パターン/イミュータブル.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="n3b14d98" href="page/%E8%A8%AD%E8%A8%88%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/%E3%82%A4%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%96%E3%83%AB.html#n3b14d98" title="n3b14d98">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://github.com/fukuchiharuki/Scala_Exercise/blob/master/src/me/fukuchiharuki/scala_exercise/Exercise_06.scala" rel="nofollow">Scala_Exercise/Exercise_06.scala at master · fukuchiharuki/Scala_Exercise</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2015-06-26 (金) 09:26:25  (1549d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:41</div>
+		</div></body>
+</html>

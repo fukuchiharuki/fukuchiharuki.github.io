@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Webエンジニアに仕上げる - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Webエンジニアに仕上げる</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><div class="contents">
+<a id="contents_1"></a>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="#l735f684">  目標 </a>
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="#m80e0c9d">  Webに関係する基本的なソフトウェア構成を知る </a></li>
+<li><a href="#tef55ee9">  Webアプリケーションの仕組みを理解する </a></li>
+<li><a href="#c43c7917">  Web周辺のテクニカルな要素を知る </a></li></ul></li>
+<li><a href="#rfb70fc8">  課題 </a>
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="#kee3ce1f">  環境構築 </a>
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li><a href="#s7c82261">  XAMPPインストール </a></li>
+<li><a href="#k370d347">  疎通確認: Webサーバ </a></li>
+<li><a href="#t2b4d9a3">  疎通確認: APサーバ(PHP) </a></li>
+<li><a href="#s861945f">  疎通確認: MySQL </a></li></ul></li>
+<li><a href="#i410a902">  基礎: MySQL </a>
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li><a href="#o26c4a91">  rootパスワードを設定する(XAMPP管理ページにて) </a></li>
+<li><a href="#a1330663">  アカウントを作成する(XAMPP管理ページにて) </a></li>
+<li><a href="#hb9d27f0">  テーブルを作成する(XAMPP管理ページにて) </a></li>
+<li><a href="#g8279fd9">  DMLを書く(select, insert, update, delete) </a></li></ul></li>
+<li><a href="#ue5d8f7a">  基礎: PHP </a>
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li><a href="#d4d2abbf">  echo, printを使って文字列を出力する </a></li>
+<li><a href="#ta5f2ea8">  関数を定義してコールする </a></li>
+<li><a href="#cf590f8b">  関数を別ファイルに定義してコールする </a></li>
+<li><a href="#n249dbd8">  PHPからMySQLに接続する </a></li></ul></li>
+<li><a href="#n171495c">  基礎: Web </a>
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li><a href="#r2520da8">  HTMLの基本構成を書く </a></li>
+<li><a href="#gfeb8223">  アンカーを使って別のPHPページにリンクする </a></li>
+<li><a href="#lf73399c">  GETパラメータを渡す </a></li>
+<li><a href="#mb205417">  POSTパラメータを渡す </a></li></ul></li>
+<li><a href="#l6f5684e">  Webアプリケーション: データベース </a></li>
+<li><a href="#t884732e">  Webアプリケーション: セッション </a></li>
+<li><a href="#n6996fc9">  Webアプリケーション: リッチクライアント </a></li></ul></li></ul>
+</div>
+
+<h2 id="content_1_0">目標  <a class="anchor_super" id="l735f684" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#l735f684" title="l735f684">†</a></h2>
+<p>実際にWebアプリケーションを書いてみるのが一番早い。</p>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>Webに関係する基本的なソフトウェア構成を知る</li>
+<li>Webアプリケーションの仕組みを理解する</li>
+<li>Web周辺のテクニカルな要素を知る</li></ol>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h3 id="content_1_1">Webに関係する基本的なソフトウェア構成を知る  <a class="anchor_super" id="m80e0c9d" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#m80e0c9d" title="m80e0c9d">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><em>Webサーバ、APサーバ、DBサーバ</em></li></ul>
+<p>Webに関係するソフトウェアとしてWebサーバ、APサーバ、DBサーバがあることを知る。Webアプリケーションとしてコラボレートするそれぞれのソフトウェアの役割を理解する。</p>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h3 id="content_1_2">Webアプリケーションの仕組みを理解する  <a class="anchor_super" id="tef55ee9" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#tef55ee9" title="tef55ee9">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><em>ステートレスな応答: リクエスト、レスポンス</em></li></ul>
+<p>リクエストとレスポンスからなるステートレスな応答シーケンスを理解する。その中でデータベース操作のトランザクションが閉じることを知る。</p>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h3 id="content_1_3">Web周辺のテクニカルな要素を知る  <a class="anchor_super" id="c43c7917" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#c43c7917" title="c43c7917">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><em>パラメータ、セッション、HTML/JavaScript</em></li></ul>
+<p>パラメータによって擬似的なステートを実現できることを実験する。セッションによってステートフルに画面遷移できることを実験する。フォームを使ったパラメータの送信とJavaScriptによる(少し)リッチクライアントを実装する。</p>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h2 id="content_1_4">課題  <a class="anchor_super" id="rfb70fc8" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#rfb70fc8" title="rfb70fc8">†</a></h2>
+<p>逐次課題を実施することで上記目標の達成を目指す。</p>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h3 id="content_1_5">環境構築  <a class="anchor_super" id="kee3ce1f" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#kee3ce1f" title="kee3ce1f">†</a></h3>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_6">XAMPPインストール  <a class="anchor_super" id="s7c82261" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#s7c82261" title="s7c82261">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td">Windows端末の環境が整っていること。</td></tr><tr><th class="style_th">課題内容</th><td class="style_td">PHPとMySQLが動作する環境を作成する。<br class="spacer">下記のサイトからインストーラXAMPP for Windowsをダウンロードして実行する。<br class="spacer">何をインストールしてるかを(調べるなどして)知っておくこと。</td></tr><tr><th class="style_th">事後条件</th><td class="style_td">ApacheとMySQLをサービスとして登録していること。</td></tr></tbody></table></div>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>参考サイト
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="https://www.apachefriends.org/jp/index.html" rel="nofollow">XAMPP Installers and Downloads for Apache Friends</a></li>
+<li><a href="http://www.adminweb.jp/xampp/" rel="nofollow">XAMPPの使い方</a></li></ul></li></ul>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_7">疎通確認: Webサーバ  <a class="anchor_super" id="k370d347" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#k370d347" title="k370d347">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td">XAMPPをインストール済みであること。</td></tr><tr><th class="style_th">課題内容</th><td class="style_td">apacheが正常に動作していることを確認する。<br class="spacer">apacheの公開ディレクトリにindex.htmlを保存する。<br class="spacer">ブラウザからindex.htmlにアクセスして表示を確認する。<br class="spacer">ファイルの内容は以下のようにする。</td></tr><tr><th class="style_th">事後条件</th><td class="style_td">ブラウザにindex.htmlの内容を表示していること。</td></tr></tbody></table></div>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>index.html
+<pre>Hello HTML</pre></li></ul>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_8">疎通確認: APサーバ(PHP)  <a class="anchor_super" id="t2b4d9a3" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#t2b4d9a3" title="t2b4d9a3">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td">XAMPPをインストール済みであること。</td></tr><tr><th class="style_th">課題内容</th><td class="style_td">apacheが正常に動作していることを確認する。<br class="spacer">apacheの公開ディレクトリにindex.phpを保存する。<br class="spacer">ブラウザからindex.phpにアクセスして表示を確認する。<br class="spacer">ファイルの内容は以下のようにする。</td></tr><tr><th class="style_th">事後条件</th><td class="style_td">ブラウザにindex.phpの出力内容を表示していること。</td></tr></tbody></table></div>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>index.php
+<pre>&lt;?php
+  print("Hello PHP");
+?&gt;</pre></li></ul>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_9">疎通確認: MySQL  <a class="anchor_super" id="s861945f" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#s861945f" title="s861945f">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td">XAMPPをインストール済みであること。</td></tr><tr><th class="style_th">課題内容</th><td class="style_td">MySQLが正常に動作していることを確認する。<br class="spacer">XAMPP管理ページにてMySQLアカウントrootのパスワードを設定する。<br class="spacer">ターミナル(cmd)から設定したrootのパスワードでMySQLにログインする。</td></tr><tr><th class="style_th">事後条件</th><td class="style_td">MySQLのコマンド待ち状態を表示すること。</td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h3 id="content_1_10">基礎: MySQL  <a class="anchor_super" id="i410a902" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#i410a902" title="i410a902">†</a></h3>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_11">rootパスワードを設定する(XAMPP管理ページにて)  <a class="anchor_super" id="o26c4a91" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#o26c4a91" title="o26c4a91">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td"></td></tr><tr><th class="style_th">課題内容</th><td class="style_td"></td></tr><tr><th class="style_th">事後条件</th><td class="style_td"></td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_12">アカウントを作成する(XAMPP管理ページにて)  <a class="anchor_super" id="a1330663" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#a1330663" title="a1330663">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td"></td></tr><tr><th class="style_th">課題内容</th><td class="style_td"></td></tr><tr><th class="style_th">事後条件</th><td class="style_td"></td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_13">テーブルを作成する(XAMPP管理ページにて)  <a class="anchor_super" id="hb9d27f0" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#hb9d27f0" title="hb9d27f0">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td"></td></tr><tr><th class="style_th">課題内容</th><td class="style_td"></td></tr><tr><th class="style_th">事後条件</th><td class="style_td"></td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_14">DMLを書く(select, insert, update, delete)  <a class="anchor_super" id="g8279fd9" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#g8279fd9" title="g8279fd9">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td"></td></tr><tr><th class="style_th">課題内容</th><td class="style_td"></td></tr><tr><th class="style_th">事後条件</th><td class="style_td"></td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h3 id="content_1_15">基礎: PHP  <a class="anchor_super" id="ue5d8f7a" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#ue5d8f7a" title="ue5d8f7a">†</a></h3>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_16">echo, printを使って文字列を出力する  <a class="anchor_super" id="d4d2abbf" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#d4d2abbf" title="d4d2abbf">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td"></td></tr><tr><th class="style_th">課題内容</th><td class="style_td"></td></tr><tr><th class="style_th">事後条件</th><td class="style_td"></td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_17">関数を定義してコールする  <a class="anchor_super" id="ta5f2ea8" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#ta5f2ea8" title="ta5f2ea8">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td"></td></tr><tr><th class="style_th">課題内容</th><td class="style_td"></td></tr><tr><th class="style_th">事後条件</th><td class="style_td"></td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_18">関数を別ファイルに定義してコールする  <a class="anchor_super" id="cf590f8b" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#cf590f8b" title="cf590f8b">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td"></td></tr><tr><th class="style_th">課題内容</th><td class="style_td"></td></tr><tr><th class="style_th">事後条件</th><td class="style_td"></td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_19">PHPからMySQLに接続する  <a class="anchor_super" id="n249dbd8" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#n249dbd8" title="n249dbd8">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td"></td></tr><tr><th class="style_th">課題内容</th><td class="style_td"></td></tr><tr><th class="style_th">事後条件</th><td class="style_td"></td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h3 id="content_1_20">基礎: Web  <a class="anchor_super" id="n171495c" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#n171495c" title="n171495c">†</a></h3>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_21">HTMLの基本構成を書く  <a class="anchor_super" id="r2520da8" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#r2520da8" title="r2520da8">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td"></td></tr><tr><th class="style_th">課題内容</th><td class="style_td"></td></tr><tr><th class="style_th">事後条件</th><td class="style_td"></td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_22">アンカーを使って別のPHPページにリンクする  <a class="anchor_super" id="gfeb8223" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#gfeb8223" title="gfeb8223">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td"></td></tr><tr><th class="style_th">課題内容</th><td class="style_td"></td></tr><tr><th class="style_th">事後条件</th><td class="style_td"></td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_23">GETパラメータを渡す  <a class="anchor_super" id="lf73399c" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#lf73399c" title="lf73399c">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td"></td></tr><tr><th class="style_th">課題内容</th><td class="style_td"></td></tr><tr><th class="style_th">事後条件</th><td class="style_td"></td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h4 id="content_1_24">POSTパラメータを渡す  <a class="anchor_super" id="mb205417" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#mb205417" title="mb205417">†</a></h4>
+<div class="ie5"><table class="style_table" cellspacing="1" border="0"><tbody><tr><th class="style_th">事前条件</th><td class="style_td"></td></tr><tr><th class="style_th">課題内容</th><td class="style_td"></td></tr><tr><th class="style_th">事後条件</th><td class="style_td"></td></tr></tbody></table></div>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h3 id="content_1_25">Webアプリケーション: データベース  <a class="anchor_super" id="l6f5684e" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#l6f5684e" title="l6f5684e">†</a></h3>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h3 id="content_1_26">Webアプリケーション: セッション  <a class="anchor_super" id="t884732e" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#t884732e" title="t884732e">†</a></h3>
+
+<div class="jumpmenu"><a href="page/Webエンジニアに仕上げる.html#navigator">↑</a></div><h3 id="content_1_27">Webアプリケーション: リッチクライアント  <a class="anchor_super" id="n6996fc9" href="page/Web%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E4%BB%95%E4%B8%8A%E3%81%92%E3%82%8B.html#n6996fc9" title="n6996fc9">†</a></h3>
+</div><div id="lastmodified">Last-modified: 2014-06-10 (火) 11:22:09  (1930d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:19</div>
+		</div></body>
+</html>

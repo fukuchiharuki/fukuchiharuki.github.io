@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Java&#047;enum要素のアノテーションを取得する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Java&#047;enum要素のアノテーションを取得する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">関連  <a class="anchor_super" id="bf313f6a" href="page/Java/enum%E8%A6%81%E7%B4%A0%E3%81%AE%E3%82%A2%E3%83%8E%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B.html#bf313f6a" title="bf313f6a">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Java</li>
+<li>enum</li></ul>
+
+<div class="jumpmenu"><a href="page/Java/enum要素のアノテーションを取得する.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="f2163e11" href="page/Java/enum%E8%A6%81%E7%B4%A0%E3%81%AE%E3%82%A2%E3%83%8E%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B.html#f2163e11" title="f2163e11">†</a></h2>
+<p>enum要素のアノテーションをenumのメソッドで取得します。</p>
+<p>次のようにenum Testを定義しているとき</p>
+<pre>enum Test {
+  @Foo
+  HOGE,
+}</pre>
+<p>次のように取得したい。</p>
+<pre>Foo foo = Test.HOGE.getFoo(); </pre>
+
+<div class="jumpmenu"><a href="page/Java/enum要素のアノテーションを取得する.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="qc92e618" href="page/Java/enum%E8%A6%81%E7%B4%A0%E3%81%AE%E3%82%A2%E3%83%8E%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B.html#qc92e618" title="qc92e618">†</a></h2>
+<pre>enum Test {
+  @Foo
+  HOGE,
+
+  Foo getFoo() {
+    return this.getClass().getField(this.name()).getAnnotation(Foo.class);
+  }
+}
+</pre>
+<p><em>※実際にはもっとスコープの指定とか例外処理とかが必要です</em></p>
+<p>ちなみにアノテーションは次のようにしてフィールドに紐づけられるようにします。</p>
+<pre>@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.FIELD})
+public @interface Foo {
+}</pre>
+
+<div class="jumpmenu"><a href="page/Java/enum要素のアノテーションを取得する.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="vd1a4215" href="page/Java/enum%E8%A6%81%E7%B4%A0%E3%81%AE%E3%82%A2%E3%83%8E%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B.html#vd1a4215" title="vd1a4215">†</a></h2>
+<p>アノテーションは静的な定義なのでオブジェクトからではなくクラスから取得することができます。
+さらに今回取得したい対象のenum要素はフィールドなのでクラスからフィールドをたどる必要があります。</p>
+<dl class="list1" style="padding-left:16px;margin-left:16px"><dt>this.getClass()</dt>
+<dd>インスタンスなフィールド(this)から静的なクラス(Test)を取得します</dd>
+<dt>.getField(this.name())</dt>
+<dd>静的なクラス(Test)から静的なフィールド(HOGE)を取得します</dd>
+<dt>.getAnnotation(Foo.class)</dt>
+<dd>静的なフィールド(HOGE)からアノテーション(Foo)を取得します</dd></dl>
+<p>少し面倒ですね。</p>
+
+<div class="jumpmenu"><a href="page/Java/enum要素のアノテーションを取得する.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="j7d18e19" href="page/Java/enum%E8%A6%81%E7%B4%A0%E3%81%AE%E3%82%A2%E3%83%8E%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B.html#j7d18e19" title="j7d18e19">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://d.hatena.ne.jp/skirnir/20090630/1246327421" rel="nofollow">http://d.hatena.ne.jp/skirnir/20090630/1246327421</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:45</div>
+		</div></body>
+</html>

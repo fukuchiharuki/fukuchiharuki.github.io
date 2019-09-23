@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Alloy&#047;イベントハンドラを取りつける - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Alloy&#047;イベントハンドラを取りつける</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="yb737c53" href="page/Alloy/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%8F%E3%83%B3%E3%83%89%E3%83%A9%E3%82%92%E5%8F%96%E3%82%8A%E3%81%A4%E3%81%91%E3%82%8B.html#yb737c53" title="yb737c53">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Titanium Mobile</li>
+<li>Alloy</li></ul>
+
+<div class="jumpmenu"><a href="page/Alloy/イベントハンドラを取りつける.html#navigator">↑</a></div><h2 id="content_1_1">目標  <a class="anchor_super" id="y8ca614d" href="page/Alloy/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%8F%E3%83%B3%E3%83%89%E3%83%A9%E3%82%92%E5%8F%96%E3%82%8A%E3%81%A4%E3%81%91%E3%82%8B.html#y8ca614d" title="y8ca614d">†</a></h2>
+<p>コントロールにイベントハンドラを取りつけます。</p>
+<div class="img_margin" style="text-align:center"><a href="page/Alloy%2F%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%8F%E3%83%B3%E3%83%89%E3%83%A9%E3%82%92%E5%8F%96%E3%82%8A%E3%81%A4%E3%81%91%E3%82%8B.html__event01.png" title="event01.png"><img src="page/Alloy%2F%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%8F%E3%83%B3%E3%83%89%E3%83%A9%E3%82%92%E5%8F%96%E3%82%8A%E3%81%A4%E3%81%91%E3%82%8B.html__event01.png" alt="event01.png" title="event01.png" width="235" height="434"></a></div>
+
+<div class="img_margin" style="text-align:center"><a href="page/Alloy%2F%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%8F%E3%83%B3%E3%83%89%E3%83%A9%E3%82%92%E5%8F%96%E3%82%8A%E3%81%A4%E3%81%91%E3%82%8B.html__event02.png" title="event02.png"><img src="page/Alloy%2F%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%8F%E3%83%B3%E3%83%89%E3%83%A9%E3%82%92%E5%8F%96%E3%82%8A%E3%81%A4%E3%81%91%E3%82%8B.html__event02.png" alt="event02.png" title="event02.png" width="237" height="434"></a></div>
+
+
+<div class="jumpmenu"><a href="page/Alloy/イベントハンドラを取りつける.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="e1e86c56" href="page/Alloy/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%8F%E3%83%B3%E3%83%89%E3%83%A9%E3%82%92%E5%8F%96%E3%82%8A%E3%81%A4%E3%81%91%E3%82%8B.html#e1e86c56" title="e1e86c56">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>index.xml
+<pre>&lt;Label id="label1"&gt;I am Window 1&lt;/Label&gt;</pre></li></ul>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>index.js
+<pre>$.label1.addEventListener('click', function() {
+	Ti.UI.createAlertDialog({title:'Click', message:'You clicked it.'}).show();
+});</pre></li></ul>
+
+<div class="jumpmenu"><a href="page/Alloy/イベントハンドラを取りつける.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="ue1ca936" href="page/Alloy/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%8F%E3%83%B3%E3%83%89%E3%83%A9%E3%82%92%E5%8F%96%E3%82%8A%E3%81%A4%E3%81%91%E3%82%8B.html#ue1ca936" title="ue1ca936">†</a></h2>
+<p>index.xml のタグ中に onclick 属性を書くこともできるようですが、分離の観点から index.js に書くのがよいでしょう。</p>
+<p>index.js 中では id 属性に書いた名前でコントロールを取得できます。(例では $.label1)</p>
+
+<div class="jumpmenu"><a href="page/Alloy/イベントハンドラを取りつける.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="t17fd539" href="page/Alloy/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%8F%E3%83%B3%E3%83%89%E3%83%A9%E3%82%92%E5%8F%96%E3%82%8A%E3%81%A4%E3%81%91%E3%82%8B.html#t17fd539" title="t17fd539">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://docs.appcelerator.com/titanium/latest/#!/api/Titanium.Proxy-method-addEventListener" rel="nofollow">Titanium 3.X - Appcelerator Docs</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2015-08-29 (土) 15:27:43  (1485d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:30</div>
+		</div></body>
+</html>

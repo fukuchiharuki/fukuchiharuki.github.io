@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>シェル&#047;行数をカウントしてチェックする - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>シェル&#047;行数をカウントしてチェックする</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="lb3b15a5" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E8%A1%8C%E6%95%B0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%97%E3%81%A6%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B.html#lb3b15a5" title="lb3b15a5">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>wc</li>
+<li>test</li></ul>
+
+<div class="jumpmenu"><a href="page/シェル/行数をカウントしてチェックする.html#navigator">↑</a></div><h2 id="content_1_1">したいこと  <a class="anchor_super" id="qe55d633" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E8%A1%8C%E6%95%B0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%97%E3%81%A6%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B.html#qe55d633" title="qe55d633">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>行数をカウントして</li>
+<li>その行数がいくつであることをチェックする。</li>
+<li>チェックした結果は終了ステータスにする。</li></ul>
+
+<div class="jumpmenu"><a href="page/シェル/行数をカウントしてチェックする.html#navigator">↑</a></div><h2 id="content_1_2">どうやって  <a class="anchor_super" id="d336f444" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E8%A1%8C%E6%95%B0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%97%E3%81%A6%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B.html#d336f444" title="d336f444">†</a></h2>
+<pre>cat なになに | grep なになに | wc -l | test $(cat -) -eq 0</pre>
+
+<div class="jumpmenu"><a href="page/シェル/行数をカウントしてチェックする.html#navigator">↑</a></div><h2 id="content_1_3">ノート  <a class="anchor_super" id="d01b0a53" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E8%A1%8C%E6%95%B0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%97%E3%81%A6%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B.html#d01b0a53" title="d01b0a53">†</a></h2>
+<pre>wc -l</pre>
+<p>で行数をカウントすることができる。パイプを使えば標準出力をそのまま使用してカウントする。</p>
+<pre>test</pre>
+<p>でチェックする。このコマンドは終了ステータスを返すのみ。</p>
+<pre>$(cat -)</pre>
+<p>で標準入力を値として使用する。</p>
+
+<div class="jumpmenu"><a href="page/シェル/行数をカウントしてチェックする.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="ja643a15" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/%E8%A1%8C%E6%95%B0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%97%E3%81%A6%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B.html#ja643a15" title="ja643a15">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://shellscript.sunone.me/if_and_test.html" rel="nofollow">if 文と test コマンド - UNIX &amp; Linux コマンド・シェルスクリプト リファレンス</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2015-04-27 (月) 16:06:25  (1609d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:38</div>
+		</div></body>
+</html>

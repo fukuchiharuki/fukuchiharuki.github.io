@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>シェル&#047;bat&#047;tsvを読んでファイルをコピーする - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>シェル&#047;bat&#047;tsvを読んでファイルをコピーする</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="h19c3c3c" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/bat/tsv%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%99%E3%82%8B.html#h19c3c3c" title="h19c3c3c">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Windows</li>
+<li>bat</li>
+<li>tsv</li></ul>
+
+<div class="jumpmenu"><a href="page/シェル/bat/tsvを読んでファイルをコピーする.html#navigator">↑</a></div><h2 id="content_1_1">したいこと  <a class="anchor_super" id="scdd914d" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/bat/tsv%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%99%E3%82%8B.html#scdd914d" title="scdd914d">†</a></h2>
+<p>tsvを読んでファイルをコピーしたい、バッチで。</p>
+<p>tsvには次のような感じでコピー元とコピー先が定義されているとする。</p>
+<pre>path\to\コピー元ファイル1	path\to\コピー先ファイル1
+path\to\コピー元ファイル2	path\to\コピー先ファイル2
+...</pre>
+
+<div class="jumpmenu"><a href="page/シェル/bat/tsvを読んでファイルをコピーする.html#navigator">↑</a></div><h2 id="content_1_2">どうやって  <a class="anchor_super" id="k2b02ec8" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/bat/tsv%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%99%E3%82%8B.html#k2b02ec8" title="k2b02ec8">†</a></h2>
+<p>こう書いた。</p>
+<pre>@cd /d %~dp0
+@echo off
+
+set FOLDER_SRC=C:\path\to\コピー元ルートフォルダ
+set FOLDER_DST=C:\path\to\コピー先ルートフォルダ
+
+rem ### main
+for /f "delims=	 tokens=1,2" %%i in (filelist.tsv) do (
+	set FILE_SRC=%FOLDER_SRC%\%%i
+	set FILE_DST=%FOLDER_DST%\%%j
+	call :CopyFile
+)
+exit /b
+
+rem ### copy file
+:CopyFile
+if exist "%FILE_SRC%" (
+	copy /y "%FILE_SRC%" "%FILE_DST%" &gt; nul 2&gt;&amp;1
+) else (
+	echo "%FILE_SRC%" 1&gt;&amp;2
+)
+exit /b</pre>
+
+<div class="jumpmenu"><a href="page/シェル/bat/tsvを読んでファイルをコピーする.html#navigator">↑</a></div><h2 id="content_1_3">ちなみに  <a class="anchor_super" id="j9291ef7" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/bat/tsv%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%99%E3%82%8B.html#j9291ef7" title="j9291ef7">†</a></h2>
+<p>久しぶりにWindowsバッチなのでかなり手こずった。。特に「@echo off」に気がつくまでは、なんで動かないでテキスト出力されるのかと戸惑った。</p>
+<p>いろいろ脆いけど、ファイル収集用なので気にしない。</p>
+
+<div class="jumpmenu"><a href="page/シェル/bat/tsvを読んでファイルをコピーする.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="kabd6d3f" href="page/%E3%82%B7%E3%82%A7%E3%83%AB/bat/tsv%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%99%E3%82%8B.html#kabd6d3f" title="kabd6d3f">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://qiita.com/sksmnagisa/items/8c4c1788af44cc1dc63a" rel="nofollow">【bat】Windowsのバッチファイル(*.bat)の書き方自分用まとめ - Qiita</a></li>
+<li><a href="https://qiita.com/uhooi/items/b8b25761a5c4efe9025a" rel="nofollow">batファイルでコマンドの実行結果を出力しないようにする方法 - Qiita</a></li>
+<li><a href="http://maku77.github.io/windows/echo-to-stderr.html" rel="nofollow">echo の出力を標準エラー (stderr) に出力する | まくまく Windows ノート</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-12-07 (木) 13:59:53  (654d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:31</div>
+		</div></body>
+</html>

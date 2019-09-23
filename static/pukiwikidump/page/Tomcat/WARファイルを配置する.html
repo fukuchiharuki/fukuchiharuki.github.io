@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Tomcat&#047;WARファイルを配置する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>Tomcat&#047;WARファイルを配置する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="f286f7b1" href="page/Tomcat/WAR%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B.html#f286f7b1" title="f286f7b1">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Tomcat</li>
+<li>WAR</li>
+<li>デプロイ</li></ul>
+
+<div class="jumpmenu"><a href="page/Tomcat/WARファイルを配置する.html#navigator">↑</a></div><h2 id="content_1_1">関連  <a class="anchor_super" id="ab68cc28" href="page/Tomcat/WAR%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B.html#ab68cc28" title="ab68cc28">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/Windows%E3%81%A7Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B.html" title="WindowsでWebアプリケーションを作ってみる (2227d)">WindowsでWebアプリケーションを作ってみる</a></li></ul>
+
+<div class="jumpmenu"><a href="page/Tomcat/WARファイルを配置する.html#navigator">↑</a></div><h2 id="content_1_2">概要  <a class="anchor_super" id="n2032fce" href="page/Tomcat/WAR%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B.html#n2032fce" title="n2032fce">†</a></h2>
+<p>TomcatにWARファイル(webアプリケーション)をデプロイします。</p>
+
+<div class="jumpmenu"><a href="page/Tomcat/WARファイルを配置する.html#navigator">↑</a></div><h3 id="content_1_3">前提  <a class="anchor_super" id="q39786e9" href="page/Tomcat/WAR%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B.html#q39786e9" title="q39786e9">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Tomcatはインストール済み</li>
+<li>Tomcatは動作確認済み</li></ul>
+
+<div class="jumpmenu"><a href="page/Tomcat/WARファイルを配置する.html#navigator">↑</a></div><h2 id="content_1_4">WARファイルを配置する  <a class="anchor_super" id="h384db5e" href="page/Tomcat/WAR%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B.html#h384db5e" title="h384db5e">†</a></h2>
+
+<div class="jumpmenu"><a href="page/Tomcat/WARファイルを配置する.html#navigator">↑</a></div><h3 id="content_1_5">ディレクトリ構成を確認する  <a class="anchor_super" id="db8e2564" href="page/Tomcat/WAR%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B.html#db8e2564" title="db8e2564">†</a></h3>
+<p>Tomcatをインストールしたディレクトリを /usr/local/tomcat/ とする。</p>
+<p>この /usr/local/tomcat/ 下は次の構成になっている。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>/usr/local/tomcat/
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>LICENSE</li>
+<li>NOTICE</li>
+<li>RELEASE-NOTES</li>
+<li>RUNNING.txt</li>
+<li>bin/</li>
+<li>conf/</li>
+<li>lib/</li>
+<li>logs/</li>
+<li>temp/</li>
+<li>webapps/</li>
+<li>work/</li></ul></li></ul>
+
+<div class="jumpmenu"><a href="page/Tomcat/WARファイルを配置する.html#navigator">↑</a></div><h3 id="content_1_6">WARファイルをコピーする  <a class="anchor_super" id="u762e6f2" href="page/Tomcat/WAR%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B.html#u762e6f2" title="u762e6f2">†</a></h3>
+<p>このうち、webapps/ 下に作成したWARファイルをコピーする（WARファイルを作成する方法はここでは述べないが、Eclipseを使っているのであればプロジェクトからエクスポートするのがおそらくは最も簡単。）</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>/usr/local/tomcat/
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>webapps/
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li>Hoge.war</li></ul></li></ul></li></ul>
+
+<div class="jumpmenu"><a href="page/Tomcat/WARファイルを配置する.html#navigator">↑</a></div><h2 id="content_1_7">動作確認  <a class="anchor_super" id="te88783b" href="page/Tomcat/WAR%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B.html#te88783b" title="te88783b">†</a></h2>
+
+<div class="jumpmenu"><a href="page/Tomcat/WARファイルを配置する.html#navigator">↑</a></div><h3 id="content_1_8">Tomcatを起動する  <a class="anchor_super" id="c3f2cd27" href="page/Tomcat/WAR%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B.html#c3f2cd27" title="c3f2cd27">†</a></h3>
+<pre>$ /usr/local/tomcat/bin/startup.sh</pre>
+<p>先にコピーしたWARファイルの名前が Hoge.war であれば webapps/ 下に Hoge/ が作成されているはずである。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>/usr/local/tomcat/
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>webapps/
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li>Hoge.war</li>
+<li>Hoge/</li></ul></li></ul></li></ul>
+
+<div class="jumpmenu"><a href="page/Tomcat/WARファイルを配置する.html#navigator">↑</a></div><h3 id="content_1_9">ブラウザで次のURIにアクセスする  <a class="anchor_super" id="tea1eb59" href="page/Tomcat/WAR%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B.html#tea1eb59" title="tea1eb59">†</a></h3>
+<pre>http://localhost:8080/Hoge/</pre>
+
+<div class="jumpmenu"><a href="page/Tomcat/WARファイルを配置する.html#navigator">↑</a></div><h2 id="content_1_10">参考  <a class="anchor_super" id="scebe773" href="page/Tomcat/WAR%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B.html#scebe773" title="scebe773">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://d.hatena.ne.jp/uyaji/20110604/1307140687" rel="nofollow">eclipseでwarファイルを作成。tomcatにdeploy</a></li>
+<li><a href="http://www.atmarkit.co.jp/fjava/javatips/043eclipse016.html" rel="nofollow">Eclipseで.warファイルを作成する</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:14</div>
+		</div></body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;ConfigurationPropertiesでプロパティ設定を読めない - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;ConfigurationPropertiesでプロパティ設定を読めない</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="w9d9f619" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/ConfigurationProperties%E3%81%A7%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E8%A8%AD%E5%AE%9A%E3%82%92%E8%AA%AD%E3%82%81%E3%81%AA%E3%81%84.html#w9d9f619" title="w9d9f619">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Spring Boot</li>
+<li>ConfigurationProperties</li>
+<li>application.properties</li>
+<li>application.yml</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/ConfigurationPropertiesでプロパティ設定を読めない.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="lb8500ab" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/ConfigurationProperties%E3%81%A7%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E8%A8%AD%E5%AE%9A%E3%82%92%E8%AA%AD%E3%82%81%E3%81%AA%E3%81%84.html#lb8500ab" title="lb8500ab">†</a></h2>
+<p>プロパティ設定を読めるという@ConfigurationPropertiesでプロパティ設定をセットできていない。</p>
+<pre>@Value
+@NoArgsConstructor
+@Component
+@ConfigurationProperties(prefix="application.web")
+public class WebProperties {
+	private String contextpath;
+}</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/ConfigurationPropertiesでプロパティ設定を読めない.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="od318707" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/ConfigurationProperties%E3%81%A7%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E8%A8%AD%E5%AE%9A%E3%82%92%E8%AA%AD%E3%82%81%E3%81%AA%E3%81%84.html#od318707" title="od318707">†</a></h2>
+<p>setterがない。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/ConfigurationPropertiesでプロパティ設定を読めない.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="v5532222" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/ConfigurationProperties%E3%81%A7%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E8%A8%AD%E5%AE%9A%E3%82%92%E8%AA%AD%E3%82%81%E3%81%AA%E3%81%84.html#v5532222" title="v5532222">†</a></h2>
+<p>@Valueでなくて@Dataでないといけない。</p>
+<pre>@Data
+@Component
+@ConfigurationProperties(prefix="application.web")
+public class WebProperties {
+	private String contextpath;
+}</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/ConfigurationPropertiesでプロパティ設定を読めない.html#navigator">↑</a></div><h2 id="content_1_4">備考  <a class="anchor_super" id="j2eaf0a1" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/ConfigurationProperties%E3%81%A7%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E8%A8%AD%E5%AE%9A%E3%82%92%E8%AA%AD%E3%82%81%E3%81%AA%E3%81%84.html#j2eaf0a1" title="j2eaf0a1">†</a></h2>
+<p>Springは素直にsetterを探しに行ってるんですね。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/ConfigurationPropertiesでプロパティ設定を読めない.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="zfc2c7f0" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/ConfigurationProperties%E3%81%A7%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E8%A8%AD%E5%AE%9A%E3%82%92%E8%AA%AD%E3%82%81%E3%81%AA%E3%81%84.html#zfc2c7f0" title="zfc2c7f0">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://qiita.com/kazuki43zoo/items/0ce92fce6d6f3b7bf8eb" rel="nofollow">Spring Bootの外部設定値の扱い方を理解する - Qiita</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-03-31 (金) 16:32:06  (905d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:45</div>
+		</div></body>
+</html>

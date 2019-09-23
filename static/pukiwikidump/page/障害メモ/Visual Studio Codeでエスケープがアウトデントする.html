@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;Visual Studio Codeでエスケープがアウトデントする - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;Visual Studio Codeでエスケープがアウトデントする</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="gd38e85a" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Visual%20Studio%20Code%E3%81%A7%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97%E3%81%8C%E3%82%A2%E3%82%A6%E3%83%88%E3%83%87%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B.html#gd38e85a" title="gd38e85a">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Visual Studio Code</li>
+<li>ショートカット</li>
+<li>ctrl-[</li>
+<li>エスケープ</li>
+<li>アウトデント</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Visual Studio Codeでエスケープがアウトデントする.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="ra9e9ca2" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Visual%20Studio%20Code%E3%81%A7%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97%E3%81%8C%E3%82%A2%E3%82%A6%E3%83%88%E3%83%87%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B.html#ra9e9ca2" title="ra9e9ca2">†</a></h2>
+<p><span style="color:red">※ 2017-07-04時点では解決済みか？</span></p>
+<p>拡張機能Vimを入れても「ctrl-[」でアウトデントしてしまう。</p>
+<p>Atomに続きお前もか！と思った。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Visual Studio Codeでエスケープがアウトデントする.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="xd6fb19c" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Visual%20Studio%20Code%E3%81%A7%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97%E3%81%8C%E3%82%A2%E3%82%A6%E3%83%88%E3%83%87%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B.html#xd6fb19c" title="xd6fb19c">†</a></h2>
+<p>useCtrlKeysが無効になっているから。公式にちゃんと書いてありました。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Visual Studio Codeでエスケープがアウトデントする.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="f40a2bdd" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Visual%20Studio%20Code%E3%81%A7%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97%E3%81%8C%E3%82%A2%E3%82%A6%E3%83%88%E3%83%87%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B.html#f40a2bdd" title="f40a2bdd">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>ファイル &gt; 基本設定 &gt; ユーザー設定</li></ul>
+<p>で次を打ち込んでおく。</p>
+<pre>// 既定の設定を上書きするには、このファイル内に設定を挿入します
+{
+  // 1 つのタブに相当するスペースの数。`editor.detectIndentation` がオンの場合、この設定はファイル コンテンツに基づいて上書きされます。
+  "editor.tabSize": 2,
+  // 有効にすると、ファイルの保存時に末尾の空白をトリミングします。
+  "files.trimTrailingWhitespace": true,
+  // Enable some vim ctrl key commands that override otherwise common operations, like ctrl+c
+  "vim.useCtrlKeys": true,
+  "editor.cursorStyle": "block"
+}</pre>
+<p>必要なのは次だけです。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>vim.useCtrlKeys</li>
+<li>editor.cursorStyle</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Visual Studio Codeでエスケープがアウトデントする.html#navigator">↑</a></div><h2 id="content_1_4">備考  <a class="anchor_super" id="q4e668ba" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Visual%20Studio%20Code%E3%81%A7%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97%E3%81%8C%E3%82%A2%E3%82%A6%E3%83%88%E3%83%87%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B.html#q4e668ba" title="q4e668ba">†</a></h2>
+<p>一番下のeditor.cursorStyleは動的に入力モードに応じて動的に切り替わる。これがないと表示がずっとブロックのままになってしまうみたいで、気持ち悪いけど残す。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Visual Studio Codeでエスケープがアウトデントする.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="uea1dd98" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Visual%20Studio%20Code%E3%81%A7%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97%E3%81%8C%E3%82%A2%E3%82%A6%E3%83%88%E3%83%87%E3%83%B3%E3%83%88%E3%81%99%E3%82%8B.html#uea1dd98" title="uea1dd98">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://github.com/VSCodeVim/Vim" rel="nofollow">GitHub - VSCodeVim/Vim: Vim for Visual Studio Code</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-07-04 (火) 18:06:09  (810d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:55</div>
+		</div></body>
+</html>

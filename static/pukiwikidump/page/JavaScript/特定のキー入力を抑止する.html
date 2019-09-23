@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>JavaScript&#047;特定のキー入力を抑止する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>JavaScript&#047;特定のキー入力を抑止する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="v8105b47" href="page/JavaScript/%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%AD%E3%83%BC%E5%85%A5%E5%8A%9B%E3%82%92%E6%8A%91%E6%AD%A2%E3%81%99%E3%82%8B.html#v8105b47" title="v8105b47">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>JavaScript</li>
+<li>jQuery</li></ul>
+
+<div class="jumpmenu"><a href="page/JavaScript/特定のキー入力を抑止する.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="x9096a36" href="page/JavaScript/%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%AD%E3%83%BC%E5%85%A5%E5%8A%9B%E3%82%92%E6%8A%91%E6%AD%A2%E3%81%99%E3%82%8B.html#x9096a36" title="x9096a36">†</a></h2>
+<p>Ctrl+Cなどのキー入力を抑止したいというユーザーからの要望を抑えられなかったときのメモです。</p>
+
+<div class="jumpmenu"><a href="page/JavaScript/特定のキー入力を抑止する.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="s389e1ed" href="page/JavaScript/%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%AD%E3%83%BC%E5%85%A5%E5%8A%9B%E3%82%92%E6%8A%91%E6%AD%A2%E3%81%99%E3%82%8B.html#s389e1ed" title="s389e1ed">†</a></h2>
+<pre>document.onkeydown = function(e) {
+	var keycode;
+	var ctrl;
+	var shift;
+	var prevent = null;
+
+	// for something else IE
+	if (e != null) {
+		keycode = e.which;
+		ctrl    = typeof e.modifiers == 'undefined' ? e.ctrlKey : e.modifiers &amp; Event.CONTROL_MASK;
+		shift   = typeof e.modifiers == 'undefined' ? e.shiftKey : e.modifiers &amp; Event.SHIFT_MASK;
+		prevent = function() {
+			e.which = 0;
+			e.preventDefault();
+			e.stopPropagation();
+		};
+	}
+	// for IE
+	else {
+		keycode = window.event.keyCode;
+		ctrl    = window.event.ctrlKey;
+		shift   = window.event.shiftKey;
+		prevent = function() {
+			window.event.keyCode = 0;
+			window.event.returnValue = false;
+			window.event.cancelBubble = true;
+		};
+	}
+
+	// prevent
+	var keychar = String.fromCharCode(keycode).toUpperCase();
+	if (
+			(ctrl &amp;&amp; keychar == 'C') ||
+			(ctrl &amp;&amp; keychar == 'X') ||
+			(ctrl &amp;&amp; keychar == 'P')
+	) {
+		prevent();
+		return false;
+	} else {
+		return true;
+	}
+};</pre>
+
+<div class="jumpmenu"><a href="page/JavaScript/特定のキー入力を抑止する.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="q9715cfc" href="page/JavaScript/%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%AD%E3%83%BC%E5%85%A5%E5%8A%9B%E3%82%92%E6%8A%91%E6%AD%A2%E3%81%99%E3%82%8B.html#q9715cfc" title="q9715cfc">†</a></h2>
+<p>キーイベント取得の仕方が IE とそれ以外で別の方法を採るようです。</p>
+<p>イベントをなかったことにする記述はいろいろやってとにかくダメになるようにしました。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>キーコードに0を当てる</li>
+<li>イベントを操作する</li>
+<li>falseを返却する</li></ul>
+
+<div class="jumpmenu"><a href="page/JavaScript/特定のキー入力を抑止する.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="jb36d053" href="page/JavaScript/%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%AD%E3%83%BC%E5%85%A5%E5%8A%9B%E3%82%92%E6%8A%91%E6%AD%A2%E3%81%99%E3%82%8B.html#jb36d053" title="jb36d053">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://javascriptist.net/docs/pract_keyboard_event.html" rel="nofollow">クロスブラウザでのJavaScriptキーボードイベントの扱い方 - JavaScriptist</a></li>
+<li><a href="http://homepage3.moe-nifty.com/lifelicene/2011/02/javascript-2634.html" rel="nofollow">JavaScript によるキーイベントの禁止　(修正): LifeLicene</a></li>
+<li><a href="http://www.syboos.jp/webjs/doc/disable-key-event.html" rel="nofollow">JavaScriptでキーを無効にする方法 - JavaScript入門</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2014-02-05 (水) 20:08:44  (2055d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:49</div>
+		</div></body>
+</html>

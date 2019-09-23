@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>はじめてのAngular2&#047;再びHello World - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>はじめてのAngular2&#047;再びHello World</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">もういちど 5 Min Quickstart をやってみる訳  <a class="anchor_super" id="d2e7e27c" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/%E5%86%8D%E3%81%B3Hello%20World.html#d2e7e27c" title="d2e7e27c">†</a></h2>
+<p>どうもうまくいかないことを調べているとAngular2のバージョンがalphaだったりbetaだったりrcだったりで、試してみていたのがalphaでした。バージョンが古いばっかりにうまくいかないことがあるのではもうわけがわらかなくなってしまうので、オフィシャルのQuickstartをやり直すことにしました。</p>
+<p><span style="color:red">-- ngForがどうやっても動かない、のがきっかけでしたが、結局最新のでやり直して動きました。</span></p>
+<p>やり直したオフィシャルのQuickstart.</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://angular.io/docs/ts/latest/quickstart.html" rel="nofollow">5 Min Quickstart -ts</a>（2016年7月2日の）</li></ul>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/再びHello World.html#navigator">↑</a></div><h2 id="content_1_1">設定ファイルの名前を間違えてつまずく  <a class="anchor_super" id="f5a726d7" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/%E5%86%8D%E3%81%B3Hello%20World.html#f5a726d7" title="f5a726d7">†</a></h2>
+<p>結論から言えば、Quickstartのとおりにファイルを揃えればうまくいきます。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>アプリケーションルート/
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>app/
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li>app.component.ts</li>
+<li>main.ts</li></ul></li>
+<li>index.html</li>
+<li>package.json</li>
+<li>styles.css</li>
+<li>systemjs.config.js</li>
+<li>tsconfig.json</li>
+<li>typings.json</li></ul></li></ul>
+<p>設定ファイルを揃えてインストール。</p>
+<pre>$ nam install</pre>
+<p>実行。</p>
+<pre>$ npm start</pre>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/再びHello World.html#navigator">↑</a></div><h3 id="content_1_2">typing.jsonと間違えてtypingsがインストールできない  <a class="anchor_super" id="h942f191" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/%E5%86%8D%E3%81%B3Hello%20World.html#h942f191" title="h942f191">†</a></h3>
+<p>typingsというのはd.tsを管理するツールで、d.tsとは"JavaScriptの既存ライブラリをTypeScriptで安全に使う"ための型定義のようです。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://qiita.com/literalice/items/d83249a5646abcb0bec6" rel="nofollow">TypeScriptの型定義管理ツールTypingsについて - Qiita</a></li>
+<li><a href="http://qiita.com/vvakame/items/1980d4b6cc222e03fdcb" rel="nofollow">TypeScriptの型定義ファイルを共有しよう！ - Qiita</a></li></ul>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/再びHello World.html#navigator">↑</a></div><h4 id="content_1_3">npm startでエラーが起こる  <a class="anchor_super" id="q1661448" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/%E5%86%8D%E3%81%B3Hello%20World.html#q1661448" title="q1661448">†</a></h4>
+<pre>node_modules/@angular/core/src/application_ref.d.ts(79,88): error TS2304: Cannot find name 'Promise'.
+node_modules/@angular/core/src/application_ref.d.ts(137,42): error TS2304: Cannot find name 'Promise'.
+node_modules/@angular/core/src/application_ref.d.ts(196,33): error TS2304: Cannot find name 'Promise'.
+node_modules/@angular/core/src/change_detection/differs/default_keyvalue_differ.d.ts(24,15): error TS2304: Cannot find name 'Map'.
+node_modules/@angular/core/src/change_detection/differs/default_keyvalue_differ.d.ts(26,16): error TS2304: Cannot find name 'Map'.
+node_modules/@angular/core/src/di/reflective_provider.d.ts(115,123): error TS2304: Cannot find name 'Map'.
+node_modules/@angular/core/src/di/reflective_provider.d.ts(115,165): error TS2304: Cannot find name 'Map'.
+node_modules/@angular/core/src/facade/async.d.ts(34,33): error TS2304: Cannot find name 'Promise'.
+node_modules/@angular/core/src/facade/async.d.ts(35,45): error TS2304: Cannot find name 'Promise'.
+node_modules/@angular/core/src/facade/collection.d.ts(1,25): error TS2304: Cannot find name 'MapConstructor'.
+node_modules/@angular/core/src/facade/collection.d.ts(2,25): error TS2304: Cannot find name 'SetConstructor'.</pre>
+<p>あと同じようなエラーがいっぱい。</p>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/再びHello World.html#navigator">↑</a></div><h4 id="content_1_4">typingsをインストールし直して解決  <a class="anchor_super" id="d13b9d3d" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/%E5%86%8D%E3%81%B3Hello%20World.html#d13b9d3d" title="d13b9d3d">†</a></h4>
+<p>typing.jsonをtypings.jsonに直してnpm installしても別のエラーが出て解決ならず。</p>
+<pre>app/main.ts(1,1): error TS6053: File 'app/node_modules/angular2/typings/browser.d.ts' not found.</pre>
+<p>次の手順でtypings（で型定義ファイル）をインストールし直したところnpm startできるようになりました。</p>
+<pre>$ ./node_modules/.bin/typings install
+
+├── core-js (global)
+├── jasmine (global)
+└── node (global)
+
+$</pre>
+<p>まあしかし、Qickstartのとおりにできればここでつまずくことはないです。</p>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/再びHello World.html#navigator">↑</a></div><h3 id="content_1_5">参考  <a class="anchor_super" id="f8869456" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/%E5%86%8D%E3%81%B3Hello%20World.html#f8869456" title="f8869456">†</a></h3>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://github.com/angular/quickstart/issues/63" rel="nofollow">error TS2304: Cannot find name 'Promise' · Issue #63 · angular/quickstar</a></li></ul>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/再びHello World.html#navigator">↑</a></div><h2 id="content_1_6">教訓  <a class="anchor_super" id="yc0f0e4e" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/%E5%86%8D%E3%81%B3Hello%20World.html#yc0f0e4e" title="yc0f0e4e">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>日本語訳に甘えるな</li>
+<li>よく読め</li></ul>
+
+<div class="jumpmenu"><a href="page/はじめてのAngular2/再びHello World.html#navigator">↑</a></div><h2 id="content_1_7">ソースコード  <a class="anchor_super" id="n17d4628" href="page/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AEAngular2/%E5%86%8D%E3%81%B3Hello%20World.html#n17d4628" title="n17d4628">†</a></h2>
+<p><a href="https://github.com/fukuchiharuki/til/tree/master/javascript/angular2/angular2-quickstart-r2" rel="nofollow">til/javascript/angular2/angular2-quickstart-r2 at master · fukuchiharuki/til</a></p>
+</div><div id="lastmodified">Last-modified: 2016-07-07 (木) 22:34:25  (1172d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:28</div>
+		</div></body>
+</html>

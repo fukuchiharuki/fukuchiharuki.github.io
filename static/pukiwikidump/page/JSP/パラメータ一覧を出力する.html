@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>JSP&#047;パラメータ一覧を出力する - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>JSP&#047;パラメータ一覧を出力する</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">関連  <a class="anchor_super" id="ce07ff0b" href="page/JSP/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E4%B8%80%E8%A6%A7%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B.html#ce07ff0b" title="ce07ff0b">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Java</li>
+<li>JSP</li>
+<li>JSTL</li></ul>
+
+<div class="jumpmenu"><a href="page/JSP/パラメータ一覧を出力する.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="q3a2b7c3" href="page/JSP/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E4%B8%80%E8%A6%A7%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B.html#q3a2b7c3" title="q3a2b7c3">†</a></h2>
+<p>パラメータ一覧を出力するだけのJSPページを作成する。<br>
+（ちょっと必要になったから書いただけでTipsでもなんでもないです。）</p>
+
+<div class="jumpmenu"><a href="page/JSP/パラメータ一覧を出力する.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="m127ccca" href="page/JSP/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E4%B8%80%E8%A6%A7%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B.html#m127ccca" title="m127ccca">†</a></h2>
+<pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+	"http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;%@ page language="java" contentType="text/html; charset=Shift-JIS" pageEncoding="Shift-JIS" session="false" %&gt;
+&lt;%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=Shift-JIS"&gt;
+&lt;title&gt;パラメータダンプ&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;table&gt;
+&lt;%
+	request.setCharacterEncoding("Windows-31J");
+	pageContext.setAttribute("request", request); 
+%&gt;
+&lt;c:forEach var="key" items="${request.parameterNames}"&gt;
+	&lt;tr&gt;
+		&lt;th style="text-align: right;"&gt;
+			&lt;c:out value="${key}" /&gt;
+		&lt;/th&gt;
+		&lt;td&gt;
+			&lt;c:out value="${param[key]}" /&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/c:forEach&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<div class="jumpmenu"><a href="page/JSP/パラメータ一覧を出力する.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="q652e6b9" href="page/JSP/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E4%B8%80%E8%A6%A7%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B.html#q652e6b9" title="q652e6b9">†</a></h2>
+<p>スコープがちょっと厄介ですね。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>request
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>「&lt;%%&gt;」内では暗黙オブジェクト</li>
+<li>EL式にはデフォルト存在しない（のでpageContextにセットしてあげてる）</li></ul></li>
+<li>requestScope
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>リクエスト属性を扱うためのEL式暗黙オブジェクト</li></ul></li>
+<li>param
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>パラメータを扱うためのEL式暗黙オブジェクト</li></ul></li></ul>
+<p>Shift-JISなのはお仕事の都合上だっただけです（utf-8が一般的かと。）</p>
+
+<div class="jumpmenu"><a href="page/JSP/パラメータ一覧を出力する.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="j1ff173e" href="page/JSP/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E4%B8%80%E8%A6%A7%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B.html#j1ff173e" title="j1ff173e">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://struts.wasureppoi.com/jsp/04_param.html" rel="nofollow">http://struts.wasureppoi.com/jsp/04_param.html</a></li>
+<li><a href="http://download.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html" rel="nofollow">http://download.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:43</div>
+		</div></body>
+</html>

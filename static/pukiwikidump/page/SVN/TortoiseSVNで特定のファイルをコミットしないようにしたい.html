@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>SVN&#047;TortoiseSVNで特定のファイルをコミットしないようにしたい - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>SVN&#047;TortoiseSVNで特定のファイルをコミットしないようにしたい</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">キーワード  <a class="anchor_super" id="f851214a" href="page/SVN/TortoiseSVN%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%97%E3%81%AA%E3%81%84%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84.html#f851214a" title="f851214a">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>TortoiseSVN</li>
+<li>コミット</li>
+<li>除外</li></ul>
+
+<div class="jumpmenu"><a href="page/SVN/TortoiseSVNで特定のファイルをコミットしないようにしたい.html#navigator">↑</a></div><h2 id="content_1_1">したいこと  <a class="anchor_super" id="ffc12382" href="page/SVN/TortoiseSVN%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%97%E3%81%AA%E3%81%84%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84.html#ffc12382" title="ffc12382">†</a></h2>
+<p>設定ファイルなど、ちょっと触ってるんだけどコミットはしたくない、みたいなとき。コミットするたびにチェックを外すのは面倒。</p>
+
+<div class="jumpmenu"><a href="page/SVN/TortoiseSVNで特定のファイルをコミットしないようにしたい.html#navigator">↑</a></div><h2 id="content_1_2">どうやって  <a class="anchor_super" id="e6b77ff0" href="page/SVN/TortoiseSVN%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%97%E3%81%AA%E3%81%84%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84.html#e6b77ff0" title="e6b77ff0">†</a></h2>
+<p>コミットメッセージを入力するする画面、</p>
+<ol class="list1" style="padding-left:16px;margin-left:16px"><li>「変更した項目（ダブルクリックで差分を表示）」上の項目で右クリック</li>
+<li>変更リストへ移動 &gt; ignore-on-commit</li></ol>
+
+<div class="jumpmenu"><a href="page/SVN/TortoiseSVNで特定のファイルをコミットしないようにしたい.html#navigator">↑</a></div><h2 id="content_1_3">ちなみに  <a class="anchor_super" id="s87848b3" href="page/SVN/TortoiseSVN%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%97%E3%81%AA%E3%81%84%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84.html#s87848b3" title="s87848b3">†</a></h2>
+<p>一覧にはチェックオフの状態で挙がっているので、チェックを入れればコミットできる。</p>
+
+<div class="jumpmenu"><a href="page/SVN/TortoiseSVNで特定のファイルをコミットしないようにしたい.html#navigator">↑</a></div><h2 id="content_1_4">参考  <a class="anchor_super" id="v5f84cca" href="page/SVN/TortoiseSVN%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%97%E3%81%AA%E3%81%84%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84.html#v5f84cca" title="v5f84cca">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://d.hatena.ne.jp/ayakobaba/20100114/1263448463" rel="nofollow">subversion でコミットしたくないファイルがあるとき - ayakobabaの日記</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-08-23 (水) 20:38:09  (760d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:06</div>
+		</div></body>
+</html>

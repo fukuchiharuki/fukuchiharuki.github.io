@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MySQL&#047;データベースをダンプする - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>MySQL&#047;データベースをダンプする</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body">
+<h2 id="content_1_0">関連  <a class="anchor_super" id="y671880f" href="page/MySQL/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%82%92%E3%83%80%E3%83%B3%E3%83%97%E3%81%99%E3%82%8B.html#y671880f" title="y671880f">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>MySQL</li></ul>
+
+<div class="jumpmenu"><a href="page/MySQL/データベースをダンプする.html#navigator">↑</a></div><h2 id="content_1_1">概要  <a class="anchor_super" id="ab7d356f" href="page/MySQL/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%82%92%E3%83%80%E3%83%B3%E3%83%97%E3%81%99%E3%82%8B.html#ab7d356f" title="ab7d356f">†</a></h2>
+<p>データベースを丸ごとダンプして別のデータベースにコピーする。</p>
+
+<div class="jumpmenu"><a href="page/MySQL/データベースをダンプする.html#navigator">↑</a></div><h2 id="content_1_2">方法  <a class="anchor_super" id="za57ca92" href="page/MySQL/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%82%92%E3%83%80%E3%83%B3%E3%83%97%E3%81%99%E3%82%8B.html#za57ca92" title="za57ca92">†</a></h2>
+<p>データベースsrcからデータベースdstにコピーするものとして。</p>
+<pre>$ mysqldump src -u**** -p**** --add-drop-table --extended-insert --no-autocommit &gt; dump
+$ mysql dst -u**** -p**** &lt; dump</pre>
+
+<div class="jumpmenu"><a href="page/MySQL/データベースをダンプする.html#navigator">↑</a></div><h2 id="content_1_3">解説  <a class="anchor_super" id="qee41110" href="page/MySQL/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%82%92%E3%83%80%E3%83%B3%E3%83%97%E3%81%99%E3%82%8B.html#qee41110" title="qee41110">†</a></h2>
+<dl class="list1" style="padding-left:16px;margin-left:16px"><dt>--add-drop-table</dt>
+<dd>CREATE TABLE文の前にDROP TABLE文をつける</dd>
+<dt>--extended-insert</dt>
+<dd>複数行INSERT構文を使用する（→取り込むときに高速化）</dd>
+<dt>--no-autocommit</dt>
+<dd>テーブル毎のトランザクションにする（→取り込むときに高速化）</dd></dl>
+
+<div class="jumpmenu"><a href="page/MySQL/データベースをダンプする.html#navigator">↑</a></div><h2 id="content_1_4">さらに  <a class="anchor_super" id="qecbdd30" href="page/MySQL/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%82%92%E3%83%80%E3%83%B3%E3%83%97%E3%81%99%E3%82%8B.html#qecbdd30" title="qecbdd30">†</a></h2>
+<dl class="list1" style="padding-left:16px;margin-left:16px"><dt>--single-transaction</dt>
+<dd>ダンプ中テーブルをロックしない</dd>
+<dt>-t データベース名 テーブル名</dt>
+<dd>データだけ</dd>
+<dt>-d データベース名 テーブル名</dt>
+<dd>スキーマだけ</dd></dl>
+
+<div class="jumpmenu"><a href="page/MySQL/データベースをダンプする.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="j1466ce1" href="page/MySQL/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%82%92%E3%83%80%E3%83%B3%E3%83%97%E3%81%99%E3%82%8B.html#j1466ce1" title="j1466ce1">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="http://dev.mysql.com/doc/refman/5.1/ja/mysqldump.html" rel="nofollow">MySQL :: MySQL 5.6 リファレンスマニュアル :: 4.5.4 mysqldump — データベースバックアッププログラム</a></li>
+<li><a href="http://www.tree-tips.com/mysql/mysqldump/online_backup/" rel="nofollow">tree-tips: mysqldumpでロックせずオンラインバックアップする | MySQL</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2017-04-13 (木) 18:23:52  (892d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:56</div>
+		</div></body>
+</html>

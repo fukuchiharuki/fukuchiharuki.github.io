@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>オブジェクト指向&#047;継承を使うとき - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>オブジェクト指向&#047;継承を使うとき</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><p>クラス設計するときの自分メモです。</p>
+<h2 id="content_1_0">安易に継承を使うべきでない  <a class="anchor_super" id="p0a41393" href="page/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/%E7%B6%99%E6%89%BF%E3%82%92%E4%BD%BF%E3%81%86%E3%81%A8%E3%81%8D.html#p0a41393" title="p0a41393">†</a></h2>
+<p>が僕の基本スタンス。
+という心構え。
+共通処理をスーパークラスにもたせるためのそれはとりわけネガティブ。</p>
+<p>理由は以下。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>処理の流れが読みづらくなる</li>
+<li>サブクラスによる分岐が生じてスーパークラスの役割が肥大化する</li>
+<li>肥大化するスーパークラスに合わせてサブクラスの役割も増える</li></ul>
+<p>結果として取ってつけたようなギスギスした親子関係が出来上がってしまう。
+フラグによる分岐を巧みにこなすスーパークラスとフラグを立てることに必死なサブクラス。
+この疎通の流れを読み解き親子の関係を明らかにすることは極めて困難。</p>
+
+<div class="jumpmenu"><a href="page/オブジェクト指向/継承を使うとき.html#navigator">↑</a></div><h2 id="content_1_1">継承を使ってうれしいのは  <a class="anchor_super" id="nfb5adf7" href="page/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/%E7%B6%99%E6%89%BF%E3%82%92%E4%BD%BF%E3%81%86%E3%81%A8%E3%81%8D.html#nfb5adf7" title="nfb5adf7">†</a></h2>
+<p>インタフェースを見る側(メソッドをコールする側)。
+だと思う。</p>
+<p><em>※ここでどのような継承を使って誰が使うかを述べて</em></p>
+<p>結果こうなる。</p>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>処理の流れがインタフェースを見る側だけの役割になる</li>
+<li>分岐中の局所的な処理がサブクラスだけの役割になる</li>
+<li>分岐がファクトリ(や依存性注入)だけの役割になる</li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:29</div>
+		</div></body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>障害メモ&#047;Spring Bootがあがらない - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>障害メモ&#047;Spring Bootがあがらない</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">キーワード  <a class="anchor_super" id="yd4fc53b" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Boot%E3%81%8C%E3%81%82%E3%81%8C%E3%82%89%E3%81%AA%E3%81%84.html#yd4fc53b" title="yd4fc53b">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>Spring Boot</li></ul>
+
+<div class="jumpmenu"><a href="page/障害メモ/Spring Bootがあがらない.html#navigator">↑</a></div><h2 id="content_1_1">現象  <a class="anchor_super" id="id886138" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Boot%E3%81%8C%E3%81%82%E3%81%8C%E3%82%89%E3%81%AA%E3%81%84.html#id886138" title="id886138">†</a></h2>
+<p>Spring Bootを立ち上げようとしても次の例外が発生して立ち上がらない。</p>
+<pre>Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'entityManagerFactory' is defined</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/Spring Bootがあがらない.html#navigator">↑</a></div><h2 id="content_1_2">原因  <a class="anchor_super" id="j3202912" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Boot%E3%81%8C%E3%81%82%E3%81%8C%E3%82%89%E3%81%AA%E3%81%84.html#j3202912" title="j3202912">†</a></h2>
+<p>STSから実行すると確認できないが端末でmavenから実行すると次のログを確認できる。</p>
+<pre>mvn clean spring-boot:run</pre>
+<pre>[WARNING] /Users/haruki/.m2/repository/org/hibernate/hibernate-entitymanager/5.0.9.Final/hibernate-entitymanager-5.0.9.Final.jarの読込みエラーです。invalid LOC header (bad signature)</pre>
+<p>ローカルリポジトリのjarが壊れているということのよう。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Spring Bootがあがらない.html#navigator">↑</a></div><h2 id="content_1_3">対策  <a class="anchor_super" id="sc1cef3f" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Boot%E3%81%8C%E3%81%82%E3%81%8C%E3%82%89%E3%81%AA%E3%81%84.html#sc1cef3f" title="sc1cef3f">†</a></h2>
+<p>ここではhibernate一式を削除して再度mavenから実行した。</p>
+<pre>cd /Users/haruki/.m2/repository/org/
+mv hibernate hibernate.org</pre>
+<pre>mvn clean spring-boot:run</pre>
+
+<div class="jumpmenu"><a href="page/障害メモ/Spring Bootがあがらない.html#navigator">↑</a></div><h2 id="content_1_4">備考  <a class="anchor_super" id="x91a1f3f" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Boot%E3%81%8C%E3%81%82%E3%81%8C%E3%82%89%E3%81%AA%E3%81%84.html#x91a1f3f" title="x91a1f3f">†</a></h2>
+<p>EntityManagerFactoryに関わる設定が足りてないのか？と疑ったのだが全然違ってて、環境の問題だった。なんと<a href="https://twitter.com/making" rel="nofollow">@marking</a>さんが見てくれた。ログに原因が出ているという、初歩的なつまずきをしていてとても恥ずかしい。</p>
+
+<div class="jumpmenu"><a href="page/障害メモ/Spring Bootがあがらない.html#navigator">↑</a></div><h2 id="content_1_5">参考  <a class="anchor_super" id="b8f328d7" href="page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Spring%20Boot%E3%81%8C%E3%81%82%E3%81%8C%E3%82%89%E3%81%AA%E3%81%84.html#b8f328d7" title="b8f328d7">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="https://twitter.com/making/status/771651420613337088" rel="nofollow">Toshiaki Makiさんのツイート: "@fukuchiharuki ソースコードどこかに上げてくれたら見ますよ？"</a></li></ul>
+</div><div id="lastmodified">Last-modified: 2016-09-04 (日) 16:52:39  (1113d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:46:53</div>
+		</div></body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Tipsや調べたことなど、自分のために残したもの。">
+		<meta name="author" content="ふくちはるき">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MySQL&#047;パフォーマンスチューニング - ポケットがチケットでいっぱい（アーカイブ）</title>
+		<base href="/static/pukiwikidump/">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-21698320-3', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head><body>
+<div id="header">
+			<h1>MySQL&#047;パフォーマンスチューニング</h1>
+			<div id="navigator">
+				<a class="return" href="/">トップページに戻る</a>
+			</div>
+		</div><div id="body"><h2 id="content_1_0">参考  <a class="anchor_super" id="z2a0dfba" href="page/MySQL/%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%83%81%E3%83%A5%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0.html#z2a0dfba" title="z2a0dfba">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>WHERE句の最適化（リファレンス）
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="http://dev.mysql.com/doc/refman/4.1/ja/where-optimisations.html" rel="nofollow">http://dev.mysql.com/doc/refman/4.1/ja/where-optimisations.html</a></li></ul></li>
+<li>EXPLAIN
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="http://nippondanji.blogspot.com/2009/03/mysqlexplain.html" rel="nofollow">http://nippondanji.blogspot.com/2009/03/mysqlexplain.html</a></li></ul></li>
+<li>インデックス
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>左端プリフィックス
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li><a href="http://dev.mysql.com/doc/refman/4.1/ja/mysql-indexes.html" rel="nofollow">http://dev.mysql.com/doc/refman/4.1/ja/mysql-indexes.html</a></li></ul></li>
+<li>インデックスの長さ
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li><a href="http://hamamuratakuo.blog61.fc2.com/blog-entry-407.html" rel="nofollow">http://hamamuratakuo.blog61.fc2.com/blog-entry-407.html</a></li></ul></li>
+<li>インデックスの長さを指定する
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li><a href="http://dev.mysql.com/doc/refman/4.1/ja/create-index.html" rel="nofollow">http://dev.mysql.com/doc/refman/4.1/ja/create-index.html</a></li></ul></li>
+<li>INをUNION ALLで代替
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li><a href="http://www.mysqlperformanceblog.com/2006/08/10/using-union-to-implement-loose-index-scan-to-mysql/" rel="nofollow">http://www.mysqlperformanceblog.com/2006/08/10/using-union-to-implement-loose-index-scan-to-mysql/</a></li></ul></li>
+<li>UNION ALLしてCOUNTするときの注意
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li><a href="http://ameblo.jp/udzura/entry-10122301087.html" rel="nofollow">http://ameblo.jp/udzura/entry-10122301087.html</a></li></ul></li></ul></li>
+<li>全文検索
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>マルチバイト文字対応（4.1.1以降）
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li><a href="http://www.tatamilab.jp/rnd/archives/000389.html" rel="nofollow">http://www.tatamilab.jp/rnd/archives/000389.html</a></li></ul></li></ul></li>
+<li>JOIN+ソート
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="http://nippondanji.blogspot.com/2009/03/using-filesort.html" rel="nofollow">http://nippondanji.blogspot.com/2009/03/using-filesort.html</a></li>
+<li>ORDER BYについてMySQL公式
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li><a href="http://dev.mysql.com/doc/refman/5.1/ja/order-by-optimization.html" rel="nofollow">http://dev.mysql.com/doc/refman/5.1/ja/order-by-optimization.html</a></li></ul></li></ul></li>
+<li>カウント
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li>FOUND_ROWS()
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li><a href="http://dev.mysql.com/doc/refman/5.1/ja/information-functions.html" rel="nofollow">http://dev.mysql.com/doc/refman/5.1/ja/information-functions.html</a></li></ul></li>
+<li>Covering Index
+<ul class="list3" style="padding-left:16px;margin-left:16px"><li><a href="http://nippondanji.blogspot.com/2010/03/innodbcount.html" rel="nofollow">http://nippondanji.blogspot.com/2010/03/innodbcount.html</a></li></ul></li></ul></li>
+<li>パーティショニング
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20080710/310540/" rel="nofollow">http://itpro.nikkeibp.co.jp/article/COLUMN/20080710/310540/</a></li>
+<li><a href="http://nippondanji.blogspot.com/2009/05/linear-hash.html" rel="nofollow">http://nippondanji.blogspot.com/2009/05/linear-hash.html</a></li></ul></li>
+<li>レプリケーション
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="http://dev.mysql.com/doc/refman/5.1/ja/replication-solutions-scaleout.html" rel="nofollow">http://dev.mysql.com/doc/refman/5.1/ja/replication-solutions-scaleout.html</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.1-olh/ja/innodb-and-mysql-replication.html" rel="nofollow">http://dev.mysql.com/doc/refman/5.1-olh/ja/innodb-and-mysql-replication.html</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.1/ja/replication-solutions-diffengines.html" rel="nofollow">http://dev.mysql.com/doc/refman/5.1/ja/replication-solutions-diffengines.html</a></li>
+<li><a href="http://opendatabaselife.blogspot.com/2009/08/innodbmyisam.html" rel="nofollow">http://opendatabaselife.blogspot.com/2009/08/innodbmyisam.html</a></li></ul></li>
+<li>InnoDBとMyISAM
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="http://www.inter-office.co.jp/contents/95/" rel="nofollow">http://www.inter-office.co.jp/contents/95/</a></li></ul></li>
+<li>なんかいろいろ
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="http://d.hatena.ne.jp/LukeSilvia/20080909/p1" rel="nofollow">http://d.hatena.ne.jp/LukeSilvia/20080909/p1</a></li>
+<li><a href="http://nippondanji.blogspot.com/2009/02/mysql10.html" rel="nofollow">http://nippondanji.blogspot.com/2009/02/mysql10.html</a></li>
+<li><a href="http://pagerank.cocolog-nifty.com/blog/mysql/index.html" rel="nofollow">http://pagerank.cocolog-nifty.com/blog/mysql/index.html</a></li>
+<li><a href="http://txqz.net/blog/2006/12/13/0943" rel="nofollow">http://txqz.net/blog/2006/12/13/0943</a></li>
+<li><a href="http://hain.jp/index.php/tech-j/2006/12/18/p106" rel="nofollow">http://hain.jp/index.php/tech-j/2006/12/18/p106</a></li></ul></li></ul>
+
+<div class="jumpmenu"><a href="page/MySQL/パフォーマンスチューニング.html#navigator">↑</a></div><h2 id="content_1_1">参考になりそうな実際例  <a class="anchor_super" id="t2c5e745" href="page/MySQL/%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%83%81%E3%83%A5%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0.html#t2c5e745" title="t2c5e745">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>はてなの例
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="http://d.hatena.ne.jp/naoya/20081111/1226395400" rel="nofollow">http://d.hatena.ne.jp/naoya/20081111/1226395400</a></li></ul></li>
+<li>mixiの例
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="http://blog.livedoor.jp/nipotan/archives/50538571.html" rel="nofollow">http://blog.livedoor.jp/nipotan/archives/50538571.html</a></li></ul></li></ul>
+
+<div class="jumpmenu"><a href="page/MySQL/パフォーマンスチューニング.html#navigator">↑</a></div><h2 id="content_1_2">まとめ  <a class="anchor_super" id="m107bffe" href="page/MySQL/%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%83%81%E3%83%A5%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0.html#m107bffe" title="m107bffe">†</a></h2>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>IN句でインデックスを使わないのは複合インデックスのうち先頭のみ</li>
+<li>複合インデックスの順とWHERE句で出現する順は同じでなくてよい</li>
+<li>ファイルソートは一番まずい</li>
+<li>時間はchar型で保存するのがいい</li></ul>
+
+<div class="jumpmenu"><a href="page/MySQL/パフォーマンスチューニング.html#navigator">↑</a></div><h3 id="content_1_3">MySQLのコメント  <a class="anchor_super" id="fb9a97fd" href="page/MySQL/%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%83%81%E3%83%A5%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0.html#fb9a97fd" title="fb9a97fd">†</a></h3>
+<blockquote><p class="quotation">MySQL では利用可能な場合でもインデックスが使用されない場合があることに注意してください。この一例として、インデックスの使用によって、MySQL がテーブルの 30% を超えるレコードにアクセスする必要が生じる場合が挙げられます（この場合は、必要なシークが大幅に減少するため、テーブルスキャンのほうが高速になる可能性が高くなります）。ただしこのクエリに、レコードの一部のみを取り出す LIMITが使用されている場合、結果で返される少数のレコードを迅速に検索できるため、MySQL はインデックスを使用します。</p></blockquote>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li>WHERE句で絞り込んだ結果がテーブルの30%を超えるとサーチしてフェッチするコストのが大きい</li></ul>
+</div><div id="lastmodified">Last-modified: 2013-08-17 (土) 18:07:15  (2227d)</div><div id="sponsor-link">
+			<p>スポンサーリンク</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+			<!-- wiki/記事下左 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="4606605347"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			<!-- wiki/記事下右 - レクタングル -->
+			<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-3652547341671748" data-ad-slot="6083338544"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div><div id="footer">
+			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
+			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
+			<div class="timestamp">2019-09-23T15:45:56</div>
+		</div></body>
+</html>
