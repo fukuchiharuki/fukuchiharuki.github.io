@@ -1,0 +1,189 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body {
+  margin: 0;
+}
+
+/* Disable ugly boxes around images in IE10 */
+a img{
+  border: 0px;
+}
+
+::-moz-selection {
+  background-color: #6ab344;
+  color: #fff;
+}
+
+::selection {
+  background-color: #6ab344;
+  color: #fff;
+}
+
+.template-header .mdl-menu__container {
+  z-index: 50;
+  margin: 0 !important;
+}
+
+.mdl-textfield--expandable {
+  width: auto;
+}
+
+.template-fab {
+  position: absolute;
+  right: 20%;
+  bottom: -26px;
+  z-index: 3;
+  background: #64ffda !important;
+  color: black !important;
+}
+
+.template-mobile-title {
+  display: none !important;
+}
+
+.template-header {
+  overflow: visible;
+  background-color: white;
+}
+
+  .template-header .material-icons {
+    color: #767777 !important;
+  }
+
+  .template-header .mdl-layout__drawer-button {
+    background: transparent;
+    color: #767777;
+  }
+
+  .template-header .mdl-navigation__link {
+    color: #757575;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .template-more-button {
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+
+.logo-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1;
+  color: #767777;
+  font-weight: 500;
+}
+
+.template-slogan {
+  font-size: 60px;
+  padding-top: 160px;
+}
+
+.template-sub-slogan {
+  font-size: 21px;
+  padding-top: 24px;
+}
+
+.template-link {
+  text-decoration: none;
+  color: #8bc34a !important;
+}
+
+  .template-link:hover {
+    color: #7cb342 !important;
+  }
+
+  .template-link .material-icons {
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+  }
+
+.template-footer {
+  background-color: #fafafa;
+  position: relative;
+}
+
+  .template-footer a:hover {
+    color: #8bc34a;
+  }
+
+  .template-footer .mdl-mega-footer--top-section::after {
+    border-bottom: none;
+  }
+
+  .template-footer .mdl-mega-footer--middle-section::after {
+    border-bottom: none;
+  }
+
+  .template-footer .mdl-mega-footer--bottom-section {
+    position: relative;
+  }
+
+  .template-footer .mdl-mega-footer--bottom-section a {
+    margin-right: 2em;
+  }
+
+  .template-footer .mdl-mega-footer--right-section a .material-icons {
+    position: relative;
+    top: 6px;
+  }
+
+.template-link-menu:hover {
+  cursor: pointer;
+}
+
+/**** Mobile layout ****/
+@media (max-width: 900px) {
+
+  .template-title {
+    display: none !important;
+  }
+
+  .template-mobile-title {
+    display: block !important;
+    position: absolute;
+    left: calc(50% - 70px);
+    top: 12px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .template-more-button {
+    display: none;
+  }
+
+  .template-slogan {
+    font-size: 26px;
+    margin: 0 16px;
+    padding-top: 24px;
+  }
+
+  .template-sub-slogan {
+    font-size: 16px;
+    margin: 0 16px;
+    padding-top: 8px;
+  }
+
+  .template-fab {
+    display: none;
+  }
+
+  .template-footer .mdl-mega-footer--bottom-section {
+    display: none;
+  }
+
+}

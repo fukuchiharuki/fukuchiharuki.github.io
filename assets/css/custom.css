@@ -1,0 +1,167 @@
+::-moz-selection {
+    background: #b3d4fc;
+}
+
+::selection {
+    background: #b3d4fc;
+}
+
+.template-link {
+	color: rgb(68,138,255) !important;
+}
+
+.template-link:hover {
+	color: rgb(68,138,255) !important;
+	text-decoration: underline;
+}
+
+.template-header {
+	background-color: #f3f3f3;
+}
+
+.template-title,
+.template-mobile-title {
+	color: #767777;
+}
+
+.template-title {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.template-mobile-title {
+	width: 100%;
+	text-align: center;
+	left: 0;
+	top: 20px;
+	font-size: small;
+}
+
+.template-more-button {
+	display: none;
+}
+
+.mdl-menu__item a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	color: #767777;
+}
+
+.who-is-section {
+	position: relative;
+	height: 800px;
+	width: auto;
+}
+
+.who-is-section__mascot {
+	margin-top: 40px;
+}
+
+.who-is-section__mascot img {
+	max-width: 100%;
+}
+
+.template-fab {
+	background-color: rgb(68,138,255) !important;
+	color: white !important;
+}
+
+.sns-section {
+  text-align: center;
+  background-color: #f3f3f3;
+}
+
+.sns-section__text {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 80px 16px 0 16px;
+}
+
+  .sns-section__text p {
+    padding-top: 16px;
+  }
+
+.sns-section__link {
+	padding: 60px 20px;
+}
+
+.sns-section__link__icon {
+	display: inline-block;
+	margin: 10px;
+	width: 64px;
+	height: 64px;
+	font-size: 0;
+	background-position: center center;
+	background-size: cover;
+	border-radius: 50%;
+}
+
+.sns-section__link__icon {
+	transition: box-shadow 0.4s;
+	box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.sns-section__link__icon:hover {
+	box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.sns-section__link__icon.sns-section__link__icon--coffeemeeting { background-image: url("../images/icon-coffeemeeting.jpg"); }
+.sns-section__link__icon.sns-section__link__icon--facebook { background-image: url("../images/icon-facebook.png"); }
+.sns-section__link__icon.sns-section__link__icon--github { background-image: url("../images/icon-github.png"); }
+.sns-section__link__icon.sns-section__link__icon--instagram { background-image: url("../images/icon-instagram.png"); }
+.sns-section__link__icon.sns-section__link__icon--linkedin { background-image: url("../images/icon-linkedin.png"); }
+.sns-section__link__icon.sns-section__link__icon--twitter { background-image: url("../images/icon-twitter.png"); }
+.sns-section__link__icon.sns-section__link__icon--wantedly { background-image: url("../images/icon-wantedly.png"); }
+
+.template-footer a {
+	color: #767777 !important;
+}
+
+.template-footer a:hover {
+	color: rgb(68,138,255);
+}
+
+@media (max-width: 900px) {
+
+	.template-more-button {
+		display: none;
+	}
+
+	.template-mobile-title {
+	}
+
+	.who-is-section {
+		height: 400px;
+	}
+
+	.who-is-section__mascot img {
+		width: 280px;
+	}
+
+	.sns-section__link__icon {
+		width: 48px;
+		height: 48px;
+	}
+
+	.template-footer .mdl-mega-footer--bottom-section {
+		display: block;
+	}
+
+}
+
+@media (max-width: 420px) {
+
+	.who-is-section__mascot {
+		margin-top: 30px;
+	}
+
+	.who-is-section__mascot img {
+		width: 240px;
+	}
+
+}
