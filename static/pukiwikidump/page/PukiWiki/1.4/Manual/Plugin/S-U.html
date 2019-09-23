@@ -34,23 +34,23 @@
 <hr class="full_hr">
 <div class="contents">
 <a id="contents_1"></a>
-<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="#mee1bd43">  S </a>
-<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="#ba94ddfd"> search </a></li>
-<li><a href="#d69aa1d0"> server </a></li>
-<li><a href="#va79297e"> setlinebreak </a></li>
-<li><a href="#v7316017"> showrss </a></li>
-<li><a href="#e5db48c0"> size </a></li>
-<li><a href="#k23d3e24"> source </a></li>
-<li><a href="#ifad4486"> stationary </a></li></ul></li>
-<li><a href="#u58dc027">  T </a>
-<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="#j2adfc3d"> template </a></li>
-<li><a href="#vd55c067"> topicpath </a></li>
-<li><a href="#p93402bd"> touchgraph </a></li>
-<li><a href="#rf5296e2"> tracker </a></li>
-<li><a href="#t78d6d0a"> tracker_list </a></li></ul></li>
-<li><a href="#q0183edd">  U </a>
-<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="#v039be15"> unfreeze </a></li>
-<li><a href="#r62603ec"> update_entities </a></li></ul></li></ul>
+<ul class="list1" style="padding-left:16px;margin-left:16px"><li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#mee1bd43">  S </a>
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#ba94ddfd"> search </a></li>
+<li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#d69aa1d0"> server </a></li>
+<li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#va79297e"> setlinebreak </a></li>
+<li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#v7316017"> showrss </a></li>
+<li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#e5db48c0"> size </a></li>
+<li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#k23d3e24"> source </a></li>
+<li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#ifad4486"> stationary </a></li></ul></li>
+<li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#u58dc027">  T </a>
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#j2adfc3d"> template </a></li>
+<li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#vd55c067"> topicpath </a></li>
+<li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#p93402bd"> touchgraph </a></li>
+<li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#rf5296e2"> tracker </a></li>
+<li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#t78d6d0a"> tracker_list </a></li></ul></li>
+<li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#q0183edd">  U </a>
+<ul class="list2" style="padding-left:16px;margin-left:16px"><li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#v039be15"> unfreeze </a></li>
+<li><a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#r62603ec"> update_entities </a></li></ul></li></ul>
 </div>
 
 <hr class="full_hr">
@@ -345,7 +345,7 @@ stationaryプラグインは単純な文字列を表示する以外は何もし�
 <dt>引数</dt>
 <dd><p>定義名は<a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#rf5296e2" title="PukiWiki/1.4/Manual/Plugin/S-U (1026d)">tracker</a>プラグインで指定したテンプレート名と同じものを指定します。省略時は :config/plugin/tracker/default が指定されたとみなします。</p>
 <p>ベースページ名は<a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#rf5296e2" title="PukiWiki/1.4/Manual/Plugin/S-U (1026d)">tracker</a>プラグインで指定したベースページ名と同じものを指定します。<a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#rf5296e2" title="PukiWiki/1.4/Manual/Plugin/S-U (1026d)">tracker</a>プラグインでベースページ名を指定していない場合は<a href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#rf5296e2" title="PukiWiki/1.4/Manual/Plugin/S-U (1026d)">tracker</a>プラグインを設置したページを指定します。省略時は設置したページとなります。</p>
-<p>第３項目には一覧表示のソートに使う項目およびソート順を指定します。ソート項目は :config/plugin/tracker/テンプレート名 のfield項目内の項目から選択して下さい。省略時はページ名となります。ソート順は、ASC<a id="notetext_1" href="#notefoot_1" class="note_super" title="昇順固定">*1</a>、DESC<a id="notetext_2" href="#notefoot_2" class="note_super" title="降順固定">*2</a>、SORT_ASC<a id="notetext_3" href="#notefoot_3" class="note_super" title="昇順(閲覧者が変更可) ">*3</a>、SORT_DESC<a id="notetext_4" href="#notefoot_4" class="note_super" title="降順(閲覧者が変更可) ">*4</a> をコロン(:)の後に指定してください。また、セミコロン(;)で区切ることにより、複数のソート項目、ソート順を指定可能です。例えば、#tracker_list(,,state:SORT_ASC;priority:SORT_ASC;_real:SORT_DESC) と指定した場合は、項目ごとに (1) [state]を昇順 -&gt; (2) [priority]を昇順 -&gt; (3) [_real](実際のページ名)を降順、の優先順位でソートします。</p>
+<p>第３項目には一覧表示のソートに使う項目およびソート順を指定します。ソート項目は :config/plugin/tracker/テンプレート名 のfield項目内の項目から選択して下さい。省略時はページ名となります。ソート順は、ASC<a id="notetext_1" href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#notefoot_1" class="note_super" title="昇順固定">*1</a>、DESC<a id="notetext_2" href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#notefoot_2" class="note_super" title="降順固定">*2</a>、SORT_ASC<a id="notetext_3" href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#notefoot_3" class="note_super" title="昇順(閲覧者が変更可) ">*3</a>、SORT_DESC<a id="notetext_4" href="page/PukiWiki/1.4/Manual/Plugin/S-U.html#notefoot_4" class="note_super" title="降順(閲覧者が変更可) ">*4</a> をコロン(:)の後に指定してください。また、セミコロン(;)で区切ることにより、複数のソート項目、ソート順を指定可能です。例えば、#tracker_list(,,state:SORT_ASC;priority:SORT_ASC;_real:SORT_DESC) と指定した場合は、項目ごとに (1) [state]を昇順 -&gt; (2) [priority]を昇順 -&gt; (3) [_real](実際のページ名)を降順、の優先順位でソートします。</p>
 <p>表示上限は一覧表示するページ数の上限を指定します。省略時は全て表示されます。</p></dd></dl>
 <hr class="full_hr">
 
@@ -406,6 +406,6 @@ stationaryプラグインは単純な文字列を表示する以外は何もし�
 		</div><div id="footer">
 			<p class="description">Tipsや調べたことなど、自分のために残したもの。</p>
 			<div class="site-admin"><a href="https://fukuchiharuki.me/">ふくちはるき</a></div>
-			<div class="timestamp">2019-09-23T16:06:14</div>
+			<div class="timestamp">2019-09-23T20:00:31</div>
 		</div></body>
 </html>
