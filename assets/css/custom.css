@@ -57,6 +57,16 @@
 	width: auto;
 }
 
+.who-is-section .logo-font a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.who-is-section .logo-font a:hover {
+	text-decoration: underline;
+	color: inherit;
+}
+
 .who-is-section__mascot {
 	margin-top: 40px;
 }
@@ -82,9 +92,9 @@
   padding: 80px 16px 0 16px;
 }
 
-  .sns-section__text p {
-    padding-top: 16px;
-  }
+.sns-section__text p {
+	padding-top: 16px;
+}
 
 .sns-section__link {
 	padding: 60px 20px;
@@ -124,6 +134,14 @@
 
 .template-footer a:hover {
 	color: rgb(68,138,255);
+}
+
+.template-footer .mdl-mega-footer--bottom-section {
+	text-align: center;
+}
+
+.template-footer .mdl-mega-footer--bottom-section a {
+	margin-right: 1em;
 }
 
 @media (max-width: 900px) {
