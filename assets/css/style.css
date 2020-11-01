@@ -1,0 +1,163 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 14px/1.9 'Noto Sans JP', Arial, Verdana, 游ゴシック, YuGothic,'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo,sans-serif;
+  font-weight: 300;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2 {
+  font-family: 'Josefin Sans', 'Noto Sans JP',serif;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header a::after,
+section a::after {
+  content: " >"
+}
+
+header {
+  height: 20em;
+  position: relative;
+  text-align: center;
+  background-image: url("../images/header.jpg");
+  background-size: cover;
+  background-position: center center;
+  text-shadow: 0 0 10px white;
+  box-shadow: 0 0 10px gray;
+}
+
+header > .inner {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+header h1,
+header h2 {
+  margin: 0;
+}
+
+header h1 {
+  font-family: 'Pacifico', cursive;
+}
+
+header h2 {
+  font-weight: normal;
+}
+
+section:nth-child(odd) {
+  background-color: #f3f3f3;
+}
+
+section:nth-child(even) {
+  background-color: white;
+}
+
+section h1,
+section h2 {
+  margin: 0;
+  font-weight: normal;
+  text-align: center;
+}
+
+.section p.link {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  text-align: center;
+}
+
+.section--text {
+  padding: 4em 10px;
+}
+
+.section--text > * {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section--round-window {
+  padding: 3em 10px;
+}
+
+.section--round-window ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.section--round-window li {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+}
+
+.section--round-window img {
+  margin: 0 auto 1.5em;
+  width: 180px;
+  height: 180px;
+  display: block;
+  border-radius: 90px;
+  background-color: gray;
+}
+
+.section--round-window p {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+@media only screen and (min-width: 640px) {
+  .section--round-window li {
+    width: calc((100% - 20px) * 0.33);
+  }
+}
+
+@media only screen and (max-width: 640px) and (min-width: 450px) {
+  .section--round-window li {
+    width: calc((100% - 20px) * 0.5);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .section--round-window li {
+    width: calc((100% - 20px) * 1);
+  }
+}
+
+footer {
+  font-size: 0;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #f9f9f9;
+}
+
+footer img {
+  margin: 5px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
