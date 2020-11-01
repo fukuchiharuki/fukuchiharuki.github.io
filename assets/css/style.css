@@ -95,12 +95,8 @@ section h2 {
   margin-right: auto;
 }
 
-.section--round-window {
-  padding: 3em 10px;
-}
-
 .section--round-window ul {
-  margin: 0;
+  margin: 3em 10px 2em;
   padding: 0;
   list-style: none;
   text-align: center;
@@ -125,7 +121,6 @@ section h2 {
   max-width: 300px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 0;
   padding: 5px;
 }
 
