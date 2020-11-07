@@ -164,7 +164,7 @@ footer {
 
 footer::before {
   display: block;
-  margin: 1em 0;
+  margin: 1.4em 0 1em;
   width: 100%;
   content: "＊＊＊";
   color: gray;
