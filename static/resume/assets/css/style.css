@@ -167,7 +167,7 @@ footer::before {
   margin: 1.4em 0 1em;
   width: 100%;
   content: "＊＊＊";
-  color: gray;
+  color: darkgray;
 }
 
 footer ul, footer li[data-balloon] {
