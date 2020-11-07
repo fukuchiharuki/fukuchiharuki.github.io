@@ -1,0 +1,193 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 14px/1.9 'Noto Sans JP', Arial, Verdana, 游ゴシック, YuGothic,'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo,sans-serif;
+  font-weight: 300;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2 {
+  font-family: YakuHanMPs, "Hiragino Mincho ProN", "ヒラギノ明朝 Pro W6", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", serif;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.abbr {
+  display: none;
+}
+
+[data-balloon] {
+	border-bottom: dashed 1px gray;
+}
+
+h1 {
+  font-size: 2.8em;
+}
+
+h2 {
+  font-size: 2.4em;
+}
+
+aside {
+  text-align: right;
+  font-style: italic;
+  color: darkgray;
+}
+
+#updated-at::after {
+  content: " 更新"
+}
+
+header h1 {
+  margin-bottom: 0;
+}
+
+header + article h2 {
+  margin-top: 0.5em;
+}
+
+@media only screen and (min-width: 960px) {
+  html {
+    padding: 0 20px;
+  }
+
+  section.columns > div:nth-child(1) {
+    padding-right: 10px;
+  }
+
+  section.columns > div:nth-child(2) {
+    padding-left: 10px;
+  }
+
+  section.columns {
+    display: inline-flex;
+    width: 100%;
+  }
+
+  section.columns > div {
+    flex-basis: 50%;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  html {
+    padding: 0 10px;
+  }
+
+  section.columns > div:nth-child(1) {
+    padding-right: 0;
+  }
+
+  section.columns > div:nth-child(2) {
+    padding-left: 0;
+  }
+
+  section.columns {
+    display: block;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+
+  section.columns > div {
+    flex-basis: unset;
+  }
+}
+
+article > h2 {
+  margin-bottom: 0;
+}
+
+article > h3 {
+  margin-top: 0.5em;
+  font-size: 1.2em;
+  font-weight: inherit;
+}
+
+.skills dt {
+  font-style: italic;
+}
+
+.skills dt::after {
+  content: ":";
+}
+
+.skills dd {
+  margin-left: 2em;
+}
+
+.skills ul, .skills li {
+  margin: 0;
+  padding: 0;
+}
+
+.skills ul {
+  list-style-type: none;
+}
+
+.skills li {
+  display: inline;
+}
+
+.skills li + li::before {
+  content: ", ";
+}
+
+.skills .star {
+  font-weight: bold;
+}
+
+.skills .star::before {
+  content: "⭐️"
+}
+
+article > ul, h2 + ul {
+  padding-left: 2em;
+}
+
+footer {
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+footer::before {
+  display: block;
+  margin: 1em 0;
+  width: 100%;
+  content: "＊＊＊";
+  color: gray;
+}
+
+footer ul, footer li[data-balloon] {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+}
+
+footer li[data-balloon] {
+  list-style-type: none;
+  display: inline;
+  margin: 0 5px;
+  font-size: 1.6em;
+}
+
+footer li:nth-child(3) {
+  font-size: 1.4em;
+}
+
+footer a {
+  color: inherit;
+}
