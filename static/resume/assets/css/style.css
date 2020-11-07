@@ -73,8 +73,9 @@ header + article h2 {
   }
 
   section.columns {
-    display: inline-flex;
-    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1024px;
   }
 
   section.columns > div {
