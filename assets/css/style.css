@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap);
 @import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
 
@@ -49,7 +49,7 @@ header h2 {
 
 header h1 {
   display: inline;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Just Another Hand', cursive;
   letter-spacing: 0.1em;
 }
 
