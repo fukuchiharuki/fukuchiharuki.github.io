@@ -3,34 +3,34 @@
 # ----- Commons label -----
 
 layout:
-  post: 投稿
-  category: カテゴリー
-  tag: タグ
+  post: Post
+  category: Category
+  tag: Tag
 
 # The tabs of sidebar
 tabs:
   # format: <filename_without_extension>: <value>
-  home: ホーム
-  categories: カテゴリー
-  tags: タグ
-  archives: アーカイブ
-  about: このサイトについて
+  home: Home
+  categories: Categories
+  tags: Tags
+  archives: Archives
+  about: About
 
 # the text displayed in the search bar & search results
 search:
-  hint: 検索
-  cancel: キャンセル
-  no_results: 該当なし
+  hint: search
+  cancel: Cancel
+  no_results: Oops! No results found.
 
 panel:
-  lastmod: 最近更新された投稿
-  trending_tags: トレンドのタグ
-  toc: コンテンツ
+  lastmod: Recently Updated
+  trending_tags: Trending Tags
+  toc: Contents
 
 copyright:
   # Shown at the bottom of the post
   license:
-    template: この投稿は投稿者によって :LICENSE_NAME の下でライセンスされています。
+    template: This post is licensed under :LICENSE_NAME by the author.
     name: CC BY 4.0
     link: https://creativecommons.org/licenses/by/4.0/
 
@@ -40,42 +40,42 @@ copyright:
     Except where otherwise noted, the blog posts on this site are licensed
     under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.
 
-meta: :PLATFORM 用の :THEME を使用しています。
+meta: Using the :THEME theme for :PLATFORM.
 
 not_found:
-  statement: このURLは存在しないものを指し示しています。
+  statement: Sorry, we've misplaced that URL or it's pointing to something that doesn't exist.
 
 notification:
-  update_found: 新しいコンテンツがあります
-  update: 更新
+  update_found: New content available
+  update: Update
 
 theme:
-  light: ライト
-  dark: ダーク
-  system: システム
+  light: Light
+  dark: Dark
+  system: System
 
 # ----- Posts related labels -----
 
 post:
-  written_by: 投稿者
-  posted: 投稿日
-  updated: 更新日
-  words: 語
-  pageview_measure: 回閲覧
+  written_by: By
+  posted: Posted
+  updated: Updated
+  words: words
+  pageview_measure: views
   read_time:
-    unit: 分
-    prompt: で読めます
-  edit: この投稿を編集
-  relate_posts: さらに読む
-  share: シェア
+    unit: min
+    prompt: read
+  edit: Edit this post
+  relate_posts: Further Reading
+  share: Share
   button:
-    next: 次
-    previous: 前
+    next: Newer
+    previous: Older
     copy_code:
-      succeed: コピーしました
+      succeed: Copied!
     share_link:
-      title: リンクをコピー
-      succeed: リンクをコピーしました
+      title: Copy link
+      succeed: Link copied successfully!
 
 # Date time format.
 # See: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>
@@ -86,5 +86,9 @@ df:
 
 # categories page
 categories:
-  category_measure: カテゴリー
-  post_measure: 投稿
+  category_measure:
+    singular: category
+    plural: categories
+  post_measure:
+    singular: post
+    plural: posts
