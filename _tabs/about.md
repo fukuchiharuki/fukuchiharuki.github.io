@@ -1,8 +1,11 @@
 ---
 # the default layout is 'page'
 icon: fas fa-info-circle
-order: 4
+order: 0
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+フリーランスのソフトウェアエンジニア。
+
+コンテンツやデータを、機能を実現するための一時的な材料にとどめず、継続的に理解・更新・活用していく情報資源として捉える。そのための設計を大切にしながら、システム開発を行っています。
+
+開発チームの関わり方や体制に加えて、事業に関わるメンバーやアライアンス先との接点も、デリバリーを支えるシステム開発のひとつの側面として扱っています。
