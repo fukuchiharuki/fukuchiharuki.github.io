@@ -144,5 +144,9 @@
       ],
       "@semantic-release/github"
     ]
+  },
+  "volta": {
+    "node": "22.23.1",
+    "npm": "10.9.8"
   }
 }
