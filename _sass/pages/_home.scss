@@ -54,6 +54,13 @@
         font-size: 1.25rem;
       }
 
+      .external-link-icon {
+        color: var(--text-muted-color);
+        font-size: 0.7em;
+        margin-left: 0.35rem;
+        vertical-align: 0.08em;
+      }
+
       %muted {
         color: var(--text-muted-color) !important;
       }

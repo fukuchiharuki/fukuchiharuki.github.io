@@ -80,7 +80,13 @@
           <a href="{% include post-url.html post=post %}" class="post-preview card h-100"{% include post-link-attrs.html post=post %}>
             <div class="card-body">
               {% include datetime.html date=post.date lang=include.lang %}
-              <h4 class="pt-0 my-2">{{ post.title }}</h4>
+              <h4 class="pt-0 my-2">
+                {% if post.external_url %}
+                  <i class="fa-solid fa-arrow-up-right-from-square external-link-icon" aria-hidden="true"></i>
+                  <span class="visually-hidden">External link</span>
+                {% endif %}
+                {{ post.title }}
+              </h4>
               <div class="text-muted">
                 <p>{% include post-summary.html %}</p>
               </div>
