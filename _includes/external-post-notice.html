@@ -1,0 +1,12 @@
+{% if page.external_url %}
+  {% assign external_site = page.external_site | default: '外部サイト' %}
+
+  <div class="prompt-info external-post-notice">
+    <p>
+      この記事の本文は {{ external_site }} にあります。
+      <a href="{{ page.external_url }}" target="_blank" rel="noopener noreferrer">
+        {{ external_site }} で読む
+      </a>
+    </p>
+  </div>
+{% endif %}

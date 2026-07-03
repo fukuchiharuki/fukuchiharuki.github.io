@@ -7,7 +7,8 @@ swcache: true
   {% for post in site.posts %}
   {
     "title": {{ post.title | jsonify }},
-    "url": {{ post.url | relative_url | jsonify }},
+    {% capture post_url %}{% include post-url.html post=post %}{% endcapture %}
+    "url": {{ post_url | jsonify }},
     "categories": {{ post.categories | join: ', ' | jsonify }},
     "tags": {{ post.tags | join: ', ' | jsonify }},
     "date": {{ post.date | jsonify }},

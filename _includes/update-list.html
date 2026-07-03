@@ -29,9 +29,8 @@
       {% for item in update_list %}
         {% assign index = item | split: '::' | last | plus: 0 %}
         {% assign post = site.posts[index] %}
-        {% assign url = post.url | relative_url %}
         <li class="text-truncate lh-lg">
-          <a href="{{ url }}">{{ post.title }}</a>
+          <a href="{% include post-url.html post=post %}"{% include post-link-attrs.html post=post %}>{{ post.title }}</a>
         </li>
       {% endfor %}
     </ul>
