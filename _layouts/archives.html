@@ -27,7 +27,13 @@ layout: page
       <span class="date month small text-muted ms-1" data-ts="{{ ts }}" data-df="{{ df_dayjs_m }}">
         {{ post.date | date: df_strftime_m }}
       </span>
-      <a href="{% include post-url.html post=post %}"{% include post-link-attrs.html post=post %}>{{ post.title }}</a>
+      <a href="{% include post-url.html post=post %}"{% include post-link-attrs.html post=post %}>
+        {% if post.external_url %}
+          <i class="fa-solid fa-arrow-up-right-from-square external-link-icon" aria-hidden="true"></i>
+          <span class="visually-hidden">External link</span>
+        {% endif %}
+        {{ post.title }}
+      </a>
     </li>
 
     {% if forloop.last %}</ul>{% endif %}
