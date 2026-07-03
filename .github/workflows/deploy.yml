@@ -38,8 +38,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: lts/*
+          node-version: "22"
           cache: npm
+
+      - name: Setup npm
+        run: npm install -g npm@10
 
       - name: Install Node dependencies
         run: npm ci
